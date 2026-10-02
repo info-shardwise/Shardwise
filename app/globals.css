@@ -1,2 +1,141 @@
 @import 'tailwindcss';
 @config "../tailwind.config.ts";
+
+/* ─── Shardwise Design Tokens ─── */
+:root {
+  /* Brand (from brand-colors.txt) */
+  --color-navy: #061a3a;
+  --color-blue: #0878f9;
+  --color-blue-royal: #0754d8;
+  --color-cyan: #11c5f5;
+  --color-slate: #566274;
+
+  /* Primary / interactive */
+  --color-primary: #0878f9;
+  --color-primary-hover: #0754d8;
+  --color-primary-light: #dbeafe;
+
+  /* Text */
+  --color-text-dark: #0f0f0f;
+  --color-text-black: #111111;
+  --color-text-white: #ffffff;
+  --color-text-muted: #566274;
+  --color-text-light: #767676;
+
+  /* Backgrounds */
+  --color-bg-white: #ffffff;
+  --color-bg-light: #f8f7f4;
+  --color-bg-dark: #000000;
+  --color-bg-header: #061a3a;
+  --color-bg-navy: #061a3a;
+
+  /* Accents */
+  --accent-cyan: #11c5f5;
+  --accent-green: #86dd9b;
+  --accent-yellow: #feff6e;
+  --accent-purple: #ca9fff;
+  --accent-lime: #cff601;
+
+  /* Borders */
+  --color-border: #ddd;
+  --color-border-light: #e5e7eb;
+
+  /* Overlay */
+  --color-overlay: rgba(0, 0, 0, 0.5);
+
+  /* Spacing (8px base unit) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-base: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-2xl: 32px;
+  --space-3xl: 40px;
+  --space-4xl: 48px;
+  --space-5xl: 64px;
+  --space-6xl: 80px;
+  --space-7xl: 120px;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-pill: 32px;
+  --radius-circle: 999px;
+
+  /* Shadows */
+  --shadow-card: 0px 0px 14px 0px rgba(0, 0, 0, 0.12);
+  --shadow-natural: 6px 6px 9px rgba(0, 0, 0, 0.2);
+  --shadow-deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
+  --shadow-sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
+
+  /* Transitions */
+  --transition-base: all 0.3s ease-in;
+  --transition-fast: all 0.2s ease;
+  --transition-smooth: all 0.4s ease;
+  --transition-dropdown: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+  --transition-reveal: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+  /* Z-Index */
+  --z-base: 1;
+  --z-dropdown: 99;
+  --z-header: 9999;
+  --z-modal: 99999;
+}
+
+/* ─── Base Resets ─── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg-white);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--radius-circle);
+}
+
+/* ─── Focus Ring ─── */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
