@@ -1,0 +1,142 @@
+<svg width="900" height="760" viewBox="0 0 900 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#0B6CFF"/><stop offset="1" stop-color="#28B6FF"/>
+  </linearGradient>
+  <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#0C1828"/><stop offset="1" stop-color="#050B14"/>
+  </linearGradient>
+  <radialGradient id="glow">
+    <stop stop-color="#075CFF" stop-opacity=".32"/><stop offset="1" stop-color="#075CFF" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feGaussianBlur in="SourceAlpha" stdDeviation="18"/>
+    <feOffset dy="16"/>
+    <feComponentTransfer><feFuncA type="linear" slope=".5"/></feComponentTransfer>
+    <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+
+  <radialGradient id="strongBlueGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#008CFF" stop-opacity="0.75"/>
+    <stop offset="35%" stop-color="#006BFF" stop-opacity="0.48"/>
+    <stop offset="68%" stop-color="#163CFF" stop-opacity="0.20"/>
+    <stop offset="100%" stop-color="#001A55" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="diagonalBlueGlow" x1="0" y1="1" x2="1" y2="0">
+    <stop offset="0%" stop-color="#0037FF" stop-opacity="0"/>
+    <stop offset="45%" stop-color="#005DFF" stop-opacity="0.18"/>
+    <stop offset="72%" stop-color="#008CFF" stop-opacity="0.48"/>
+    <stop offset="100%" stop-color="#00A6FF" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="blur55" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="55"/>
+  </filter>
+  <filter id="blur28" x="-60%" y="-60%" width="220%" height="220%">
+    <feGaussianBlur stdDeviation="28"/>
+  </filter>
+</defs>
+
+<!-- BACKGROUND EFFECTS -->
+<g id="background-effects">
+  <!-- Large soft electric-blue bloom -->
+  <ellipse id="blue-glow-main" cx="640" cy="300" rx="330" ry="285"
+           fill="url(#strongBlueGlow)" filter="url(#blur55)" opacity="0.95"/>
+
+  <!-- Bright upper-right light source -->
+  <ellipse id="blue-glow-hotspot" cx="790" cy="145" rx="175" ry="145"
+           fill="#087CFF" filter="url(#blur55)" opacity="0.40"/>
+
+  <!-- Lower blue atmosphere -->
+  <ellipse id="blue-glow-lower" cx="520" cy="610" rx="310" ry="150"
+           fill="#003CFF" filter="url(#blur55)" opacity="0.25"/>
+
+  <!-- Diagonal illuminated region -->
+  <path id="diagonal-light"
+        d="M260 720C360 430 535 175 900 35V420C680 455 520 565 430 760Z"
+        fill="url(#diagonalBlueGlow)" opacity="0.75"/>
+
+  <!-- Glowing arc -->
+  <path id="outer-blue-arc" d="M330 650C350 250 610 25 890 80"
+        stroke="#008CFF" stroke-width="4" opacity="0.95" filter="url(#blur28)"/>
+  <path id="sharp-blue-arc" d="M330 650C350 250 610 25 890 80"
+        stroke="#16A2FF" stroke-width="2" opacity="0.95"/>
+  <path id="secondary-arc" d="M300 650C330 220 610 0 900 55"
+        stroke="#3448FF" stroke-width="1.5" opacity="0.65"/>
+
+  <!-- Editable grid -->
+  <g id="background-grid" opacity="0.11" stroke="#3A8BFF">
+    <path d="M100 100H900M100 180H900M100 260H900M100 340H900M100 420H900M100 500H900M100 580H900M100 660H900"/>
+    <path d="M180 40V720M260 40V720M340 40V720M420 40V720M500 40V720M580 40V720M660 40V720M740 40V720M820 40V720"/>
+  </g>
+</g>
+
+<!-- CODE WINDOW -->
+<g id="code-window" transform="translate(155 125) rotate(4 310 205)" filter="url(#shadow)">
+  <rect width="620" height="410" rx="26" fill="url(#panel)" stroke="#214C99" stroke-width="2"/>
+  <rect width="620" height="62" rx="26" fill="#101D2E"/>
+  <rect y="38" width="620" height="24" fill="#101D2E"/>
+  <circle cx="34" cy="31" r="7" fill="#FF5F57"/>
+  <circle cx="58" cy="31" r="7" fill="#FFBD2E"/>
+  <circle cx="82" cy="31" r="7" fill="#28C840"/>
+
+  <!-- sidebar -->
+  <rect x="20" y="82" width="76" height="290" rx="14" fill="#091321"/>
+  <g fill="#183B69">
+    <path d="M42 110h28l8 9v25H42z"/><path d="M42 164h28l8 9v25H42z"/>
+    <path d="M42 218h28l8 9v25H42z"/><path d="M42 272h28l8 9v25H42z"/>
+  </g>
+
+  <!-- code -->
+  <g font-family="monospace" font-size="18">
+    <text x="125" y="112" fill="#75869E">1</text><text x="155" y="112" fill="#FF6685">import</text><text x="220" y="112" fill="#D9E5F4"> React </text><text x="286" y="112" fill="#FF6685">from</text><text x="335" y="112" fill="#63D9B3">'react'</text>
+    <text x="125" y="145" fill="#75869E">2</text><text x="155" y="145" fill="#FF6685">export default function</text><text x="390" y="145" fill="#67B8FF"> Hero</text><text x="445" y="145" fill="#D9E5F4">() {'{'}</text>
+    <text x="125" y="178" fill="#75869E">3</text><text x="175" y="178" fill="#FF6685">return</text><text x="245" y="178" fill="#D9E5F4"> (</text>
+    <text x="125" y="211" fill="#75869E">4</text><text x="195" y="211" fill="#67B8FF">&lt;section</text><text x="290" y="211" fill="#FFD06A"> className</text><text x="395" y="211" fill="#D9E5F4">=</text><text x="410" y="211" fill="#63D9B3">"hero"</text><text x="475" y="211" fill="#67B8FF">&gt;</text>
+    <text x="125" y="244" fill="#75869E">5</text><text x="215" y="244" fill="#67B8FF">&lt;h1&gt;</text><text x="280" y="244" fill="#EAF2FF">Build What's Next</text><text x="465" y="244" fill="#67B8FF">&lt;/h1&gt;</text>
+    <text x="125" y="277" fill="#75869E">6</text><text x="195" y="277" fill="#67B8FF">&lt;/section&gt;</text>
+    <text x="125" y="310" fill="#75869E">7</text><text x="175" y="310" fill="#D9E5F4">)</text>
+    <text x="125" y="343" fill="#75869E">8</text><text x="155" y="343" fill="#D9E5F4">{'}'}</text>
+  </g>
+</g>
+
+<!-- WEBSITE PREVIEW CARD -->
+<g id="website-card" transform="translate(395 430) rotate(-3 190 125)" filter="url(#shadow)">
+  <rect width="380" height="250" rx="24" fill="#0B1727" stroke="#24539D" stroke-width="2"/>
+  <rect x="28" y="30" width="145" height="105" rx="12" fill="#10284A"/>
+  <circle cx="101" cy="67" r="13" fill="#17447D"/>
+  <path d="M48 122l40-38 25 24 18-17 28 31H48z" fill="#19447D"/>
+  <rect x="195" y="40" width="135" height="12" rx="6" fill="#173E71"/>
+  <rect x="195" y="68" width="112" height="10" rx="5" fill="#17345C"/>
+  <rect x="195" y="92" width="92" height="10" rx="5" fill="#17345C"/>
+  <rect x="28" y="160" width="110" height="34" rx="7" fill="url(#blue)"/>
+  <rect x="28" y="211" width="190" height="12" rx="6" fill="#102A4B"/>
+</g>
+
+<!-- MODERN WEB APPS BADGE -->
+<g id="badge-modern-web-apps" transform="translate(105 390)" filter="url(#shadow)">
+  <rect width="205" height="96" rx="22" fill="#0B1B31" stroke="#1777FF" stroke-width="2"/>
+  <circle cx="48" cy="48" r="25" fill="#0D2E5A"/>
+  <circle cx="48" cy="48" r="17" stroke="#BFD8FF" stroke-width="3"/>
+  <path d="M31 48h34M48 31c7 9 7 25 0 34M48 31c-7 9-7 25 0 34" stroke="#BFD8FF" stroke-width="2"/>
+  <text x="85" y="43" font-family="Arial, sans-serif" font-size="18" fill="white">Modern</text>
+  <text x="85" y="67" font-family="Arial, sans-serif" font-size="18" fill="white">Web Apps</text>
+</g>
+
+<!-- SCALABLE BADGE -->
+<g id="badge-scalable" transform="translate(650 70)" filter="url(#shadow)">
+  <rect width="210" height="94" rx="22" fill="#0B1B31" stroke="#1777FF" stroke-width="2"/>
+  <rect x="28" y="49" width="10" height="20" rx="3" fill="#7DBBFF"/>
+  <rect x="44" y="37" width="10" height="32" rx="3" fill="#A7D0FF"/>
+  <rect x="60" y="24" width="10" height="45" rx="3" fill="#D2E7FF"/>
+  <text x="92" y="42" font-family="Arial, sans-serif" font-size="18" fill="white">Scalable</text>
+  <text x="92" y="66" font-family="Arial, sans-serif" font-size="18" fill="white">Solutions</text>
+</g>
+
+<!-- MOBILE READY BADGE -->
+<g id="badge-mobile-ready" transform="translate(655 590)" filter="url(#shadow)">
+  <rect width="205" height="82" rx="20" fill="#0B1B31" stroke="#1777FF" stroke-width="2"/>
+  <rect x="27" y="20" width="25" height="42" rx="5" stroke="#D5E8FF" stroke-width="3"/>
+  <circle cx="39.5" cy="56" r="2" fill="#D5E8FF"/>
+  <text x="72" y="49" font-family="Arial, sans-serif" font-size="18" fill="white">Mobile Ready</text>
+</g>
+</svg>
