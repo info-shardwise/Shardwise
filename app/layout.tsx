@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     'Shardwise builds websites, applications, digital experiences, and growth-focused solutions for modern businesses.',
   metadataBase: new URL(SITE_CONFIG.url),
   verification: {
-    google: 'Y0oPJ20MAdqkmy7wopxdF1jM3ATvAkqoQeOMJzMWoGc',
+    google: 'SSYYS10DDu_wipUXt4LEbHiIP5TINV8bZ7Gc0A0xAKQ',
   },
   openGraph: {
     type: 'website',
