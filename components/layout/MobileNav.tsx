@@ -9,11 +9,13 @@ import { Button } from '@/components/ui/Button'
 
 export function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [openCategory, setOpenCategory] = useState<string | null>(null)
   const pathname = usePathname()
 
   const closeMenu = () => {
     setIsOpen(false)
+    setIsServicesOpen(false)
     setOpenCategory(null)
   }
 
@@ -38,7 +40,7 @@ export function MobileNav() {
       {/* Hamburger Trigger */}
       <button
         type="button"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => (isOpen ? closeMenu() : setIsOpen(true))}
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
         aria-expanded={isOpen}
         className="rounded-lg p-2 text-slate-300 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#0878F9]"
@@ -48,10 +50,7 @@ export function MobileNav() {
 
       {/* Backdrop Overlay */}
       {isOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
-          onClick={() => setIsOpen(false)}
-        />
+        <div className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm" onClick={closeMenu} />
       )}
 
       {/* Slide-out Drawer */}
@@ -67,7 +66,7 @@ export function MobileNav() {
             <span className="font-display text-xl uppercase tracking-wider text-white">Menu</span>
             <button
               type="button"
-              onClick={() => setIsOpen(false)}
+              onClick={closeMenu}
               className="rounded-md p-1.5 text-slate-400 hover:text-white focus:outline-none"
               aria-label="Close menu"
             >
@@ -94,36 +93,58 @@ export function MobileNav() {
             <div className="rounded-lg border border-white/5 bg-white/[0.02] overflow-hidden">
               <button
                 type="button"
-                onClick={() => toggleCategory('all-services')}
+                onClick={() => {
+                  setIsServicesOpen(!isServicesOpen)
+                  setOpenCategory(null)
+                }}
+                aria-expanded={isServicesOpen}
+                aria-controls="mobile-service-categories"
                 className="w-full flex items-center justify-between px-3 py-2.5 text-base font-medium text-slate-300 hover:text-white"
               >
                 <span>Services</span>
                 <ChevronDown
                   className={`h-4 w-4 transition-transform ${
-                    openCategory === 'all-services' ? 'rotate-180 text-[#11C5F5]' : ''
+                    isServicesOpen ? 'rotate-180 text-[#11C5F5]' : ''
                   }`}
                 />
               </button>
 
-              {openCategory === 'all-services' && (
-                <div className="px-3 pb-3 space-y-3 pt-1 border-t border-white/5 bg-black/20">
+              {isServicesOpen && (
+                <div
+                  id="mobile-service-categories"
+                  className="px-3 pb-3 space-y-3 pt-1 border-t border-white/5 bg-black/20"
+                >
                   {SERVICE_CATEGORIES.map((category) => (
                     <div key={category.id} className="space-y-1">
-                      <div className="text-xs font-semibold uppercase text-slate-400 px-2 pt-1">
-                        {category.name}
-                      </div>
-                      <div className="space-y-1 pl-2">
-                        {category.services.map((service) => (
-                          <Link
-                            key={service.slug}
-                            href={service.href}
-                            onClick={closeMenu}
-                            className="block rounded-md px-2 py-1.5 text-xs text-slate-300 hover:bg-white/5 hover:text-[#11C5F5]"
-                          >
-                            {service.name}
-                          </Link>
-                        ))}
-                      </div>
+                      <button
+                        type="button"
+                        onClick={() => toggleCategory(category.id)}
+                        aria-expanded={openCategory === category.id}
+                        aria-controls={`mobile-category-${category.id}`}
+                        className="flex w-full items-center justify-between gap-3 rounded-md px-2 py-2.5 text-left text-sm font-semibold text-slate-300 hover:bg-white/5 hover:text-white"
+                      >
+                        <span>{category.name}</span>
+                        <ChevronDown
+                          className={`h-4 w-4 shrink-0 transition-transform ${openCategory === category.id ? 'rotate-180 text-[#11C5F5]' : ''}`}
+                        />
+                      </button>
+                      {openCategory === category.id && (
+                        <div
+                          id={`mobile-category-${category.id}`}
+                          className="space-y-1 border-l border-white/10 pl-2 ml-2"
+                        >
+                          {category.services.map((service) => (
+                            <Link
+                              key={service.slug}
+                              href={service.href}
+                              onClick={closeMenu}
+                              className="block rounded-md px-2 py-2 text-sm text-slate-300 hover:bg-white/5 hover:text-[#11C5F5]"
+                            >
+                              {service.name}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   ))}
                   <div className="pt-2">

@@ -66,7 +66,9 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
 
   const renderIcon = (iconName: string) => {
     const IconComponent = ICON_MAP[iconName] ?? Layers
-    return <IconComponent className="h-5 w-5 text-[#0878F9]" />
+    return (
+      <IconComponent className="h-5 w-5 text-[#0878F9] transition-colors group-hover:text-black group-focus-visible:text-black" />
+    )
   }
 
   return (
@@ -137,7 +139,7 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
                       onClick={onClose}
                       className="group flex items-start gap-3.5 rounded-xl border border-white/5 bg-white/[0.03] p-3.5 transition-all hover:border-[#0878F9]/50 hover:bg-white/[0.07] hover:shadow-lg"
                     >
-                      <div className="mt-0.5 rounded-lg bg-[#0878F9]/15 p-2 transition-colors group-hover:bg-[#0878F9]">
+                      <div className="mt-0.5 rounded-lg bg-[#0878F9]/15 p-2 transition-colors group-hover:bg-[#0878F9] group-focus-visible:bg-[#0878F9]">
                         {renderIcon(item.iconName)}
                       </div>
                       <div className="min-w-0 flex-1">
