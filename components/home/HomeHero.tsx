@@ -3,10 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, Layers } from 'lucide-react'
 import styles from './HomeHero.module.css'
 
-interface HomeHeroProps {
-  stats: { label: string; value: string }[]
-}
-export function HomeHero({ stats }: HomeHeroProps) {
+export function HomeHero() {
   return (
     <section className={styles.hero} aria-labelledby="home-hero-title">
       <div className={styles.grid} aria-hidden="true" />
@@ -45,14 +42,6 @@ export function HomeHero({ stats }: HomeHeroProps) {
             sizes="(max-width: 767px) 100vw, (max-width: 1023px) 80vw, 55vw"
           />
         </div>
-      </div>
-      <div className={styles.stats}>
-        {stats.map((stat) => (
-          <div key={stat.label} className={styles.stat}>
-            <strong>{stat.value}</strong>
-            <span>{stat.label}</span>
-          </div>
-        ))}
       </div>
     </section>
   )

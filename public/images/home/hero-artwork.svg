@@ -15,56 +15,14 @@
     <feComponentTransfer><feFuncA type="linear" slope=".5"/></feComponentTransfer>
     <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
-
-  <radialGradient id="strongBlueGlow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#008CFF" stop-opacity="0.75"/>
-    <stop offset="35%" stop-color="#006BFF" stop-opacity="0.48"/>
-    <stop offset="68%" stop-color="#163CFF" stop-opacity="0.20"/>
-    <stop offset="100%" stop-color="#001A55" stop-opacity="0"/>
-  </radialGradient>
-  <linearGradient id="diagonalBlueGlow" x1="0" y1="1" x2="1" y2="0">
-    <stop offset="0%" stop-color="#0037FF" stop-opacity="0"/>
-    <stop offset="45%" stop-color="#005DFF" stop-opacity="0.18"/>
-    <stop offset="72%" stop-color="#008CFF" stop-opacity="0.48"/>
-    <stop offset="100%" stop-color="#00A6FF" stop-opacity="0"/>
-  </linearGradient>
-  <filter id="blur55" x="-60%" y="-60%" width="220%" height="220%">
-    <feGaussianBlur stdDeviation="55"/>
-  </filter>
-  <filter id="blur28" x="-60%" y="-60%" width="220%" height="220%">
-    <feGaussianBlur stdDeviation="28"/>
-  </filter>
 </defs>
 
 <!-- BACKGROUND EFFECTS -->
 <g id="background-effects">
-  <!-- Large soft electric-blue bloom -->
-  <ellipse id="blue-glow-main" cx="640" cy="300" rx="330" ry="285"
-           fill="url(#strongBlueGlow)" filter="url(#blur55)" opacity="0.95"/>
-
-  <!-- Bright upper-right light source -->
-  <ellipse id="blue-glow-hotspot" cx="790" cy="145" rx="175" ry="145"
-           fill="#087CFF" filter="url(#blur55)" opacity="0.40"/>
-
-  <!-- Lower blue atmosphere -->
-  <ellipse id="blue-glow-lower" cx="520" cy="610" rx="310" ry="150"
-           fill="#003CFF" filter="url(#blur55)" opacity="0.25"/>
-
-  <!-- Diagonal illuminated region -->
-  <path id="diagonal-light"
-        d="M260 720C360 430 535 175 900 35V420C680 455 520 565 430 760Z"
-        fill="url(#diagonalBlueGlow)" opacity="0.75"/>
-
-  <!-- Glowing arc -->
-  <path id="outer-blue-arc" d="M330 650C350 250 610 25 890 80"
-        stroke="#008CFF" stroke-width="4" opacity="0.95" filter="url(#blur28)"/>
-  <path id="sharp-blue-arc" d="M330 650C350 250 610 25 890 80"
-        stroke="#16A2FF" stroke-width="2" opacity="0.95"/>
-  <path id="secondary-arc" d="M300 650C330 220 610 0 900 55"
-        stroke="#3448FF" stroke-width="1.5" opacity="0.65"/>
-
-  <!-- Editable grid -->
-  <g id="background-grid" opacity="0.11" stroke="#3A8BFF">
+  <circle cx="520" cy="360" r="350" fill="url(#glow)"/>
+  <path d="M330 650C350 250 610 25 890 80" stroke="#087CFF" stroke-width="2" opacity=".7"/>
+  <path d="M300 650C330 220 610 0 900 55" stroke="#253BFF" stroke-width="1" opacity=".4"/>
+  <g opacity=".08" stroke="#3A8BFF">
     <path d="M100 100H900M100 180H900M100 260H900M100 340H900M100 420H900M100 500H900M100 580H900M100 660H900"/>
     <path d="M180 40V720M260 40V720M340 40V720M420 40V720M500 40V720M580 40V720M660 40V720M740 40V720M820 40V720"/>
   </g>

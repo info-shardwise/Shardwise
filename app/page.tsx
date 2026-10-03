@@ -1,3 +1,4 @@
+import { TrustStrip } from '@/components/home/TrustStrip'
 import { HomeHero } from '@/components/home/HomeHero'
 import Link from 'next/link'
 import { ArrowRight, Layers } from 'lucide-react'
@@ -36,7 +37,10 @@ export default function HomePage() {
 
   return (
     <div className="flex flex-col gap-24 pb-16">
-      <HomeHero stats={stats} />
+      <div>
+        <HomeHero />
+        <TrustStrip stats={stats} />
+      </div>
 
       {/* 3. Services Overview Grid */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full">
