@@ -71,10 +71,14 @@
   --shadow-deep: 12px 12px 50px rgba(0, 0, 0, 0.4);
   --shadow-sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);
 
+  /* Site-wide hover motion */
+  --motion-hover-duration: 450ms;
+  --motion-hover-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
   /* Transitions */
-  --transition-base: all 0.3s ease-in;
-  --transition-fast: all 0.2s ease;
-  --transition-smooth: all 0.4s ease;
+  --transition-base: all var(--motion-hover-duration) var(--motion-hover-ease);
+  --transition-fast: all var(--motion-hover-duration) var(--motion-hover-ease);
+  --transition-smooth: all var(--motion-hover-duration) var(--motion-hover-ease);
   --transition-dropdown: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
   --transition-reveal: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 
@@ -240,5 +244,33 @@
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-up {
     animation: none;
+  }
+}
+
+/* Shared hover transitions, including nested group-hover text and icons.
+   Unlayered rules take precedence over Tailwind duration utilities. */
+:root body *,
+:root body *::before,
+:root body *::after {
+  transition-property:
+    color, background-color, border-color, outline-color, box-shadow, opacity, filter, transform,
+    translate, scale, rotate, fill, stroke, text-decoration-color;
+  transition-duration: var(--motion-hover-duration);
+  transition-timing-function: var(--motion-hover-ease);
+}
+
+/* Fade hover underlines instead of toggling a discrete decoration. */
+:root body a[class*='hover:underline']:not([class~='underline']) {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+}
+:root body a[class*='hover:underline']:not([class~='underline']):hover {
+  text-decoration-color: currentColor;
+}
+@media (prefers-reduced-motion: reduce) {
+  :root body *,
+  :root body *::before,
+  :root body *::after {
+    transition: none;
   }
 }

@@ -7,3 +7,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+## Shardwise design requirements
+
+Before redesigning any section, read D:/viren/project X/all .md files/design.md. Every hover effect must use the shared 450ms cubic-bezier(0.4, 0, 0.2, 1) motion tokens in app/globals.css, including nested text and icons, with reduced-motion support.

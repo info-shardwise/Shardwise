@@ -1,7 +1,7 @@
 .header {
   --header-height: 80px;
-  --header-motion-duration: 450ms;
-  --header-motion-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --header-motion-duration: var(--motion-hover-duration);
+  --header-motion-ease: var(--motion-hover-ease);
   position: sticky;
   top: 0;
   z-index: 40;
