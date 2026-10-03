@@ -3,9 +3,10 @@ import Link from 'next/link'
 interface LogoProps {
   variant?: 'light' | 'dark'
   className?: string
+  headerWordmark?: boolean
 }
 
-export function Logo({ variant = 'light', className = '' }: LogoProps) {
+export function Logo({ variant = 'light', className = '', headerWordmark = false }: LogoProps) {
   const isLight = variant === 'light'
 
   return (
@@ -15,7 +16,9 @@ export function Logo({ variant = 'light', className = '' }: LogoProps) {
       aria-label="Shardwise Home"
     >
       {/* Brand Geometric Shard Icon */}
-      <span className="relative flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#11C5F5] to-[#0878F9] shadow-md shadow-[#0878F9]/20">
+      <span
+        className={`relative flex shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#11C5F5] to-[#0878F9] shadow-md shadow-[#0878F9]/20 ${headerWordmark ? 'h-10 w-10' : 'h-8 w-8'}`}
+      >
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -23,7 +26,7 @@ export function Logo({ variant = 'light', className = '' }: LogoProps) {
           strokeWidth="2.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-[18px] w-[18px] text-white"
+          className={`${headerWordmark ? 'h-6 w-6' : 'h-[18px] w-[18px]'} text-white`}
         >
           <polygon points="12 2 2 7 12 12 22 7 12 2" />
           <polyline points="2 17 12 22 22 17" />
@@ -32,13 +35,19 @@ export function Logo({ variant = 'light', className = '' }: LogoProps) {
       </span>
 
       {/* Wordmark */}
-      <span
-        className={`font-display text-2xl tracking-wide uppercase ${
-          isLight ? 'text-white' : 'text-[#061A3A]'
-        }`}
-      >
-        Shard<span className="text-[#11C5F5]">wise</span>
-      </span>
+      {headerWordmark ? (
+        <span className="text-[28px] lg:text-[36px] font-semibold tracking-tight text-white">
+          Shardwise
+        </span>
+      ) : (
+        <span
+          className={`font-display text-2xl tracking-wide uppercase ${
+            isLight ? 'text-white' : 'text-[#061A3A]'
+          }`}
+        >
+          Shard<span className="text-[#11C5F5]">wise</span>
+        </span>
+      )}
     </Link>
   )
 }

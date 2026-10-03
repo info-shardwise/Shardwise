@@ -25,7 +25,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        <Logo className="shrink-0" />
+        <Logo headerWordmark className="shrink-0 gap-3.5" />
         <DesktopNav isMegaMenuOpen={isMegaMenuOpen} setIsMegaMenuOpen={setIsMegaMenuOpen} />
         <MobileNav />
       </div>
