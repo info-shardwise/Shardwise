@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { Logo } from '@/components/layout/Logo'
 import { DesktopNav } from '@/components/layout/DesktopNav'
 import { ServicesMegaMenu } from '@/components/layout/ServicesMegaMenu'
@@ -8,6 +9,7 @@ import { MobileNav } from '@/components/layout/MobileNav'
 import styles from './Header.module.css'
 
 export function Header() {
+  const isHome = usePathname() === '/'
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -23,7 +25,7 @@ export function Header() {
     }
   }, [])
   return (
-    <header className={styles.header}>
+    <header className={styles.header + (isHome ? ' ' + styles.homeHeader : '')}>
       <div className={styles.headerInner}>
         <Logo headerWordmark className="shrink-0 gap-3.5" />
         <DesktopNav isMegaMenuOpen={isMegaMenuOpen} setIsMegaMenuOpen={setIsMegaMenuOpen} />

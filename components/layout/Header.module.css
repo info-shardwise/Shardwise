@@ -341,3 +341,124 @@
     animation: none;
   }
 }
+
+/* TaskGo-inspired light navigation on the homepage only. */
+.homeHeader {
+  --header-height: 86px;
+  background: #fafafff5;
+  border-bottom-color: #efedf7;
+  color: #17102c;
+  backdrop-filter: blur(14px);
+}
+.homeHeader .navLink {
+  color: #696174;
+  font-size: 15px;
+}
+.homeHeader .navLink:hover,
+.homeHeader .activeLink {
+  color: #6546e9;
+}
+.homeHeader .navLink::after {
+  background: #6546e9;
+}
+.homeHeader a[aria-label='Shardwise Home'] > span:last-child {
+  color: #17102c;
+  font-size: 28px;
+  letter-spacing: -0.045em;
+}
+.homeHeader .projectButton {
+  background: #17102c;
+  border-color: #17102c;
+  box-shadow: none;
+  border-radius: 999px;
+  min-height: 48px;
+  font-size: 14px;
+}
+.homeHeader .projectButton:hover {
+  background: #6546e9;
+  border-color: #6546e9;
+}
+.homeHeader .menuToggle {
+  background: #f0edf8;
+  border-color: #e5deef;
+  color: #17102c;
+  border-radius: 16px;
+}
+.homeHeader .mobilePanel {
+  background: #faf9ff;
+  border-color: #e9e2f3;
+  box-shadow: 0 20px 40px #38245215;
+}
+.homeHeader .mobileRow {
+  color: #40364e;
+}
+.homeHeader .mobileRow:hover {
+  background-color: #eee8fc;
+}
+.homeHeader .activeRow {
+  background: #eee7fc;
+  color: #6546e9;
+}
+.homeHeader .rowIcon,
+.homeHeader .rowChevron {
+  color: #8f7dae;
+}
+.homeHeader .categoryButton,
+.homeHeader .serviceList a {
+  color: #6b617b;
+}
+.homeHeader .categoryButton:hover,
+.homeHeader .serviceList a:hover {
+  background: #ebe3fc;
+  color: #6546e9;
+}
+.homeHeader .allServices {
+  color: #6546e9;
+}
+.homeHeader .megaMenu > div > div {
+  background: #fbfaff;
+  border-color: #e5dff0;
+  box-shadow: 0 16px 45px #34224a15;
+}
+.homeHeader .megaMenu h3 {
+  color: #201630;
+}
+.homeHeader .megaMenu p {
+  color: #83798f;
+}
+.homeHeader .megaMenu button {
+  color: #776b87;
+}
+.homeHeader .megaMenu button[class*='bg-[#0878F9]'] {
+  background: #6546e9;
+  color: white;
+  box-shadow: 0 5px 14px #6546e925;
+}
+.homeHeader .megaMenu a {
+  color: #6546e9;
+}
+.homeHeader .megaMenu a > div > div {
+  color: #241835;
+}
+.homeHeader .megaMenu a:hover {
+  background-color: #eee7fa;
+}
+.homeHeader .megaMenu a > div {
+  background-color: #f3edf9;
+}
+.homeHeader .megaMenu a > div svg {
+  color: #6546e9;
+}
+.homeHeader .megaMenu a:hover svg {
+  color: #17102c;
+}
+@media (max-width: 1023px) {
+  .homeHeader {
+    --header-height: 76px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .homeHeader * {
+    transition: none;
+  }
+}
