@@ -57,8 +57,8 @@ export default function AboutPage() {
           <div className={styles.photoLayout}>
             <figure className={styles.mainPhoto} data-reveal="scale" data-parallax>
               <Image
-                src="/images/home/unsplash/team-collaboration.jpg"
-                alt="People collaborating around laptops in a bright workspace"
+                src="/images/about/unsplash/studio-collaboration.jpg"
+                alt="A group discussing work around laptops in a modern meeting room"
                 fill
                 priority
                 sizes="(max-width: 700px) 92vw, 75vw"
@@ -66,8 +66,8 @@ export default function AboutPage() {
             </figure>
             <figure className={styles.detailPhoto} data-reveal="scale" data-parallax>
               <Image
-                src="/images/home/unsplash/creative-process.jpg"
-                alt="A collaborative planning session around a table"
+                src="/images/about/unsplash/creative-workspace.jpg"
+                alt="A bright creative workspace with a meeting table and glass partitions"
                 fill
                 sizes="(max-width: 700px) 40vw, 300px"
               />

@@ -6,6 +6,7 @@ import { SERVICE_CATEGORIES, type ServiceItem, type ServiceCategory } from '@/li
 import { Button } from '@/components/ui/Button'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/JsonLd'
 import { SITE_CONFIG } from '@/lib/seo'
+import { StrategyService } from '@/components/services/StrategyService'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -75,6 +76,21 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     { name: 'Services', url: `${SITE_CONFIG.url}/services` },
     { name: service.name, url: fullUrl },
   ]
+
+  if (slug === 'content-keyword-strategy' || slug === 'geo') {
+    return (
+      <>
+        <ServiceSchema
+          name={service.name}
+          description={service.description}
+          category={currentCategory.name}
+          url={fullUrl}
+        />
+        <BreadcrumbSchema items={breadcrumbs} />
+        <StrategyService service={service} />
+      </>
+    )
+  }
 
   return (
     <>

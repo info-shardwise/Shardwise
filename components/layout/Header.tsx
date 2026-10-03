@@ -10,7 +10,16 @@ import styles from './Header.module.css'
 
 export function Header() {
   const pathname = usePathname()
-  const isLightPage = pathname === '/' || pathname === '/about' || pathname === '/about/'
+  const isLightPage =
+    pathname === '/' ||
+    pathname === '/about' ||
+    pathname === '/about/' ||
+    pathname === '/contact' ||
+    pathname === '/contact/' ||
+    pathname === '/services/content-keyword-strategy' ||
+    pathname === '/services/content-keyword-strategy/' ||
+    pathname === '/services/geo' ||
+    pathname === '/services/geo/'
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
