@@ -139,3 +139,103 @@ button {
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
+
+/* ─── Layout Utilities ─── */
+
+/* Container: centred content with responsive max-width and padding */
+.container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-inline: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+    padding-inline: 32px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+    padding-inline: 40px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1320px;
+    padding-inline: 60px;
+  }
+}
+
+@media (min-width: 1680px) {
+  .container {
+    max-width: 1540px;
+    padding-inline: 80px;
+  }
+}
+
+/* Section: vertical padding per viewport */
+.section {
+  padding-block: 40px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-block: 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-block: 72px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section {
+    padding-block: 80px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    padding-block: 96px;
+  }
+}
+
+@media (min-width: 1680px) {
+  .section {
+    padding-block: 120px;
+  }
+}
+
+/* ─── Animations ─── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+  }
+}

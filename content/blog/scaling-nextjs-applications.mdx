@@ -1,0 +1,47 @@
+---
+title: "Engineering Scalable Next.js 15 Web Applications"
+description: "How we architect Next.js applications for extreme performance, edge deployment, and maintainability."
+slug: "scaling-nextjs-applications"
+date: "2026-10-01"
+author:
+  name: "Shardwise Architecture Team"
+  role: "Lead Systems Architect"
+tags: ["Nextjs", "Performance", "Cloudflare", "React"]
+featured: true
+published: true
+---
+
+# Architecture Overview
+
+Modern web applications demand near-instant interactivity, minimal bundle size, and effortless edge distribution. Next.js 15 combined with static export (`output: 'export'`) represents the gold standard for high-performance marketing and informational portals.
+
+## Why Static Export at the Edge?
+
+Static generation eliminates runtime Node.js cold starts. Every route is compiled into raw HTML, CSS, and optimized chunks distributed across global CDN nodes.
+
+<Callout type="tip">
+  By moving away from SSR container servers to global static edge delivery, you eliminate single-point server bottlenecks and achieve sub-100ms TTFB worldwide.
+</Callout>
+
+### Core Benefits
+- **Zero Server Maintenance:** No Kubernetes pods or runtime memory leaks to triage.
+- **Top-Tier Security:** Immune to server-side code execution vulnerabilities.
+- **Cost Efficiency:** Generates massive savings compared to hosting dynamic compute instances.
+
+## Component Strategy
+
+Split client-side interactions surgically:
+
+```typescript
+// Keep pages as React Server Components by default
+export default function Page() {
+  return (
+    <div>
+      <ServerRenderedContent />
+      <InteractiveClientWidget />
+    </div>
+  );
+}
+```
+
+Build with discipline, measure Core Web Vitals continuously, and ship with confidence.
