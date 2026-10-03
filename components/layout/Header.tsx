@@ -9,7 +9,8 @@ import { MobileNav } from '@/components/layout/MobileNav'
 import styles from './Header.module.css'
 
 export function Header() {
-  const isHome = usePathname() === '/'
+  const pathname = usePathname()
+  const isLightPage = pathname === '/' || pathname === '/about' || pathname === '/about/'
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -25,7 +26,7 @@ export function Header() {
     }
   }, [])
   return (
-    <header className={styles.header + (isHome ? ' ' + styles.homeHeader : '')}>
+    <header className={styles.header + (isLightPage ? ' ' + styles.homeHeader : '')}>
       <div className={styles.headerInner}>
         <Logo headerWordmark className="shrink-0 gap-3.5" />
         <DesktopNav isMegaMenuOpen={isMegaMenuOpen} setIsMegaMenuOpen={setIsMegaMenuOpen} />
