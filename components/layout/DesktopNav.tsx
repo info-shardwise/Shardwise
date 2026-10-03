@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ChevronDown } from 'lucide-react'
-import { Button } from '@/components/ui/Button'
+import { ArrowRight } from 'lucide-react'
+import { HEADER_LINKS, isHeaderLinkActive } from '@/lib/header-navigation'
+import styles from './Header.module.css'
 
 interface DesktopNavProps {
   isMegaMenuOpen: boolean
@@ -12,60 +13,51 @@ interface DesktopNavProps {
 
 export function DesktopNav({ isMegaMenuOpen, setIsMegaMenuOpen }: DesktopNavProps) {
   const pathname = usePathname()
-
-  const isAboutActive = pathname === '/about'
-  const isServicesActive = pathname.startsWith('/services')
-  const isBlogsActive = pathname.startsWith('/blogs')
-
+  const firstLink = HEADER_LINKS[0]!
   return (
-    <nav
-      className="hidden md:flex shrink-0 items-center gap-6 lg:gap-8"
-      aria-label="Main Navigation"
-    >
-      {/* About */}
+    <nav className={styles.desktopNav} aria-label="Main Navigation">
       <Link
-        href="/about"
-        className={`text-sm font-medium transition-colors hover:text-white ${
-          isAboutActive ? 'text-white font-semibold' : 'text-slate-300'
-        }`}
+        href={firstLink.href}
+        aria-current={isHeaderLinkActive(pathname, firstLink.href) ? 'page' : undefined}
+        className={`${styles.navLink} ${isHeaderLinkActive(pathname, firstLink.href) ? styles.activeLink : ''}`}
+        onMouseEnter={() => setIsMegaMenuOpen(false)}
       >
-        About
+        {firstLink.label}
       </Link>
-
-      {/* Services Trigger */}
-      <div className="relative" onMouseEnter={() => setIsMegaMenuOpen(true)}>
-        <button
-          type="button"
-          onClick={() => setIsMegaMenuOpen(!isMegaMenuOpen)}
-          aria-expanded={isMegaMenuOpen}
-          aria-haspopup="true"
-          className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-md py-1 ${
-            isServicesActive || isMegaMenuOpen ? 'text-white font-semibold' : 'text-slate-300'
-          }`}
+      <button
+        type="button"
+        onMouseEnter={() => setIsMegaMenuOpen(true)}
+        onClick={() => setIsMegaMenuOpen(true)}
+        onKeyDown={(event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault()
+            setIsMegaMenuOpen(!isMegaMenuOpen)
+          }
+        }}
+        aria-expanded={isMegaMenuOpen}
+        aria-controls="desktop-services-menu"
+        className={`${styles.navLink} ${isHeaderLinkActive(pathname, '/services') || isMegaMenuOpen ? styles.activeLink : ''}`}
+      >
+        Services
+      </button>
+      {HEADER_LINKS.slice(1).map((link) => (
+        <Link
+          key={link.href}
+          href={link.href}
+          onMouseEnter={() => setIsMegaMenuOpen(false)}
+          aria-current={isHeaderLinkActive(pathname, link.href) ? 'page' : undefined}
+          className={`${styles.navLink} ${isHeaderLinkActive(pathname, link.href) ? styles.activeLink : ''}`}
         >
-          <span>Services</span>
-          <ChevronDown
-            className={`h-4 w-4 transition-transform duration-200 ${
-              isMegaMenuOpen ? 'rotate-180 text-[#11C5F5]' : 'text-slate-400'
-            }`}
-          />
-        </button>
-      </div>
-
-      {/* Blogs */}
+          {link.label}
+        </Link>
+      ))}
       <Link
-        href="/blogs"
-        className={`text-sm font-medium transition-colors hover:text-white ${
-          isBlogsActive ? 'text-white font-semibold' : 'text-slate-300'
-        }`}
+        href="/contact"
+        className={styles.projectButton}
+        onMouseEnter={() => setIsMegaMenuOpen(false)}
       >
-        Blogs
+        Contact <ArrowRight size={20} aria-hidden="true" />
       </Link>
-
-      {/* Contact CTA */}
-      <Button href="/contact" variant="primary" size="sm" className="shadow-md shadow-[#0878F9]/20">
-        Contact
-      </Button>
     </nav>
   )
 }

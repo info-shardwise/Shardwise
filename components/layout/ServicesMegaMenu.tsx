@@ -73,13 +73,14 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
 
   return (
     <div
+      id="desktop-services-menu"
       role="region"
       aria-label="Services Navigation Menu"
-      className="absolute top-full left-0 hidden w-full pt-2 z-50 md:block max-h-[calc(100dvh-80px)] overflow-y-auto"
+      className="absolute top-full left-0 hidden w-full pt-2 z-50 lg:block max-h-[calc(100dvh-112px)] overflow-y-auto"
       onMouseLeave={onClose}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-white/10 bg-[#061A3A]/98 backdrop-blur-xl p-6 shadow-2xl shadow-black/40 ring-1 ring-white/5">
+        <div className="rounded-2xl border border-white/10 bg-[#08111C] backdrop-blur-xl p-6 shadow-2xl shadow-black/40 ring-1 ring-white/5">
           <div className="grid grid-cols-12 gap-6 min-h-[380px]">
             {/* Left Column — Categories */}
             <div className="col-span-4 border-r border-white/10 pr-4 space-y-1.5">
