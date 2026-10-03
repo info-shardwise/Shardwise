@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ChevronDown } from 'lucide-react'
 import { HEADER_LINKS, isHeaderLinkActive } from '@/lib/header-navigation'
 import styles from './Header.module.css'
 
@@ -36,9 +36,14 @@ export function DesktopNav({ isMegaMenuOpen, setIsMegaMenuOpen }: DesktopNavProp
         }}
         aria-expanded={isMegaMenuOpen}
         aria-controls="desktop-services-menu"
-        className={`${styles.navLink} ${isHeaderLinkActive(pathname, '/services') || isMegaMenuOpen ? styles.activeLink : ''}`}
+        className={`${styles.navLink} ${styles.servicesTrigger} ${isHeaderLinkActive(pathname, '/services') || isMegaMenuOpen ? styles.activeLink : ''}`}
       >
         Services
+        <ChevronDown
+          size={16}
+          aria-hidden="true"
+          className={`${styles.servicesChevron} ${isMegaMenuOpen ? styles.servicesChevronOpen : ''}`}
+        />
       </button>
       {HEADER_LINKS.slice(1).map((link) => (
         <Link

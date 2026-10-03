@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import styles from './Header.module.css'
 import Link from 'next/link'
 import { SERVICE_CATEGORIES, type ServiceCategory } from '@/lib/services'
 import {
@@ -76,7 +77,7 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
       id="desktop-services-menu"
       role="region"
       aria-label="Services Navigation Menu"
-      className="absolute top-full left-0 hidden w-full pt-2 z-50 lg:block max-h-[calc(100dvh-112px)] overflow-y-auto"
+      className={`${styles.megaMenu} absolute top-full left-0 hidden w-full pt-2 z-50 lg:block max-h-[calc(100dvh-112px)] overflow-y-auto`}
       onMouseLeave={onClose}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

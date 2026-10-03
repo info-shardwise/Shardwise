@@ -1,5 +1,7 @@
 .header {
   --header-height: 80px;
+  --header-motion-duration: 300ms;
+  --header-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: sticky;
   top: 0;
   z-index: 40;
@@ -19,23 +21,6 @@
   justify-content: space-between;
   gap: 24px;
 }
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  flex-shrink: 0;
-  color: #fafafa;
-  font-size: 25px;
-  font-weight: 650;
-  line-height: 1;
-  letter-spacing: -1px;
-}
-.brandMark {
-  height: 44px;
-  width: 40px;
-  flex-shrink: 0;
-  filter: drop-shadow(0 3px 7px #0008);
-}
 .desktopNav {
   display: none;
 }
@@ -52,7 +37,7 @@
 .activeLink {
   color: #27b4ff;
 }
-.activeLink::after {
+.navLink::after {
   content: '';
   position: absolute;
   height: 3px;
@@ -61,6 +46,12 @@
   left: 0;
   right: 0;
   bottom: 0;
+  opacity: 0;
+  transform: scaleX(0.6);
+  transform-origin: center;
+  transition:
+    opacity var(--header-motion-duration) var(--header-motion-ease),
+    transform var(--header-motion-duration) var(--header-motion-ease);
 }
 .projectButton {
   display: inline-flex;
@@ -146,7 +137,7 @@
     color 0.2s;
 }
 .mobileRow:hover {
-  background: #101d2d;
+  background-color: #101d2d;
 }
 .activeRow {
   background: linear-gradient(110deg, #0c233f, #0a1c33);
@@ -245,15 +236,6 @@
   .headerInner {
     padding-inline: 48px;
   }
-  .brand {
-    gap: 16px;
-    font-size: 32px;
-    letter-spacing: -1.3px;
-  }
-  .brandMark {
-    width: 50px;
-    height: 56px;
-  }
   .desktopNav {
     display: flex;
     align-items: center;
@@ -285,5 +267,80 @@
   .rowChevron,
   .categoryButton svg {
     transition: none;
+  }
+}
+
+/* Shared easing for links, buttons, icons and mega-menu tiles. */
+.header :where(a, button, svg, a > div, a > span, button > span) {
+  transition-property:
+    color, background-color, border-color, box-shadow, opacity, filter, transform;
+  transition-duration: var(--header-motion-duration);
+  transition-timing-function: var(--header-motion-ease);
+}
+.activeLink::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+.servicesTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.servicesChevron {
+  flex-shrink: 0;
+}
+.servicesChevronOpen {
+  transform: rotate(180deg);
+}
+.menuToggle:hover {
+  filter: brightness(1.2);
+  border-color: #30425b;
+}
+.projectButton:hover svg {
+  transform: translateX(3px);
+}
+.activeRow:hover {
+  box-shadow: inset 0 0 0 40px #ffffff05;
+}
+.categoryButton,
+.serviceList a {
+  background-color: transparent;
+}
+.backdrop {
+  animation: headerBackdropIn 240ms var(--header-motion-ease) both;
+}
+.mobilePanel {
+  animation: headerPanelIn 300ms var(--header-motion-ease) both;
+}
+.megaMenu {
+  animation: headerPanelIn 240ms var(--header-motion-ease) both;
+}
+@keyframes headerBackdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes headerPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .header :where(a, button, svg, a > div, a > span, button > span),
+  .navLink::after {
+    transition: none;
+  }
+  .backdrop,
+  .mobilePanel,
+  .megaMenu {
+    animation: none;
   }
 }

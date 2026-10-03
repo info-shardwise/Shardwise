@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { HeaderBrand } from '@/components/layout/HeaderBrand'
+import { Logo } from '@/components/layout/Logo'
 import { DesktopNav } from '@/components/layout/DesktopNav'
 import { ServicesMegaMenu } from '@/components/layout/ServicesMegaMenu'
 import { MobileNav } from '@/components/layout/MobileNav'
@@ -25,7 +25,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        <HeaderBrand />
+        <Logo className="shrink-0" />
         <DesktopNav isMegaMenuOpen={isMegaMenuOpen} setIsMegaMenuOpen={setIsMegaMenuOpen} />
         <MobileNav />
       </div>
