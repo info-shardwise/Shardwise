@@ -18,7 +18,10 @@ export function DesktopNav({ isMegaMenuOpen, setIsMegaMenuOpen }: DesktopNavProp
   const isBlogsActive = pathname.startsWith('/blogs')
 
   return (
-    <nav className="hidden md:flex items-center gap-8" aria-label="Main Navigation">
+    <nav
+      className="hidden md:flex shrink-0 items-center gap-6 lg:gap-8"
+      aria-label="Main Navigation"
+    >
       {/* About */}
       <Link
         href="/about"

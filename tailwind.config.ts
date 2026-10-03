@@ -62,19 +62,20 @@ const config: Config = {
         '9xl': ['72px', { lineHeight: '1.0' }],
       },
 
+      // Namespace semantic spacing so it cannot override container width utilities.
       spacing: {
-        xs: '4px',
-        sm: '8px',
-        md: '12px',
-        base: '16px',
-        lg: '20px',
-        xl: '24px',
-        '2xl': '32px',
-        '3xl': '40px',
-        '4xl': '48px',
-        '5xl': '64px',
-        '6xl': '80px',
-        '7xl': '120px',
+        'space-xs': '4px',
+        'space-sm': '8px',
+        'space-md': '12px',
+        'space-base': '16px',
+        'space-lg': '20px',
+        'space-xl': '24px',
+        'space-2xl': '32px',
+        'space-3xl': '40px',
+        'space-4xl': '48px',
+        'space-5xl': '64px',
+        'space-6xl': '80px',
+        'space-7xl': '120px',
       },
 
       borderRadius: {

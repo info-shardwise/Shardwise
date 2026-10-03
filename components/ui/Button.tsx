@@ -26,12 +26,13 @@ type Props = ButtonProps | LinkProps
 
 const variantClasses: Record<Variant, string> = {
   primary:
-    'bg-[--color-primary] text-white hover:bg-[--color-primary-hover] border border-transparent',
+    'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-hover)] border border-transparent',
   secondary:
-    'bg-transparent text-[--color-primary] border border-[--color-primary] hover:bg-[--color-primary] hover:text-white',
+    'bg-transparent text-[var(--color-primary)] border border-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white',
   ghost:
-    'bg-transparent text-[--color-text-dark] hover:bg-[--color-bg-light] border border-transparent',
-  outline: 'bg-transparent text-white border border-white hover:bg-white hover:text-[--color-navy]',
+    'bg-transparent text-[var(--color-text-dark)] hover:bg-[var(--color-bg-light)] border border-transparent',
+  outline:
+    'bg-transparent text-white border border-white hover:bg-white hover:text-[var(--color-navy)]',
 }
 
 const sizeClasses: Record<Size, string> = {
@@ -41,7 +42,7 @@ const sizeClasses: Record<Size, string> = {
 }
 
 const baseClasses =
-  'inline-flex items-center justify-center gap-2 transition-all duration-200 whitespace-nowrap focus-visible:ring-2 focus-visible:ring-[--color-primary] focus-visible:ring-offset-2 disabled:opacity-60 disabled:pointer-events-none'
+  'inline-flex items-center justify-center gap-2 transition-all duration-200 whitespace-nowrap focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2 disabled:opacity-60 disabled:pointer-events-none'
 
 export function Button(props: Props) {
   const { variant = 'primary', size = 'md', className, children, isLoading, ...rest } = props
@@ -49,7 +50,7 @@ export function Button(props: Props) {
   const classes = clsx(baseClasses, variantClasses[variant], sizeClasses[size], className)
 
   if ('href' in props && props.href) {
-    const { href, external, ...linkRest } = props as LinkProps
+    const { href, external, ...linkRest } = rest as Omit<LinkProps, keyof BaseProps>
     if (external) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer" className={classes} {...linkRest}>

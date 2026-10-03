@@ -32,14 +32,14 @@ export function Header() {
     <header
       className={`sticky top-0 z-40 w-full transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#061A3A]/90 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20 py-3.5'
+          ? 'bg-[#061A3A] border-b border-white/10 shadow-lg shadow-black/20 py-3.5'
           : 'bg-[#061A3A] border-b border-white/5 py-4'
       }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex min-h-10 items-center justify-between gap-6">
           {/* Brand Logo */}
-          <Logo />
+          <Logo className="shrink-0" />
 
           {/* Desktop Navigation */}
           <DesktopNav isMegaMenuOpen={isMegaMenuOpen} setIsMegaMenuOpen={setIsMegaMenuOpen} />

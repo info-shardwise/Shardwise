@@ -34,7 +34,7 @@ export function MobileNav() {
   }
 
   return (
-    <div className="flex md:hidden">
+    <div className="flex shrink-0 md:hidden">
       {/* Hamburger Trigger */}
       <button
         type="button"
@@ -56,8 +56,9 @@ export function MobileNav() {
 
       {/* Slide-out Drawer */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm bg-[#061A3A] border-l border-white/10 p-6 shadow-2xl transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-y-auto ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+        hidden={!isOpen}
+        className={`fixed top-0 right-0 z-50 h-full w-[85%] max-w-sm bg-[#061A3A] border-l border-white/10 p-6 shadow-2xl transition-transform duration-300 ease-in-out flex-col justify-between overflow-y-auto ${
+          isOpen ? 'flex translate-x-0' : 'hidden translate-x-full'
         }`}
       >
         <div>

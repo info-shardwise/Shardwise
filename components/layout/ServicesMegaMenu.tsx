@@ -73,7 +73,7 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
     <div
       role="region"
       aria-label="Services Navigation Menu"
-      className="absolute top-full left-0 w-full pt-2 z-50"
+      className="absolute top-full left-0 hidden w-full pt-2 z-50 md:block max-h-[calc(100dvh-80px)] overflow-y-auto"
       onMouseLeave={onClose}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -140,7 +140,7 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
                       <div className="mt-0.5 rounded-lg bg-[#0878F9]/15 p-2 transition-colors group-hover:bg-[#0878F9]">
                         {renderIcon(item.iconName)}
                       </div>
-                      <div className="flex-1">
+                      <div className="min-w-0 flex-1">
                         <div className="flex items-center justify-between text-sm font-semibold text-white group-hover:text-[#11C5F5]">
                           <span>{item.name}</span>
                           <ArrowRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 transition-all group-hover:opacity-100 group-hover:translate-x-0" />
@@ -155,7 +155,7 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
               </div>
 
               {/* Bottom CTA Strip */}
-              <div className="mt-6 flex items-center justify-between rounded-xl bg-white/[0.02] border border-white/5 px-4 py-2.5 text-xs text-slate-400">
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-3 rounded-xl bg-white/[0.02] border border-white/5 px-4 py-2.5 text-xs text-slate-400">
                 <span>Looking for a tailored architecture or enterprise SLA?</span>
                 <Link
                   href="/contact"
