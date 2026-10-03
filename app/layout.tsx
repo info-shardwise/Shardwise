@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { SITE_CONFIG } from '@/lib/seo'
 import { fontJakarta, fontAnton, fontInter } from '@/lib/fonts'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
@@ -13,11 +14,11 @@ export const metadata: Metadata = {
   },
   description:
     'Shardwise builds websites, applications, digital experiences, and growth-focused solutions for modern businesses.',
-  metadataBase: new URL('https://shardwise.com'),
+  metadataBase: new URL(SITE_CONFIG.url),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://shardwise.com',
+    url: SITE_CONFIG.url,
     siteName: 'Shardwise',
   },
   twitter: {

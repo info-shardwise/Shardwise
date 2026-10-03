@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   shortName: 'Shardwise',
   description:
     'Shardwise is an elite software engineering and digital agency crafting high-performance web applications, mobile platforms, design systems, and generative search solutions.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://shardwise.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://shardwise.pages.dev',
   ogImage: '/images/og-default.jpg',
   twitterHandle: '@shardwise',
   author: 'Shardwise Engineering Team',
