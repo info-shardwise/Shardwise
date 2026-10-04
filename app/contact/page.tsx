@@ -2,11 +2,12 @@
 
 import { useState, useTransition } from 'react'
 import { submitContactForm, type ContactState } from './actions'
-import { Mail, Phone, MapPin, CheckCircle, AlertCircle, ArrowRight } from 'lucide-react'
+import { CheckCircle, AlertCircle, ArrowRight } from 'lucide-react'
 import { SERVICE_CATEGORIES } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import styles from './Contact.module.css'
+import { ContactNextSteps, ContactResources } from './ContactContent'
 
 const initialFormState: ContactState = {
   success: false,
@@ -48,43 +49,16 @@ export default function ContactPage() {
         </section>
         <div className={styles.container}>
           <div className={styles.layout}>
-            {/* Left Column: Contact Details */}
-            <div className={styles.details} data-reveal="up">
-              <div className={styles.detailsList}>
-                <div className={styles.detailCard}>
-                  <Mail className={styles.detailIcon} aria-hidden="true" />
-                  <div>
-                    <div className="font-semibold text-white">Direct Email</div>
-                    <a
-                      href="mailto:contact@shardwise.com"
-                      className="hover:underline text-slate-400"
-                    >
-                      contact@shardwise.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className={styles.detailCard}>
-                  <Phone className={styles.detailIcon} aria-hidden="true" />
-                  <div>
-                    <div className="font-semibold text-white">Phone Support</div>
-                    <div className="text-slate-400">+1 (800) SHARDWISE</div>
-                  </div>
-                </div>
-
-                <div className={styles.detailCard}>
-                  <MapPin className={styles.detailIcon} aria-hidden="true" />
-                  <div>
-                    <div className="font-semibold text-white">Headquarters</div>
-                    <div className="text-slate-400">San Francisco, California</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <ContactNextSteps />
 
             {/* Right Column: Form */}
             <div className={styles.formColumn} data-reveal="up">
               <div className={styles.formPanel}>
+                <h2 className={styles.panelTitle}>Tell us about your project</h2>
+                <p className={styles.formIntro}>
+                  Start with your goals and what you need help with. Required fields are marked with
+                  an asterisk.
+                </p>
                 {state.success ? (
                   <div className={styles.success} role="status" aria-live="polite">
                     <div className="h-16 w-16 bg-[#11C5F5]/10 text-[#11C5F5] rounded-full flex items-center justify-center mx-auto">
@@ -164,18 +138,29 @@ export default function ContactPage() {
                         required
                         placeholder="Tell us about your project scope, timeline, and goals..."
                         className={styles.field}
+                        aria-describedby="brief-help"
                       />
+                      <p id="brief-help" className={styles.help}>
+                        Include your current website or app, intended audience, priorities, and any
+                        budget or launch-date constraints you already know.
+                      </p>
                     </div>
 
                     <button type="submit" disabled={isPending} className={styles.submit}>
-                      {isPending ? 'Sending...' : 'Submit Inquiry'}
+                      {isPending ? 'Sending...' : 'Start the conversation'}
                       <ArrowRight className="h-4 w-4" />
                     </button>
+                    <p className={styles.help}>
+                      Share only the details needed to discuss your project. Please do not include
+                      passwords, payment information, or confidential files. Read our{' '}
+                      <a href="/privacy-policy/">privacy policy</a>.
+                    </p>
                   </form>
                 )}
               </div>
             </div>
           </div>
+          <ContactResources />
         </div>
       </div>
     </HomeMotion>
