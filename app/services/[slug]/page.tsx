@@ -128,6 +128,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     'logo-design',
                     'product-design',
                     'website-design',
+                    'app-design',
                   ].includes(slug)
                 ? service.name
                 : currentCategory.name

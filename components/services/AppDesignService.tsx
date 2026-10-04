@@ -16,6 +16,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './AppDesignService.module.css'
+import { AppDesignOptions, AppDesignContent } from './AppDesignContent'
 
 export function AppDesignService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['app-design']
@@ -46,11 +47,13 @@ export function AppDesignService({ service }: { service: ServiceItem }) {
                   className={styles.title}
                 />
                 <p className={styles.description} data-reveal="up">
-                  {service.description}
+                  Mobile app UX and UI design for iOS, Android, and cross-platform experiences.
+                  Connect user research, platform-aware interaction patterns, reusable components,
+                  and a practical handoff to your development team.
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Start your app design project
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -185,6 +188,7 @@ export function AppDesignService({ service }: { service: ServiceItem }) {
             </div>
           </div>
         </section>
+        <AppDesignOptions />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -224,8 +228,8 @@ export function AppDesignService({ service }: { service: ServiceItem }) {
               className={styles.sectionTitle}
             />
             <p>
-              A clear scope, a considered implementation, and the information your team needs for
-              the next step.
+              A clear design scope, documented mobile interfaces, and the information your team
+              needs for the next step.
             </p>
             <span className={styles.deliveryMark} aria-hidden="true">
               <Layers />
@@ -241,6 +245,7 @@ export function AppDesignService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <AppDesignContent />
       </div>
     </HomeMotion>
   )
