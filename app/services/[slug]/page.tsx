@@ -12,6 +12,7 @@ import { IosService } from '@/components/services/IosService'
 import { AndroidService } from '@/components/services/AndroidService'
 import { WebAppService } from '@/components/services/WebAppService'
 import { WordPressService } from '@/components/services/WordPressService'
+import { ShopifyService } from '@/components/services/ShopifyService'
 import { SERVICE_PROFILES } from '@/components/services/serviceProfiles'
 
 interface PageProps {
@@ -116,6 +117,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <WebAppService service={service} />
         ) : slug === 'wordpress-development' ? (
           <WordPressService service={service} />
+        ) : slug === 'shopify-development' ? (
+          <ShopifyService service={service} />
         ) : (
           <ServiceExperience service={service} category={currentCategory} />
         )}
