@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { LegalLayout } from '@/components/legal/LegalLayout'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
@@ -9,9 +10,17 @@ export const metadata: Metadata = {
 
 export default function PrivacyPolicyPage() {
   return (
-    <article className="py-16 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 space-y-6 text-slate-300 leading-relaxed">
-      <h1 className="font-display text-4xl uppercase text-white mb-8">Privacy Policy</h1>
-      <p>Last updated: 3 October 2026</p>
+    <LegalLayout
+      title="Privacy Policy"
+      updated="3 October 2026"
+      sections={[
+        { id: 'section-1', label: 'Information you provide' },
+        { id: 'section-2', label: 'Gmail access and notification use' },
+        { id: 'section-3', label: 'Storage and service providers' },
+        { id: 'section-4', label: 'Retention, access and deletion' },
+        { id: 'section-5', label: 'Policy changes' },
+      ]}
+    >
       <p>
         This policy covers the Shardwise website at shardwise.pages.dev and its inquiry notification
         application, currently named Shardwise Notifications Test on the Google authorization
@@ -22,7 +31,9 @@ export default function PrivacyPolicyPage() {
         .
       </p>
 
-      <h2 className="text-xl font-bold text-white pt-4">Information you provide</h2>
+      <h2 id="section-1" className="text-xl font-bold text-white pt-4">
+        Information you provide
+      </h2>
       <p>
         When you send an inquiry, you provide your name, email address, selected service and project
         message. We use these details to understand your request, contact you and discuss the
@@ -37,7 +48,9 @@ export default function PrivacyPolicyPage() {
         submissions before they are accepted.
       </p>
 
-      <h2 className="text-xl font-bold text-white pt-4">Gmail access and notification use</h2>
+      <h2 id="section-2" className="text-xl font-bold text-white pt-4">
+        Gmail access and notification use
+      </h2>
       <p>
         Only the Shardwise operator authorizes the notification application to use a designated
         Gmail account. The application requests the gmail.send permission
@@ -66,7 +79,9 @@ export default function PrivacyPolicyPage() {
         models.
       </p>
 
-      <h2 className="text-xl font-bold text-white pt-4">Storage and service providers</h2>
+      <h2 id="section-3" className="text-xl font-bold text-white pt-4">
+        Storage and service providers
+      </h2>
       <p>
         The Gmail notification integration is being prepared for production. When enabled, inquiries
         are stored in a private Supabase database with their submission time and notification
@@ -91,7 +106,9 @@ export default function PrivacyPolicyPage() {
         may process information in countries other than your own.
       </p>
 
-      <h2 className="text-xl font-bold text-white pt-4">Retention, access and deletion</h2>
+      <h2 id="section-4" className="text-xl font-bold text-white pt-4">
+        Retention, access and deletion
+      </h2>
       <p>
         We retain inquiries and related correspondence while needed to respond, follow up on
         requested work, maintain relevant business records or meet legal obligations. We do not
@@ -112,12 +129,14 @@ export default function PrivacyPolicyPage() {
         authorized sending but does not automatically remove inquiries or emails already saved.
       </p>
 
-      <h2 className="text-xl font-bold text-white pt-4">Policy changes</h2>
+      <h2 id="section-5" className="text-xl font-bold text-white pt-4">
+        Policy changes
+      </h2>
       <p>
         We update this page when our data practices change and revise the date above. Any new use of
         Google account data requiring additional permission will require the account holder&apos;s
         authorization. Contact virenstudio.in@gmail.com if you have questions about this policy.
       </p>
-    </article>
+    </LegalLayout>
   )
 }

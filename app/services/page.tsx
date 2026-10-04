@@ -1,75 +1,97 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight } from 'lucide-react'
+import { ArrowUpRight, Layers, Smartphone, Globe, ShieldCheck, PenTool, Search } from 'lucide-react'
 import { SERVICE_CATEGORIES } from '@/lib/services'
-import { Button } from '@/components/ui/Button'
-
+import { HomeMotion } from '@/components/home/HomeMotion'
+import { RevealHeading } from '@/components/home/RevealHeading'
+import styles from '@/components/services/ServicesCatalog.module.css'
 export const metadata: Metadata = {
   title: 'Services Catalog',
   description:
     'Browse all development, maintenance, design, and search optimization services by Shardwise.',
 }
-
+const icons = [Smartphone, Globe, ShieldCheck, PenTool, Search]
 export default function ServicesPage() {
   return (
-    <div className="flex flex-col gap-20 py-16">
-      {/* Header */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#11C5F5] mb-2">
-            Capabilities
-          </div>
-          <h1 className="font-display text-4xl sm:text-5xl md:text-6xl uppercase tracking-tight text-white leading-tight">
-            Comprehensive Digital &amp; Software Services
-          </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300">
-            End-to-end technology solutions tailored to your operational goals and growth targets.
-          </p>
-        </div>
-      </section>
-
-      {/* Categories & Services */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-16">
-        {SERVICE_CATEGORIES.map((category) => (
-          <div
-            key={category.id}
-            id={category.slug}
-            className="rounded-3xl border border-white/10 bg-[#061A3A]/70 p-8 sm:p-10 backdrop-blur-md"
-          >
-            <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 border-b border-white/10 gap-4 mb-8">
-              <div>
-                <h2 className="font-display text-2xl sm:text-3xl uppercase text-white">
+    <HomeMotion>
+      <div className={styles.page}>
+        <section className={styles.hero} aria-labelledby="catalog-title">
+          <div className={styles.copy}>
+            <span className={styles.eyebrow} data-reveal="up">
+              <Layers aria-hidden="true" />
+              Capabilities
+            </span>
+            <RevealHeading
+              as="h1"
+              id="catalog-title"
+              text="Comprehensive Digital & Software Services"
+              className={styles.title}
+            />
+            <p data-reveal="up">
+              End-to-end technology solutions tailored to your operational goals and growth targets.
+            </p>
+            <nav className={styles.categoryLinks} aria-label="Service categories">
+              {SERVICE_CATEGORIES.map((category) => (
+                <Link href={'#' + category.slug} key={category.id}>
                   {category.name}
-                </h2>
-                <p className="text-sm text-slate-300 mt-1 max-w-xl">{category.description}</p>
-              </div>
-              <Button href="/contact" variant="secondary" size="sm">
-                Discuss {category.name}
-              </Button>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {category.services.map((service) => (
-                <Link
-                  key={service.slug}
-                  href={service.href}
-                  className="group rounded-xl border border-white/5 bg-white/[0.02] p-5 transition-all hover:border-[#0878F9]/50 hover:bg-white/[0.05]"
-                >
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-base font-bold text-white group-hover:text-[#11C5F5] transition-colors">
-                      {service.name}
-                    </h3>
-                    <ArrowRight className="h-4 w-4 text-slate-400 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                  </div>
-                  <p className="mt-2 text-xs text-slate-400 leading-relaxed">
-                    {service.description}
-                  </p>
+                  <ArrowUpRight aria-hidden="true" />
                 </Link>
               ))}
-            </div>
+            </nav>
           </div>
-        ))}
-      </section>
-    </div>
+        </section>
+        <div className={styles.categories}>
+          {SERVICE_CATEGORIES.map((category, index) => {
+            const Icon = icons[index] ?? Layers
+            return (
+              <section
+                id={category.slug}
+                key={category.id}
+                className={styles.category}
+                aria-labelledby={category.id + '-title'}
+              >
+                <div className={styles.categoryHeader} data-reveal="up">
+                  <div className={styles.categoryIntro}>
+                    <span className={styles.categoryIcon}>
+                      <Icon aria-hidden="true" />
+                    </span>
+                    <div>
+                      <span className={styles.number}>0{index + 1}</span>
+                      <h2 id={category.id + '-title'}>{category.name}</h2>
+                      <p>{category.description}</p>
+                    </div>
+                  </div>
+                  <Link className={styles.discuss} href="/contact">
+                    Discuss {category.name}
+                    <ArrowUpRight aria-hidden="true" />
+                  </Link>
+                </div>
+                <div className={styles.grid}>
+                  {category.services.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={service.href}
+                      className={styles.serviceCard}
+                      data-reveal="up"
+                    >
+                      <span className={styles.serviceIcon}>
+                        <Icon aria-hidden="true" />
+                      </span>
+                      <div>
+                        <h3>{service.name}</h3>
+                        <p>{service.description}</p>
+                      </div>
+                      <span className={styles.cardArrow}>
+                        <ArrowUpRight aria-hidden="true" />
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )
+          })}
+        </div>
+      </div>
+    </HomeMotion>
   )
 }

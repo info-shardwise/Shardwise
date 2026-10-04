@@ -1,0 +1,273 @@
+.canvas {
+  --visual-accent: #6546e9;
+  --visual-soft: #eee8ff;
+  border: 1px solid #e4dcee;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 25px 60px #49366715;
+  overflow: hidden;
+}
+.canvas[data-kind='mobile'] {
+  --visual-accent: #5964e9;
+  --visual-soft: #e9ecff;
+}
+.canvas[data-kind='store'] {
+  --visual-accent: #357969;
+  --visual-soft: #e3f5ef;
+}
+.canvas[data-kind='maintenance'] {
+  --visual-accent: #367b98;
+  --visual-soft: #e5f3fa;
+}
+.canvas[data-kind='design'] {
+  --visual-accent: #b362a1;
+  --visual-soft: #f9e8f4;
+}
+.canvas[data-kind='search'] {
+  --visual-accent: #926bb5;
+  --visual-soft: #f0e8fb;
+}
+.canvasBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 22px;
+  font-size: 11px;
+  color: #776c89;
+  border-bottom: 1px solid #eee8f4;
+  background: #fbfaff;
+}
+.canvasBar > svg {
+  width: 17px;
+  height: 17px;
+  color: var(--visual-accent);
+}
+.dotGroup {
+  display: flex;
+  gap: 5px;
+}
+.dotGroup i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #cabce8;
+}
+.dotGroup i:first-child {
+  background: var(--visual-accent);
+}
+.canvasContent {
+  padding: 28px;
+  background: radial-gradient(ellipse at 15% 80%, var(--visual-soft), transparent 80%), #fff;
+}
+.mock {
+  border: 1px solid #e6deef;
+  border-radius: 17px;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 12px 30px #4030520a;
+}
+.mockTop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  background: var(--visual-soft);
+  color: var(--visual-accent);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.mark svg {
+  width: 21px;
+  height: 21px;
+}
+.mockLines {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  width: 50%;
+}
+.mockLines i {
+  display: block;
+  background: #ece7f2;
+  height: 6px;
+  border-radius: 3px;
+}
+.mockLines i:last-child {
+  width: 65%;
+}
+.status {
+  margin-left: auto;
+  color: var(--visual-accent);
+}
+.status svg {
+  width: 17px;
+  height: 17px;
+}
+.preview {
+  padding: 18px 0;
+}
+.previewHero {
+  height: 74px;
+  border-radius: 10px;
+  background: linear-gradient(120deg, var(--visual-soft), #f9f8fc);
+  position: relative;
+  overflow: hidden;
+}
+.previewHero::after {
+  content: '';
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 12px solid var(--visual-accent);
+  opacity: 0.22;
+  position: absolute;
+  right: 25px;
+  top: 15px;
+}
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+.tiles i {
+  height: 40px;
+  border-radius: 7px;
+  background: var(--visual-soft);
+  border: 1px solid #e6deef;
+}
+.previewLines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+.previewLines i {
+  height: 5px;
+  border-radius: 3px;
+  background: #eee9f4;
+}
+.previewLines i:last-child {
+  width: 60%;
+}
+.mockFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  border-top: 1px solid #eee8f4;
+  color: #8a8097;
+  font-size: 10px;
+}
+.mockFooter svg {
+  width: 15px;
+  height: 15px;
+  color: var(--visual-accent);
+}
+.labels {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 20px;
+}
+.labels > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  background: #ffffffd9;
+  border: 1px solid #e9e2f2;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.labels span {
+  color: #a398b1;
+  font-size: 10px;
+}
+.labels strong {
+  font-weight: 500;
+}
+.labels svg {
+  margin-left: auto;
+  width: 13px;
+  height: 13px;
+  color: var(--visual-accent);
+}
+.canvas figcaption {
+  text-align: center;
+  padding: 0 20px 18px;
+  color: #92859d;
+  font-size: 10px;
+}
+.canvas[data-kind='mobile'] .mock {
+  max-width: 210px;
+  margin: auto;
+  border: 5px solid #242033;
+  border-radius: 26px;
+  padding: 18px 13px 12px;
+}
+.canvas[data-kind='mobile'] .mockTop {
+  gap: 8px;
+}
+.canvas[data-kind='mobile'] .mark {
+  width: 31px;
+  height: 31px;
+  border-radius: 9px;
+}
+.canvas[data-kind='mobile'] .mark svg {
+  width: 17px;
+}
+.canvas[data-kind='mobile'] .mockFooter {
+  font-size: 8px;
+}
+.canvas[data-kind='maintenance'] .previewHero {
+  height: 50px;
+}
+.canvas[data-kind='maintenance'] .tiles i {
+  height: 55px;
+  background: linear-gradient(to top, var(--visual-soft) 60%, transparent 60%);
+  border-color: #dceaf0;
+}
+.canvas[data-kind='design'] .tiles i {
+  border-radius: 50%;
+  width: 40px;
+  justify-self: center;
+  background: var(--visual-accent);
+  opacity: 0.5;
+}
+.canvas[data-kind='design'] .tiles i:nth-child(2) {
+  opacity: 0.25;
+}
+.canvas[data-kind='design'] .tiles i:last-child {
+  opacity: 0.1;
+}
+.canvas[data-kind='search'] .previewHero::after {
+  border-radius: 12px;
+  transform: rotate(45deg);
+}
+@media (max-width: 700px) {
+  .canvas {
+    border-radius: 20px;
+  }
+  .canvasBar {
+    padding: 16px;
+    font-size: 10px;
+    gap: 8px;
+  }
+  .canvasContent {
+    padding: 22px 18px;
+  }
+  .mock {
+    padding: 16px;
+  }
+  .labels > div {
+    font-size: 12px;
+    padding: 12px;
+  }
+}

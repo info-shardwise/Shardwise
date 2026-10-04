@@ -12,14 +12,10 @@ export function Header() {
   const pathname = usePathname()
   const isLightPage =
     pathname === '/' ||
-    pathname === '/about' ||
-    pathname === '/about/' ||
-    pathname === '/contact' ||
-    pathname === '/contact/' ||
-    pathname === '/services/content-keyword-strategy' ||
-    pathname === '/services/content-keyword-strategy/' ||
-    pathname === '/services/geo' ||
-    pathname === '/services/geo/'
+    ['/about', '/contact', '/blogs', '/services', '/terms', '/privacy-policy'].includes(
+      pathname.replace(/\/$/, ''),
+    ) ||
+    pathname.startsWith('/services/')
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

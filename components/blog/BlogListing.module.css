@@ -1,0 +1,388 @@
+.page {
+  background: #fff;
+  color: var(--ink);
+  padding-bottom: 100px;
+}
+.hero {
+  margin: 0 12px;
+  padding: 68px 24px 115px;
+  border-radius: 0 0 34px 34px;
+  background:
+    radial-gradient(ellipse at 12% 100%, #ddd3ff, transparent 50%),
+    radial-gradient(ellipse at 90% 100%, #d9eeff, transparent 45%), #fafaff;
+}
+.heroCopy {
+  max-width: 850px;
+  margin: auto;
+  text-align: center;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff9;
+  border: 1px solid #e3ddee;
+  border-radius: 30px;
+  padding: 9px 15px;
+  color: #625c78;
+  font-size: 12px;
+}
+.eyebrow svg {
+  width: 14px;
+  height: 14px;
+  color: var(--purple);
+}
+.page .title {
+  font-size: clamp(40px, 4.7vw, 68px);
+  line-height: 1.09;
+  font-weight: 650;
+  letter-spacing: -0.055em;
+  margin: 26px auto 24px;
+  max-width: 790px;
+}
+.description {
+  max-width: 650px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--muted);
+}
+.featuredSection {
+  position: relative;
+  max-width: 1200px;
+  margin: -48px auto 0;
+  padding: 0 24px;
+}
+.card {
+  border: 1px solid #eae5f2;
+  border-radius: 24px;
+  background: #fff;
+  overflow: hidden;
+  min-width: 0;
+  box-shadow: 0 12px 36px #28124805;
+}
+.card:hover {
+  border-color: #d1bff3;
+  background: #fdfbff;
+  box-shadow: 0 22px 48px #58318e12;
+}
+.featured {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  box-shadow: 0 20px 65px #3c205315;
+}
+.media {
+  position: relative;
+  height: 275px;
+  overflow: hidden;
+  background: #eee8ff;
+}
+.featured .media {
+  height: auto;
+  min-height: 450px;
+}
+.media img {
+  object-fit: cover;
+}
+.card:hover .media img {
+  transform: scale(1.035);
+}
+.mediaAccent {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 60%, #1b103a30);
+}
+.featuredBadge {
+  position: absolute;
+  z-index: 1;
+  top: 22px;
+  left: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  background: #6546e9e6;
+  border: 1px solid #ffffff30;
+  padding: 9px 13px;
+  border-radius: 30px;
+  font-size: 11px;
+  backdrop-filter: blur(10px);
+}
+.featuredBadge svg {
+  width: 13px;
+  height: 13px;
+}
+.cardCopy {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  min-width: 0;
+}
+.featured .cardCopy {
+  padding: 40px;
+  justify-content: center;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 19px;
+}
+.tags span {
+  background: #f0ebff;
+  color: #7252b5;
+  border-radius: 7px;
+  padding: 5px 9px;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.card h2,
+.card h3 {
+  color: var(--ink);
+  font-size: 27px;
+  line-height: 1.22;
+  letter-spacing: -0.035em;
+  font-weight: 600;
+}
+.featured h2 {
+  font-size: clamp(28px, 2.7vw, 38px);
+}
+.card h2 a:hover,
+.card h3 a:hover {
+  color: var(--purple);
+}
+.excerpt {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+  margin-top: 18px;
+}
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  color: #8a8095;
+  font-size: 11px;
+  margin-top: 22px;
+}
+.meta > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.meta svg {
+  width: 13px;
+  height: 13px;
+}
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  border-top: 1px solid #eee8f4;
+  padding-top: 22px;
+  margin-top: 25px;
+}
+.author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #eee8ff;
+  color: var(--purple);
+  font-weight: 550;
+  font-size: 11px;
+}
+.author > span:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.author strong {
+  font-size: 11px;
+  font-weight: 550;
+  line-height: 1.5;
+}
+.author > span:last-child > span {
+  font-size: 10px;
+  color: #8a8095;
+  line-height: 1.5;
+}
+.read {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--purple);
+  font-size: 12px;
+  font-weight: 550;
+  flex-shrink: 0;
+}
+.read svg {
+  width: 18px;
+  height: 18px;
+}
+.read:hover {
+  color: #4c2bd0;
+}
+.read:hover svg {
+  transform: translate(2px, -2px);
+}
+.read:focus-visible,
+.card h2 a:focus-visible,
+.card h3 a:focus-visible {
+  outline: 3px solid #b49aed;
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+.articles {
+  max-width: 1200px;
+  margin: auto;
+  padding: 76px 24px 0;
+}
+.sectionHeading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.page .sectionTitle {
+  font-size: clamp(32px, 3.4vw, 44px);
+}
+.articleCount {
+  border: 1px solid #e9e3f0;
+  border-radius: 30px;
+  padding: 7px 12px;
+  font-size: 11px;
+  color: #8a8095;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.single {
+  grid-template-columns: 1fr;
+}
+.single .card {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+}
+.single .media {
+  height: auto;
+  min-height: 330px;
+}
+.single .cardCopy {
+  padding: 36px;
+}
+.empty {
+  color: var(--muted);
+  padding: 28px;
+  background: #faf9fd;
+  border: 1px solid #eee8f4;
+  border-radius: 18px;
+  font-size: 15px;
+}
+@media (max-width: 1000px) {
+  .featured .cardCopy {
+    padding: 30px;
+  }
+  .featured .media {
+    min-height: 470px;
+  }
+  .cardFooter {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .single .cardCopy {
+    padding: 28px;
+  }
+}
+@media (max-width: 700px) {
+  .page {
+    padding-bottom: 60px;
+  }
+  .hero {
+    margin: 0 8px;
+    padding: 42px 22px 75px;
+    border-radius: 0 0 26px 26px;
+  }
+  .page .title {
+    font-size: clamp(36px, 9vw, 54px);
+    margin: 22px auto;
+  }
+  .description {
+    font-size: 15px;
+  }
+  .featuredSection {
+    margin-top: -30px;
+  }
+  .featured,
+  .single .card {
+    display: flex;
+    flex-direction: column;
+  }
+  .featured .media,
+  .single .media,
+  .media {
+    min-height: 0;
+    height: 240px;
+  }
+  .card {
+    border-radius: 22px;
+  }
+  .featured .cardCopy,
+  .single .cardCopy,
+  .cardCopy {
+    padding: 26px 22px;
+  }
+  .featured h2,
+  .card h3 {
+    font-size: 28px;
+    line-height: 1.25;
+  }
+  .featuredBadge {
+    top: 16px;
+    left: 16px;
+    padding: 8px 12px;
+  }
+  .cardFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .read {
+    width: 100%;
+    justify-content: space-between;
+    padding: 13px 15px;
+    border: 1px solid #e1d7f3;
+    border-radius: 10px;
+    background: #f6f2ff;
+  }
+  .read:hover {
+    background: #eee8ff;
+    border-color: #c6b1e8;
+  }
+  .articles {
+    padding-top: 55px;
+  }
+  .sectionHeading {
+    margin-bottom: 26px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}

@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/Button'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/JsonLd'
 import { SITE_CONFIG } from '@/lib/seo'
 import { StrategyService } from '@/components/services/StrategyService'
+import { ServiceExperience } from '@/components/services/ServiceExperience'
+import { SERVICE_PROFILES } from '@/components/services/serviceProfiles'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -88,6 +90,21 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         />
         <BreadcrumbSchema items={breadcrumbs} />
         <StrategyService service={service} />
+      </>
+    )
+  }
+
+  if (SERVICE_PROFILES[slug]) {
+    return (
+      <>
+        <ServiceSchema
+          name={service.name}
+          description={service.description}
+          category={currentCategory.name}
+          url={fullUrl}
+        />
+        <BreadcrumbSchema items={breadcrumbs} />
+        <ServiceExperience service={service} category={currentCategory} />
       </>
     )
   }
