@@ -113,7 +113,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <ServiceSchema
           name={service.name}
           description={service.description}
-          category={slug === 'ios-app-development' ? service.name : currentCategory.name}
+          category={
+            ['ios-app-development', 'android-app-development'].includes(slug)
+              ? service.name
+              : currentCategory.name
+          }
           url={fullUrl}
         />
         <BreadcrumbSchema items={breadcrumbs} />

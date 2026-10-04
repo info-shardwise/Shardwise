@@ -16,6 +16,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './AndroidService.module.css'
+import { AndroidBuildOptions, AndroidContent } from './AndroidContent'
 
 export function AndroidService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['android-app-development']
@@ -50,7 +51,7 @@ export function AndroidService({ service }: { service: ServiceItem }) {
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Start your Android project
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -136,6 +137,7 @@ export function AndroidService({ service }: { service: ServiceItem }) {
             </div>
           </div>
         </section>
+        <AndroidBuildOptions />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -192,6 +194,7 @@ export function AndroidService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <AndroidContent />
       </div>
     </HomeMotion>
   )
