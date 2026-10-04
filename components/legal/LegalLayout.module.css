@@ -65,6 +65,8 @@
   border-radius: 18px;
   padding: 22px;
   background: #faf9fd;
+  max-height: calc(100dvh - 140px);
+  overflow-y: auto;
 }
 .sidebar h2 {
   font-size: 13px;
@@ -159,6 +161,7 @@
     position: static;
   }
   .sidebar nav {
+    max-height: none;
     padding: 22px;
   }
   .body {
