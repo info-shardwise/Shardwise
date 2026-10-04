@@ -11,6 +11,7 @@ import { ServiceExperience } from '@/components/services/ServiceExperience'
 import { IosService } from '@/components/services/IosService'
 import { AndroidService } from '@/components/services/AndroidService'
 import { WebAppService } from '@/components/services/WebAppService'
+import { WordPressService } from '@/components/services/WordPressService'
 import { SERVICE_PROFILES } from '@/components/services/serviceProfiles'
 
 interface PageProps {
@@ -113,6 +114,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <AndroidService service={service} />
         ) : slug === 'web-app-development' ? (
           <WebAppService service={service} />
+        ) : slug === 'wordpress-development' ? (
+          <WordPressService service={service} />
         ) : (
           <ServiceExperience service={service} category={currentCategory} />
         )}
