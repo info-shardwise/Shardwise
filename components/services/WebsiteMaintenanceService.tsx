@@ -16,6 +16,7 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
+import { WebsiteMaintenanceCoverage, WebsiteMaintenanceContent } from './WebsiteMaintenanceContent'
 import styles from './WebsiteMaintenanceService.module.css'
 
 export function WebsiteMaintenanceService({ service }: { service: ServiceItem }) {
@@ -47,11 +48,13 @@ export function WebsiteMaintenanceService({ service }: { service: ServiceItem })
                   className={styles.title}
                 />
                 <p className={styles.description} data-reveal="up">
-                  {service.description}
+                  Planned care for WordPress and custom websites: agreed updates, functionality
+                  checks, security review, recovery preparation, and reporting. Define coverage
+                  around your platform and operational needs.
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Discuss your maintenance plan
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -159,6 +162,7 @@ export function WebsiteMaintenanceService({ service }: { service: ServiceItem })
             </div>
           </div>
         </section>
+        <WebsiteMaintenanceCoverage />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -215,6 +219,7 @@ export function WebsiteMaintenanceService({ service }: { service: ServiceItem })
             ))}
           </ol>
         </section>
+        <WebsiteMaintenanceContent />
       </div>
     </HomeMotion>
   )
