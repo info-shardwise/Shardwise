@@ -9,6 +9,7 @@ import { SITE_CONFIG } from '@/lib/seo'
 import { StrategyService } from '@/components/services/StrategyService'
 import { ServiceExperience } from '@/components/services/ServiceExperience'
 import { IosService } from '@/components/services/IosService'
+import { AndroidService } from '@/components/services/AndroidService'
 import { SERVICE_PROFILES } from '@/components/services/serviceProfiles'
 
 interface PageProps {
@@ -107,6 +108,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <BreadcrumbSchema items={breadcrumbs} />
         {slug === 'ios-app-development' ? (
           <IosService service={service} />
+        ) : slug === 'android-app-development' ? (
+          <AndroidService service={service} />
         ) : (
           <ServiceExperience service={service} category={currentCategory} />
         )}
