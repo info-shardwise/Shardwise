@@ -14,6 +14,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './WordPressService.module.css'
+import { WordPressBuildOptions, WordPressContent } from './WordPressContent'
 
 export function WordPressService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['wordpress-development']
@@ -48,7 +49,7 @@ export function WordPressService({ service }: { service: ServiceItem }) {
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Start your WordPress project
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -148,6 +149,7 @@ export function WordPressService({ service }: { service: ServiceItem }) {
             </div>
           </div>
         </section>
+        <WordPressBuildOptions />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -204,6 +206,7 @@ export function WordPressService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <WordPressContent />
       </div>
     </HomeMotion>
   )
