@@ -13,6 +13,7 @@ import { AndroidService } from '@/components/services/AndroidService'
 import { WebAppService } from '@/components/services/WebAppService'
 import { WordPressService } from '@/components/services/WordPressService'
 import { ShopifyService } from '@/components/services/ShopifyService'
+import { CustomWebsiteService } from '@/components/services/CustomWebsiteService'
 import { SERVICE_PROFILES } from '@/components/services/serviceProfiles'
 
 interface PageProps {
@@ -119,6 +120,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <WordPressService service={service} />
         ) : slug === 'shopify-development' ? (
           <ShopifyService service={service} />
+        ) : slug === 'custom-website-development' ? (
+          <CustomWebsiteService service={service} />
         ) : (
           <ServiceExperience service={service} category={currentCategory} />
         )}
