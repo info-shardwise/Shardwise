@@ -13,6 +13,7 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
+import { LogoDesignOptions, LogoDesignContent } from './LogoDesignContent'
 import styles from './LogoDesignService.module.css'
 
 export function LogoDesignService({ service }: { service: ServiceItem }) {
@@ -44,11 +45,13 @@ export function LogoDesignService({ service }: { service: ServiceItem }) {
                   className={styles.title}
                 />
                 <p className={styles.description} data-reveal="up">
-                  {service.description}
+                  Logo design built around your audience, brand character, and practical
+                  applications. Explore a considered mark, useful variants, and an agreed handover
+                  that supports consistent use beyond the first presentation.
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Start your logo project
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -133,6 +136,7 @@ export function LogoDesignService({ service }: { service: ServiceItem }) {
             </div>
           </div>
         </section>
+        <LogoDesignOptions />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -189,6 +193,7 @@ export function LogoDesignService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <LogoDesignContent />
       </div>
     </HomeMotion>
   )
