@@ -15,6 +15,7 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
+import { ProductDesignOptions, ProductDesignContent } from './ProductDesignContent'
 import styles from './ProductDesignService.module.css'
 
 export function ProductDesignService({ service }: { service: ServiceItem }) {
@@ -46,11 +47,13 @@ export function ProductDesignService({ service }: { service: ServiceItem }) {
                   className={styles.title}
                 />
                 <p className={styles.description} data-reveal="up">
-                  {service.description}
+                  UX/UI design for software products, from user workflows and research to considered
+                  screens, prototypes, and design systems. Connect the experience with engineering
+                  constraints and an agreed handoff plan.
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Start your product design project
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -153,6 +156,7 @@ export function ProductDesignService({ service }: { service: ServiceItem }) {
             </div>
           </div>
         </section>
+        <ProductDesignOptions />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -209,6 +213,7 @@ export function ProductDesignService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <ProductDesignContent />
       </div>
     </HomeMotion>
   )
