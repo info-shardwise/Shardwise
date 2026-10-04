@@ -31,9 +31,13 @@ function formatDate(date: string) {
 export function EditorialBlogCard({
   post,
   featured = false,
+  idPrefix = 'post',
+  reveal = true,
 }: {
   post: BlogPostMeta
   featured?: boolean
+  idPrefix?: string
+  reveal?: boolean
 }) {
   const photo = photoFor(post)
   const Heading = featured ? 'h2' : 'h3'
@@ -46,8 +50,8 @@ export function EditorialBlogCard({
   return (
     <article
       className={styles.card + (featured ? ' ' + styles.featured : '')}
-      aria-labelledby={'post-' + post.slug}
-      data-reveal="up"
+      aria-labelledby={idPrefix + '-' + post.slug}
+      data-reveal={reveal ? 'up' : undefined}
     >
       <div className={styles.media}>
         <Image
@@ -70,7 +74,7 @@ export function EditorialBlogCard({
             <span key={tag}>{tag}</span>
           ))}
         </div>
-        <Heading id={'post-' + post.slug}>
+        <Heading id={idPrefix + '-' + post.slug}>
           <Link href={'/blogs/' + post.slug}>{post.title}</Link>
         </Heading>
         <p className={styles.excerpt}>{post.description}</p>
