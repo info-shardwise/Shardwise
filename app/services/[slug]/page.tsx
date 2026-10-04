@@ -8,6 +8,7 @@ import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/JsonLd'
 import { SITE_CONFIG } from '@/lib/seo'
 import { StrategyService } from '@/components/services/StrategyService'
 import { ServiceExperience } from '@/components/services/ServiceExperience'
+import { IosService } from '@/components/services/IosService'
 import { SERVICE_PROFILES } from '@/components/services/serviceProfiles'
 
 interface PageProps {
@@ -104,7 +105,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           url={fullUrl}
         />
         <BreadcrumbSchema items={breadcrumbs} />
-        <ServiceExperience service={service} category={currentCategory} />
+        {slug === 'ios-app-development' ? (
+          <IosService service={service} />
+        ) : (
+          <ServiceExperience service={service} category={currentCategory} />
+        )}
       </>
     )
   }
