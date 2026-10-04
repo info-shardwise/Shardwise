@@ -17,6 +17,7 @@ import { CustomWebsiteService } from '@/components/services/CustomWebsiteService
 import { WebsiteMaintenanceService } from '@/components/services/WebsiteMaintenanceService'
 import { ShopifyMaintenanceService } from '@/components/services/ShopifyMaintenanceService'
 import { WooCommerceMaintenanceService } from '@/components/services/WooCommerceMaintenanceService'
+import { AppDesignService } from '@/components/services/AppDesignService'
 import { WebsiteDesignService } from '@/components/services/WebsiteDesignService'
 import { ProductDesignService } from '@/components/services/ProductDesignService'
 import { LogoDesignService } from '@/components/services/LogoDesignService'
@@ -134,6 +135,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <ShopifyMaintenanceService service={service} />
         ) : slug === 'woocommerce-maintenance' ? (
           <WooCommerceMaintenanceService service={service} />
+        ) : slug === 'app-design' ? (
+          <AppDesignService service={service} />
         ) : slug === 'website-design' ? (
           <WebsiteDesignService service={service} />
         ) : slug === 'product-design' ? (
