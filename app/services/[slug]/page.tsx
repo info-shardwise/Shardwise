@@ -14,6 +14,7 @@ import { WebAppService } from '@/components/services/WebAppService'
 import { WordPressService } from '@/components/services/WordPressService'
 import { ShopifyService } from '@/components/services/ShopifyService'
 import { CustomWebsiteService } from '@/components/services/CustomWebsiteService'
+import { WebsiteMaintenanceService } from '@/components/services/WebsiteMaintenanceService'
 import { SERVICE_PROFILES } from '@/components/services/serviceProfiles'
 
 interface PageProps {
@@ -122,6 +123,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           <ShopifyService service={service} />
         ) : slug === 'custom-website-development' ? (
           <CustomWebsiteService service={service} />
+        ) : slug === 'website-maintenance' ? (
+          <WebsiteMaintenanceService service={service} />
         ) : (
           <ServiceExperience service={service} category={currentCategory} />
         )}
