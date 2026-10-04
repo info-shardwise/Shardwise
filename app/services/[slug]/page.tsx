@@ -21,6 +21,7 @@ import { AppDesignService } from '@/components/services/AppDesignService'
 import { WebsiteDesignService } from '@/components/services/WebsiteDesignService'
 import { ProductDesignService } from '@/components/services/ProductDesignService'
 import { LogoDesignService } from '@/components/services/LogoDesignService'
+import { TechnicalSeoService } from '@/components/services/TechnicalSeoService'
 import { SERVICE_PROFILES } from '@/components/services/serviceProfiles'
 
 interface PageProps {
@@ -114,29 +115,33 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           name={service.name}
           description={service.description}
           category={
-            slug === 'web-app-development'
-              ? 'Web Application Development'
-              : [
-                    'ios-app-development',
-                    'android-app-development',
-                    'wordpress-development',
-                    'shopify-development',
-                    'custom-website-development',
-                    'website-maintenance',
-                    'shopify-store-maintenance',
-                    'woocommerce-maintenance',
-                    'logo-design',
-                    'product-design',
-                    'website-design',
-                    'app-design',
-                  ].includes(slug)
-                ? service.name
-                : currentCategory.name
+            slug === 'technical-onpage-seo'
+              ? 'Technical SEO'
+              : slug === 'web-app-development'
+                ? 'Web Application Development'
+                : [
+                      'ios-app-development',
+                      'android-app-development',
+                      'wordpress-development',
+                      'shopify-development',
+                      'custom-website-development',
+                      'website-maintenance',
+                      'shopify-store-maintenance',
+                      'woocommerce-maintenance',
+                      'logo-design',
+                      'product-design',
+                      'website-design',
+                      'app-design',
+                    ].includes(slug)
+                  ? service.name
+                  : currentCategory.name
           }
           url={fullUrl}
         />
         <BreadcrumbSchema items={breadcrumbs} />
-        {slug === 'ios-app-development' ? (
+        {slug === 'technical-onpage-seo' ? (
+          <TechnicalSeoService service={service} />
+        ) : slug === 'ios-app-development' ? (
           <IosService service={service} />
         ) : slug === 'android-app-development' ? (
           <AndroidService service={service} />
