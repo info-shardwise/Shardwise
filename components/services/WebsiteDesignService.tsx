@@ -16,6 +16,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './WebsiteDesignService.module.css'
+import { WebsiteDesignOptions, WebsiteDesignContent } from './WebsiteDesignContent'
 
 export function WebsiteDesignService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['website-design']
@@ -46,11 +47,13 @@ export function WebsiteDesignService({ service }: { service: ServiceItem }) {
                   className={styles.title}
                 />
                 <p className={styles.description} data-reveal="up">
-                  {service.description}
+                  Responsive website UX and visual design for marketing, content, and ecommerce
+                  journeys. Connect your brand with clear navigation, useful page layouts, and a
+                  practical developer handoff.
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Start your website design project
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -190,6 +193,7 @@ export function WebsiteDesignService({ service }: { service: ServiceItem }) {
             </div>
           </div>
         </section>
+        <WebsiteDesignOptions />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -229,8 +233,8 @@ export function WebsiteDesignService({ service }: { service: ServiceItem }) {
               className={styles.sectionTitle}
             />
             <p>
-              A clear scope, a considered implementation, and the information your team needs for
-              the next step.
+              A clear design scope, documented layouts, and the information your team needs for the
+              next step.
             </p>
             <span className={styles.deliveryMark} aria-hidden="true">
               <Layers />
@@ -246,6 +250,7 @@ export function WebsiteDesignService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <WebsiteDesignContent />
       </div>
     </HomeMotion>
   )
