@@ -6,7 +6,7 @@ import { SERVICE_CATEGORIES, type ServiceItem, type ServiceCategory } from '@/li
 import { Button } from '@/components/ui/Button'
 import { ServiceSchema, BreadcrumbSchema } from '@/components/seo/JsonLd'
 import { SITE_CONFIG } from '@/lib/seo'
-import { StrategyService } from '@/components/services/StrategyService'
+import { GeoService } from '@/components/services/GeoService'
 import { ServiceExperience } from '@/components/services/ServiceExperience'
 import { IosService } from '@/components/services/IosService'
 import { AndroidService } from '@/components/services/AndroidService'
@@ -117,11 +117,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         <ServiceSchema
           name={service.name}
           description={service.description}
-          category={currentCategory.name}
+          category="Generative Engine Optimization"
           url={fullUrl}
         />
         <BreadcrumbSchema items={breadcrumbs} />
-        <StrategyService service={service} />
+        <GeoService service={service} />
       </>
     )
   }
