@@ -16,6 +16,14 @@ import {
 import { SERVICE_CATEGORIES } from '@/lib/services'
 import { HomeMotion } from './HomeMotion'
 import { RevealHeading } from './RevealHeading'
+import {
+  HomeProjectConcepts,
+  HomeProblems,
+  HomeAboutPreview,
+  HomeTechnology,
+  HomeInsights,
+  HomeFaq,
+} from './HomeContent'
 import { ProcessSteps } from './ProcessSteps'
 import { MetricValue } from './MetricValue'
 import styles from './Homepage.module.css'
@@ -206,6 +214,7 @@ export function Homepage() {
           ))}
         </div>
       </div>
+      <HomeProblems />
       <section className={styles.services} aria-labelledby="services-title">
         <div className={styles.sectionIntro}>
           <span className={styles.kicker} data-reveal="up">
@@ -258,6 +267,7 @@ export function Homepage() {
           })}
         </div>
       </section>
+      <HomeProjectConcepts />
       <section className={styles.process} aria-labelledby="process-title">
         <div className={styles.sectionIntro}>
           <span className={styles.kicker} data-reveal="up">
@@ -292,6 +302,10 @@ export function Homepage() {
           </div>
         </div>
       </section>
+      <HomeAboutPreview />
+      <HomeTechnology />
+      <HomeInsights />
+      <HomeFaq />
     </HomeMotion>
   )
 }
