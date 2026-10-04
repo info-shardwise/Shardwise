@@ -16,6 +16,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './IosService.module.css'
+import { IosBuildOptions, IosContent } from './IosContent'
 
 export function IosService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['ios-app-development']
@@ -50,7 +51,7 @@ export function IosService({ service }: { service: ServiceItem }) {
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Start your iOS project
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -132,6 +133,7 @@ export function IosService({ service }: { service: ServiceItem }) {
             </div>
           </div>
         </section>
+        <IosBuildOptions />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -188,6 +190,7 @@ export function IosService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <IosContent />
       </div>
     </HomeMotion>
   )
