@@ -18,6 +18,10 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
+import {
+  WooCommerceMaintenanceCoverage,
+  WooCommerceMaintenanceContent,
+} from './WooCommerceMaintenanceContent'
 import styles from './WooCommerceMaintenanceService.module.css'
 
 export function WooCommerceMaintenanceService({ service }: { service: ServiceItem }) {
@@ -49,11 +53,13 @@ export function WooCommerceMaintenanceService({ service }: { service: ServiceIte
                   className={styles.title}
                 />
                 <p className={styles.description} data-reveal="up">
-                  {service.description}
+                  Planned WooCommerce care across WordPress, hosting, extensions, and checkout.
+                  Scope updates, performance review, security safeguards, order-safe recovery, and
+                  reporting around the workflows your store relies on.
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Discuss your WooCommerce care plan
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -169,6 +175,7 @@ export function WooCommerceMaintenanceService({ service }: { service: ServiceIte
             </div>
           </div>
         </section>
+        <WooCommerceMaintenanceCoverage />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -225,6 +232,7 @@ export function WooCommerceMaintenanceService({ service }: { service: ServiceIte
             ))}
           </ol>
         </section>
+        <WooCommerceMaintenanceContent />
       </div>
     </HomeMotion>
   )
