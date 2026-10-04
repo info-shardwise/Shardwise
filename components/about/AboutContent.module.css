@@ -1,0 +1,250 @@
+.section,
+.culture {
+  max-width: 1160px;
+  margin: auto;
+  padding: 65px 24px;
+}
+.heading {
+  max-width: 730px;
+  margin-bottom: 26px;
+}
+.heading > span {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #998ca8;
+}
+.heading .title {
+  font-size: clamp(32px, 3.6vw, 46px);
+  line-height: 1.15;
+  letter-spacing: -0.045em;
+  font-weight: 550;
+  margin-top: 16px;
+}
+.story {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 75px;
+  max-width: 1160px;
+  margin: auto;
+  padding: 80px 24px 50px;
+}
+.storyMark {
+  display: inline-flex;
+  margin-top: 25px;
+  padding: 28px;
+  border-radius: 24px;
+  background: #f0eaff;
+  color: var(--purple);
+}
+.storyMark svg {
+  width: 55px;
+  height: 55px;
+}
+.prose p,
+.mission > p,
+.intro,
+.card p,
+.difference p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.prose p {
+  margin-bottom: 20px;
+}
+.prose a,
+.card a {
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--purple);
+  margin-top: 25px;
+}
+.prose svg,
+.card a svg {
+  width: 17px;
+  height: 17px;
+}
+.mission {
+  max-width: 1112px;
+  margin: 35px auto 0;
+  padding: 45px 50px;
+  border-radius: 27px;
+  background: linear-gradient(120deg, #f1ebff, #eff7ff);
+}
+.mission > p {
+  max-width: 850px;
+}
+.intro {
+  max-width: 800px;
+  margin-bottom: 30px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.card {
+  background: #faf8fd;
+  border: 1px solid #eee7f5;
+  border-radius: 22px;
+  padding: 30px;
+}
+.card > svg {
+  width: 27px;
+  height: 27px;
+  color: var(--purple);
+  margin-bottom: 25px;
+}
+.card h3,
+.difference h3 {
+  font-size: 22px;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+  font-weight: 550;
+  margin-bottom: 15px;
+}
+.card:hover {
+  background: #f2ecfc;
+  box-shadow: 0 12px 30px #5037770a;
+}
+.card a:hover svg,
+.prose a:hover svg {
+  transform: translate(3px, -3px);
+}
+.differenceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.difference {
+  position: relative;
+  padding: 30px;
+  border: 1px solid #e9e3f0;
+  border-radius: 22px;
+  background: white;
+}
+.difference > span {
+  display: block;
+  font-size: 10px;
+  color: #b6a8c6;
+  margin-bottom: 26px;
+}
+.difference > svg {
+  position: absolute;
+  right: 30px;
+  top: 28px;
+  color: #9c80c9;
+  width: 23px;
+  height: 23px;
+}
+.difference:hover {
+  background: #f8f5fd;
+  border-color: #d9cbea;
+}
+.photos {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 22px;
+}
+.photos img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 22px;
+}
+.photos figcaption,
+.note {
+  font-size: 10px;
+  line-height: 1.7;
+  color: #9d90aa;
+  margin-top: 12px;
+}
+.note {
+  margin-top: 20px;
+}
+.next {
+  max-width: 1112px;
+  margin: 35px auto;
+  padding: 40px 45px;
+  border: 1px solid #ece5f4;
+  background: #faf8fe;
+  border-radius: 25px;
+}
+.next > div:last-child {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.next a {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #dfd4f2;
+  padding: 15px 20px;
+  border-radius: 30px;
+  color: var(--purple);
+  font-size: 12px;
+}
+.next a svg {
+  width: 16px;
+  height: 16px;
+}
+.next a:hover {
+  background: var(--purple);
+  color: white;
+  border-color: var(--purple);
+}
+@media (max-width: 900px) {
+  .story {
+    gap: 35px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .mission,
+  .next {
+    margin: 30px 24px;
+    padding: 35px;
+  }
+  .photos img {
+    height: 270px;
+  }
+}
+@media (max-width: 600px) {
+  .section,
+  .culture {
+    padding: 45px 24px;
+  }
+  .story {
+    grid-template-columns: 1fr;
+    padding: 50px 24px 20px;
+    gap: 20px;
+  }
+  .storyMark {
+    display: none;
+  }
+  .heading .title {
+    font-size: 32px;
+  }
+  .mission,
+  .next {
+    padding: 28px 24px;
+  }
+  .differenceGrid,
+  .photos {
+    grid-template-columns: 1fr;
+  }
+  .card,
+  .difference {
+    padding: 25px;
+  }
+  .photos img {
+    height: 250px;
+  }
+  .next a {
+    width: 100%;
+    justify-content: space-between;
+  }
+}

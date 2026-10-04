@@ -4,6 +4,15 @@ import Link from 'next/link'
 import { ArrowUpRight, Gauge, Code2, TrendingUp, MessagesSquare, Sparkles } from 'lucide-react'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
+import {
+  AboutStory,
+  AboutMission,
+  AboutRoles,
+  AboutDifference,
+  AboutCulture,
+  AboutNextSteps,
+} from '@/components/about/AboutContent'
+import { JsonLd, BreadcrumbSchema } from '@/components/seo/JsonLd'
 import styles from '@/components/about/About.module.css'
 
 export const metadata: Metadata = {
@@ -36,6 +45,25 @@ export default function AboutPage() {
   return (
     <HomeMotion>
       <div className={styles.about}>
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'AboutPage',
+            name: 'About Shardwise',
+            url: 'https://shardwise.pages.dev/about/',
+            about: {
+              '@type': 'Organization',
+              name: 'Shardwise',
+              url: 'https://shardwise.pages.dev/',
+            },
+          }}
+        />
+        <BreadcrumbSchema
+          items={[
+            { name: 'Home', url: 'https://shardwise.pages.dev/' },
+            { name: 'About', url: 'https://shardwise.pages.dev/about/' },
+          ]}
+        />
         <section className={styles.hero} aria-labelledby="about-title">
           <div className={styles.glow} aria-hidden="true" />
           <div className={styles.copy}>
@@ -83,6 +111,8 @@ export default function AboutPage() {
             <span className={styles.orbit} aria-hidden="true" />
           </div>
         </section>
+        <AboutStory />
+        <AboutMission />
         <section className={styles.principles} aria-labelledby="principles-title">
           <div className={styles.sectionHead}>
             <span className={styles.eyebrow} data-reveal="up">
@@ -109,6 +139,10 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+        <AboutRoles />
+        <AboutDifference />
+        <AboutCulture />
+        <AboutNextSteps />
         <section className={styles.contact} aria-labelledby="together-title" data-reveal="up">
           <div className={styles.contactDecoration} aria-hidden="true" />
           <div>
