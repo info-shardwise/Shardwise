@@ -186,7 +186,7 @@
   --accent: #6546e9;
   --tint: #f0eaff;
   --surface: #faf8ff;
-  scroll-margin-top: 110px;
+  scroll-margin-top: 170px;
   padding: 40px 0 48px;
   border-top: 1px solid #eae5f1;
 }
@@ -494,4 +494,18 @@
   .category h2 {
     font-size: 25px;
   }
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 25px;
+}
+.tools span {
+  font-size: 11px;
+  padding: 8px 12px;
+  background: var(--tint);
+  color: var(--accent);
+  border-radius: 30px;
 }

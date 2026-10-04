@@ -27,6 +27,12 @@ import {
 import { SERVICE_CATEGORIES } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
+import { ServicesNavigation } from '@/components/services/ServicesNavigation'
+import {
+  ServicesContent,
+  CATEGORY_TOOLS,
+  SERVICES_FAQS,
+} from '@/components/services/ServicesContent'
 import styles from '@/components/services/ServicesCatalog.module.css'
 export const metadata: Metadata = {
   title: 'Services Catalog',
@@ -103,6 +109,7 @@ export default function ServicesPage() {
             </nav>
           </div>
         </section>
+        <ServicesNavigation />
         <div className={styles.catalogIntro}>
           <span>OUR EXPERTISE</span>
           <p>From the first idea to what comes next.</p>
@@ -134,6 +141,11 @@ export default function ServicesPage() {
                     Discuss {category.name}
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
+                </div>
+                <div className={styles.tools} aria-label={category.name + ' capabilities'}>
+                  {CATEGORY_TOOLS[category.id]?.map((tool) => (
+                    <span key={tool}>{tool}</span>
+                  ))}
                 </div>
                 <div className={styles.grid}>
                   {category.services.map((service, serviceIndex) => {
@@ -168,6 +180,51 @@ export default function ServicesPage() {
             )
           })}
         </div>
+        <ServicesContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@graph': [
+                {
+                  '@type': 'BreadcrumbList',
+                  itemListElement: [
+                    {
+                      '@type': 'ListItem',
+                      position: 1,
+                      name: 'Home',
+                      item: 'https://shardwise.pages.dev/',
+                    },
+                    {
+                      '@type': 'ListItem',
+                      position: 2,
+                      name: 'Services',
+                      item: 'https://shardwise.pages.dev/services/',
+                    },
+                  ],
+                },
+                {
+                  '@type': 'ItemList',
+                  itemListElement: SERVICE_CATEGORIES.flatMap((c) => c.services).map((s, i) => ({
+                    '@type': 'ListItem',
+                    position: i + 1,
+                    name: s.name,
+                    url: 'https://shardwise.pages.dev' + s.href + '/',
+                  })),
+                },
+                {
+                  '@type': 'FAQPage',
+                  mainEntity: SERVICES_FAQS.map((f) => ({
+                    '@type': 'Question',
+                    name: f.q,
+                    acceptedAnswer: { '@type': 'Answer', text: f.a },
+                  })),
+                },
+              ],
+            }).replace(/</g, '\u003c'),
+          }}
+        />
       </div>
     </HomeMotion>
   )

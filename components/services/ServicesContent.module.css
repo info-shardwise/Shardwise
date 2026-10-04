@@ -1,0 +1,367 @@
+.navigation {
+  position: sticky;
+  top: 88px;
+  z-index: 20;
+  background: #fffffff2;
+  border-bottom: 1px solid #eae5f1;
+  backdrop-filter: blur(14px);
+}
+.navigation > div {
+  max-width: 1208px;
+  margin: auto;
+  padding: 12px 24px;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+.navigation a {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  color: #646171;
+  font-size: 13px;
+}
+.navigation a span {
+  font-size: 10px;
+  color: #91899e;
+}
+.navigation a:hover,
+.navigation a[aria-current] {
+  background: #f0eaff;
+  color: #6546e9;
+}
+.navigation a:focus-visible,
+.content a:focus-visible,
+.faq summary:focus-visible {
+  outline: 3px solid #b49aed;
+  outline-offset: 3px;
+}
+.content {
+  max-width: 1208px;
+  margin: auto;
+  padding: 0 24px;
+}
+.section {
+  padding: 86px 0;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #716680;
+}
+.heading {
+  font-size: clamp(30px, 3.2vw, 43px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+  margin: 17px 0;
+}
+.lead {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+  max-width: 710px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 34px;
+}
+.card,
+.example {
+  padding: 30px;
+  border: 1px solid #e8e2ee;
+  border-radius: 22px;
+  background: #faf8ff;
+}
+.card:hover,
+.example:hover {
+  border-color: #c2b0ef;
+  box-shadow: 0 16px 35px #3020490c;
+}
+.icon {
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #eee7ff;
+  color: var(--purple);
+  margin-bottom: 24px;
+}
+.card h3,
+.example h3 {
+  font-size: 22px;
+  letter-spacing: -0.035em;
+  line-height: 1.35;
+  font-weight: 600;
+}
+.card strong {
+  display: block;
+  font-size: 12px;
+  color: #6546e9;
+  margin: 12px 0;
+}
+.card p,
+.example p,
+.process p,
+.proofNote p,
+.faq details p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.85;
+}
+.card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 24px;
+  display: grid;
+  gap: 13px;
+}
+.card li {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #514760;
+}
+.card li svg {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  color: #6546e9;
+  margin-top: 3px;
+}
+.process {
+  padding: 48px;
+  border-radius: 28px;
+  background: #f5f2fc;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 70px;
+}
+.process ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.process li {
+  display: flex;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid #e2daee;
+}
+.process li:first-child {
+  padding-top: 0;
+}
+.process li:last-child {
+  border: 0;
+  padding-bottom: 0;
+}
+.process li > span {
+  color: #6546e9;
+  font-size: 13px;
+  margin-top: 5px;
+}
+.process h3 {
+  font-size: 20px;
+  font-weight: 550;
+  margin-bottom: 10px;
+}
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #6546e9;
+  font-size: 12px;
+  margin-top: 22px;
+}
+.textLink svg {
+  width: 17px;
+  height: 17px;
+}
+.textLink:hover {
+  color: #382080;
+}
+.textLink:hover svg,
+.cta a:hover svg {
+  transform: translate(2px, -2px);
+}
+.example {
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.example > span {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #847493;
+  margin-bottom: 20px;
+}
+.example p {
+  margin-top: 16px;
+}
+.example a {
+  margin-top: auto;
+  padding-top: 22px;
+}
+.proofNote {
+  border-top: 1px solid #e8e2ee;
+  border-bottom: 1px solid #e8e2ee;
+  padding: 32px 0;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 14px 50px;
+}
+.proofNote h2 {
+  font-size: 24px;
+  letter-spacing: -0.035em;
+  margin-top: 12px;
+}
+.proofNote > a {
+  grid-column: 2;
+  margin-top: 0;
+}
+.faq {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 70px;
+  padding: 86px 0;
+}
+.faq details {
+  border-bottom: 1px solid #e8e2ee;
+}
+.faq summary {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px 0;
+  font-size: 15px;
+  font-weight: 500;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+.faq summary svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  color: #6546e9;
+}
+.faq summary:hover {
+  color: #6546e9;
+}
+.faq details[open] summary svg {
+  transform: rotate(45deg);
+}
+.faq details p {
+  padding: 0 32px 24px 0;
+}
+.cta {
+  text-align: center;
+  background: #efe9ff;
+  border-radius: 28px;
+  padding: 55px 24px;
+}
+.cta h2 {
+  font-size: clamp(30px, 4vw, 47px);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1.2;
+  margin: 20px 0;
+}
+.cta p {
+  max-width: 570px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  background: #6546e9;
+  color: #fff;
+  border-radius: 12px;
+  padding: 16px 22px;
+  margin-top: 27px;
+  font-size: 13px;
+}
+.cta a:hover {
+  background: #4930bf;
+  box-shadow: 0 12px 25px #6546e933;
+}
+.cta svg {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 1000px) {
+  .grid {
+    gap: 14px;
+  }
+  .card,
+  .example {
+    padding: 24px;
+  }
+  .process,
+  .faq {
+    gap: 35px;
+  }
+  .process {
+    padding: 32px;
+  }
+}
+@media (max-width: 760px) {
+  .navigation {
+    top: 76px;
+  }
+  .navigation > div {
+    padding: 10px 16px;
+    gap: 4px;
+  }
+  .navigation a {
+    padding: 10px 12px;
+    gap: 10px;
+    font-size: 12px;
+  }
+  .section {
+    padding: 56px 0;
+  }
+  .grid,
+  .process,
+  .faq,
+  .proofNote {
+    grid-template-columns: 1fr;
+  }
+  .grid {
+    gap: 16px;
+  }
+  .process {
+    padding: 28px 22px;
+    gap: 30px;
+  }
+  .faq {
+    padding: 56px 0;
+    gap: 22px;
+  }
+  .proofNote {
+    gap: 22px;
+  }
+  .proofNote > a {
+    grid-column: auto;
+  }
+  .cta {
+    padding: 38px 22px;
+  }
+  .card,
+  .example {
+    padding: 27px;
+  }
+}
