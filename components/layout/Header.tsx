@@ -15,7 +15,8 @@ export function Header() {
     ['/about', '/contact', '/blogs', '/services', '/terms', '/privacy-policy'].includes(
       pathname.replace(/\/$/, ''),
     ) ||
-    pathname.startsWith('/services/')
+    pathname.startsWith('/services/') ||
+    pathname.startsWith('/blogs/')
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false)
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {

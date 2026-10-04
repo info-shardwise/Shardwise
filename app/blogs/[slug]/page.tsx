@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getAllPosts, getPostBySlug } from '@/lib/mdx'
 import { mdxComponents } from '@/components/blog/MDXComponents'
-import { TagBadge } from '@/components/blog/TagBadge'
-import { ArrowLeft, Calendar, Clock, User } from 'lucide-react'
+import { HomeMotion } from '@/components/home/HomeMotion'
+import styles from '@/components/blog/ArticleLayout.module.css'
+import { ArrowLeft, ArrowUpRight, Calendar, Clock, User } from 'lucide-react'
 import { ArticleSchema, BreadcrumbSchema } from '@/components/seo/JsonLd'
 import { SITE_CONFIG } from '@/lib/seo'
 
@@ -47,6 +48,9 @@ export default async function BlogPostPage({ params }: PageProps) {
     { name: post.meta.title, url: fullUrl },
   ]
 
+  const related = getAllPosts()
+    .filter((item) => item.slug !== post.meta.slug)
+    .slice(0, 2)
   return (
     <>
       <ArticleSchema
@@ -57,54 +61,81 @@ export default async function BlogPostPage({ params }: PageProps) {
         authorName={post.meta.author.name}
       />
       <BreadcrumbSchema items={breadcrumbs} />
-      <article className="py-16">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          {/* Back navigation */}
-          <Link
-            href="/blogs"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#11C5F5] hover:underline mb-8"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" /> Back to all articles
-          </Link>
-
-          {/* Post Header */}
-          <header className="border-b border-white/10 pb-8 mb-10">
-            <div className="flex flex-wrap gap-2 mb-4">
-              {post.meta.tags.map((tag) => (
-                <TagBadge key={tag} tag={tag} />
-              ))}
-            </div>
-
-            <h1 className="font-display text-4xl sm:text-5xl uppercase tracking-tight text-white leading-tight">
-              {post.meta.title}
-            </h1>
-
-            <p className="mt-4 text-lg text-slate-300 leading-relaxed">{post.meta.description}</p>
-
-            <div className="mt-6 flex flex-wrap items-center justify-between gap-4 text-xs text-slate-400 pt-6 border-t border-white/5">
-              <div className="flex items-center gap-2">
-                <User className="h-4 w-4 text-[#11C5F5]" />
-                <span className="font-medium text-white">{post.meta.author.name}</span>
-                <span>•</span>
-                <span>{post.meta.author.role}</span>
+      <HomeMotion>
+        <article className={styles.page}>
+          <header className={styles.hero}>
+            <div className={styles.headerInner}>
+              <Link href="/blogs/" className={styles.back}>
+                <ArrowLeft aria-hidden="true" />
+                Back to all articles
+              </Link>
+              <div className={styles.tags}>
+                {post.meta.tags.map((tag) => (
+                  <span key={tag}>{tag}</span>
+                ))}
               </div>
-              <div className="flex items-center gap-4">
-                <span className="flex items-center gap-1">
-                  <Calendar className="h-3.5 w-3.5" /> {post.meta.date}
-                </span>
-                <span className="flex items-center gap-1">
-                  <Clock className="h-3.5 w-3.5" /> {post.meta.readingTime}
-                </span>
+              <h1 className={styles.title}>{post.meta.title}</h1>
+              <p className={styles.description}>{post.meta.description}</p>
+              <div className={styles.meta}>
+                <div className={styles.author}>
+                  <span className={styles.avatar}>
+                    <User aria-hidden="true" />
+                  </span>
+                  <div>
+                    <strong>{post.meta.author.name}</strong>
+                    <small>{post.meta.author.role}</small>
+                  </div>
+                </div>
+                <div className={styles.time}>
+                  <span>
+                    <Calendar aria-hidden="true" />
+                    <time dateTime={post.meta.date}>{post.meta.date}</time>
+                  </span>
+                  <span>
+                    <Clock aria-hidden="true" />
+                    {post.meta.readingTime}
+                  </span>
+                </div>
               </div>
             </div>
           </header>
-
-          {/* Rendered MDX Body */}
-          <div className="prose prose-invert max-w-none">
-            <MDXRemote source={post.content} components={mdxComponents} />
+          <div className={styles.reading}>
+            <div className={styles.body}>
+              <MDXRemote source={post.content} components={mdxComponents} />
+            </div>
+            <nav className={styles.end} aria-label="Article navigation">
+              <Link href="/blogs/">
+                Explore more insights
+                <ArrowUpRight aria-hidden="true" />
+              </Link>
+            </nav>
           </div>
-        </div>
-      </article>
+          {related.length > 0 && (
+            <section className={styles.related} aria-labelledby="related-title">
+              <h2 id="related-title">Keep exploring</h2>
+              <div className={styles.relatedGrid}>
+                {related.map((item) => (
+                  <Link
+                    key={item.slug}
+                    className={styles.relatedCard}
+                    href={'/blogs/' + item.slug + '/'}
+                  >
+                    <span>
+                      {item.tags[0] || 'Insights'} · {item.readingTime}
+                    </span>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                    <strong>
+                      Read article
+                      <ArrowUpRight aria-hidden="true" />
+                    </strong>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
+        </article>
+      </HomeMotion>
     </>
   )
 }
