@@ -21,6 +21,7 @@ import { AppDesignService } from '@/components/services/AppDesignService'
 import { WebsiteDesignService } from '@/components/services/WebsiteDesignService'
 import { ProductDesignService } from '@/components/services/ProductDesignService'
 import { LogoDesignService } from '@/components/services/LogoDesignService'
+import { AsoService } from '@/components/services/AsoService'
 import { ContentStrategyService } from '@/components/services/ContentStrategyService'
 import { LocalSeoService } from '@/components/services/LocalSeoService'
 import { TechnicalSeoService } from '@/components/services/TechnicalSeoService'
@@ -131,33 +132,37 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           name={service.name}
           description={service.description}
           category={
-            slug === 'local-google-business-seo'
-              ? 'Local SEO'
-              : slug === 'technical-onpage-seo'
-                ? 'Technical SEO'
-                : slug === 'web-app-development'
-                  ? 'Web Application Development'
-                  : [
-                        'ios-app-development',
-                        'android-app-development',
-                        'wordpress-development',
-                        'shopify-development',
-                        'custom-website-development',
-                        'website-maintenance',
-                        'shopify-store-maintenance',
-                        'woocommerce-maintenance',
-                        'logo-design',
-                        'product-design',
-                        'website-design',
-                        'app-design',
-                      ].includes(slug)
-                    ? service.name
-                    : currentCategory.name
+            slug === 'app-store-optimization'
+              ? 'App Store Optimization'
+              : slug === 'local-google-business-seo'
+                ? 'Local SEO'
+                : slug === 'technical-onpage-seo'
+                  ? 'Technical SEO'
+                  : slug === 'web-app-development'
+                    ? 'Web Application Development'
+                    : [
+                          'ios-app-development',
+                          'android-app-development',
+                          'wordpress-development',
+                          'shopify-development',
+                          'custom-website-development',
+                          'website-maintenance',
+                          'shopify-store-maintenance',
+                          'woocommerce-maintenance',
+                          'logo-design',
+                          'product-design',
+                          'website-design',
+                          'app-design',
+                        ].includes(slug)
+                      ? service.name
+                      : currentCategory.name
           }
           url={fullUrl}
         />
         <BreadcrumbSchema items={breadcrumbs} />
-        {slug === 'local-google-business-seo' ? (
+        {slug === 'app-store-optimization' ? (
+          <AsoService service={service} />
+        ) : slug === 'local-google-business-seo' ? (
           <LocalSeoService service={service} />
         ) : slug === 'technical-onpage-seo' ? (
           <TechnicalSeoService service={service} />
