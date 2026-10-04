@@ -17,6 +17,7 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
+import { ShopifyMaintenanceCoverage, ShopifyMaintenanceContent } from './ShopifyMaintenanceContent'
 import styles from './ShopifyMaintenanceService.module.css'
 
 export function ShopifyMaintenanceService({ service }: { service: ServiceItem }) {
@@ -48,11 +49,13 @@ export function ShopifyMaintenanceService({ service }: { service: ServiceItem })
                   className={styles.title}
                 />
                 <p className={styles.description} data-reveal="up">
-                  {service.description}
+                  Ongoing Shopify care scoped around your theme, apps, shopping journeys, and
+                  merchandising needs. Review performance, access, recovery preparation, and
+                  reporting with clear responsibilities and agreed support coverage.
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Discuss your Shopify care plan
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -168,6 +171,7 @@ export function ShopifyMaintenanceService({ service }: { service: ServiceItem })
             </div>
           </div>
         </section>
+        <ShopifyMaintenanceCoverage />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -224,6 +228,7 @@ export function ShopifyMaintenanceService({ service }: { service: ServiceItem })
             ))}
           </ol>
         </section>
+        <ShopifyMaintenanceContent />
       </div>
     </HomeMotion>
   )

@@ -123,6 +123,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                     'shopify-development',
                     'custom-website-development',
                     'website-maintenance',
+                    'shopify-store-maintenance',
                   ].includes(slug)
                 ? service.name
                 : currentCategory.name
