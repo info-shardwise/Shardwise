@@ -14,6 +14,7 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
+import { CustomWebsiteBuildOptions, CustomWebsiteContent } from './CustomWebsiteContent'
 import styles from './CustomWebsiteService.module.css'
 
 export function CustomWebsiteService({ service }: { service: ServiceItem }) {
@@ -45,11 +46,13 @@ export function CustomWebsiteService({ service }: { service: ServiceItem }) {
                   className={styles.title}
                 />
                 <p className={styles.description} data-reveal="up">
-                  {service.description}
+                  Bespoke frontends built around your brand, content, and customer journeys. Explore
+                  a headless CMS, considered interactions, and project-specific performance goals
+                  with a clear plan for editing and long-term maintenance.
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Start your custom project
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -164,6 +167,7 @@ export function CustomWebsiteService({ service }: { service: ServiceItem }) {
             </div>
           </div>
         </section>
+        <CustomWebsiteBuildOptions />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -220,6 +224,7 @@ export function CustomWebsiteService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <CustomWebsiteContent />
       </div>
     </HomeMotion>
   )
