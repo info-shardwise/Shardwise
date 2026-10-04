@@ -21,6 +21,7 @@ import { AppDesignService } from '@/components/services/AppDesignService'
 import { WebsiteDesignService } from '@/components/services/WebsiteDesignService'
 import { ProductDesignService } from '@/components/services/ProductDesignService'
 import { LogoDesignService } from '@/components/services/LogoDesignService'
+import { ContentStrategyService } from '@/components/services/ContentStrategyService'
 import { LocalSeoService } from '@/components/services/LocalSeoService'
 import { TechnicalSeoService } from '@/components/services/TechnicalSeoService'
 import { SERVICE_PROFILES } from '@/components/services/serviceProfiles'
@@ -94,7 +95,21 @@ export default async function ServiceDetailPage({ params }: PageProps) {
     { name: service.name, url: fullUrl },
   ]
 
-  if (slug === 'content-keyword-strategy' || slug === 'geo') {
+  if (slug === 'content-keyword-strategy') {
+    return (
+      <>
+        <ServiceSchema
+          name={service.name}
+          description={service.description}
+          category="Content Marketing"
+          url={fullUrl}
+        />
+        <BreadcrumbSchema items={breadcrumbs} />
+        <ContentStrategyService service={service} />
+      </>
+    )
+  }
+  if (slug === 'geo') {
     return (
       <>
         <ServiceSchema
