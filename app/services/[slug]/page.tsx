@@ -114,9 +114,11 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           name={service.name}
           description={service.description}
           category={
-            ['ios-app-development', 'android-app-development'].includes(slug)
-              ? service.name
-              : currentCategory.name
+            slug === 'web-app-development'
+              ? 'Web Application Development'
+              : ['ios-app-development', 'android-app-development'].includes(slug)
+                ? service.name
+                : currentCategory.name
           }
           url={fullUrl}
         />

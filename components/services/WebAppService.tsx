@@ -17,6 +17,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './WebAppService.module.css'
+import { WebAppBuildOptions, WebAppContent } from './WebAppContent'
 
 export function WebAppService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['web-app-development']
@@ -51,7 +52,7 @@ export function WebAppService({ service }: { service: ServiceItem }) {
                 </p>
                 <div className={styles.actions} data-reveal="up">
                   <Link href="/contact" className={styles.primary}>
-                    Inquire About {service.name}
+                    Start your web app project
                     <ArrowUpRight aria-hidden="true" />
                   </Link>
                   <Link href="/services" className={styles.secondary}>
@@ -164,6 +165,7 @@ export function WebAppService({ service }: { service: ServiceItem }) {
             </div>
           </div>
         </section>
+        <WebAppBuildOptions />
         <section className={styles.approach} aria-labelledby="approach-title">
           <div className={styles.sectionHeader}>
             <div>
@@ -220,6 +222,7 @@ export function WebAppService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <WebAppContent />
       </div>
     </HomeMotion>
   )
