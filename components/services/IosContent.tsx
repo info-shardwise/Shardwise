@@ -376,17 +376,22 @@ export function IosContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="ios-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="ios-cta-title">Have an iOS app in mind? Let’s scope it.</h2>
-        <p>
-          Share your audience, core idea, current product if you have one, and any launch
-          constraints. We can start with the decisions that matter most for your first release.
-        </p>
-        <Link href="/contact/">
-          Start your iOS project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function IosProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="ios-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="ios-cta-title">Have an iOS app in mind? Let’s scope it.</h2>
+      <p>
+        Share your audience, core idea, current product if you have one, and any launch constraints.
+        We can start with the decisions that matter most for your first release.
+      </p>
+      <Link href="/contact/">
+        Start your iOS project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

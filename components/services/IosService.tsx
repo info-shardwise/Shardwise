@@ -16,7 +16,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './IosService.module.css'
-import { IosBuildOptions, IosContent } from './IosContent'
+import { IosBuildOptions, IosContent, IosProjectCTA } from './IosContent'
 
 export function IosService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['ios-app-development']
@@ -190,6 +190,7 @@ export function IosService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <IosProjectCTA />
         <IosContent />
       </div>
     </HomeMotion>
