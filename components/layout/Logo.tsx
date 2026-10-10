@@ -6,7 +6,7 @@ interface LogoProps {
   headerWordmark?: boolean
 }
 
-export function Logo({ variant = 'light', className = '', headerWordmark = false }: LogoProps) {
+export function Logo({ variant = 'light', className = '', headerWordmark = true }: LogoProps) {
   const isLight = variant === 'light'
 
   return (
@@ -36,7 +36,9 @@ export function Logo({ variant = 'light', className = '', headerWordmark = false
 
       {/* Wordmark */}
       {headerWordmark ? (
-        <span className="text-[28px] lg:text-[36px] font-semibold tracking-tight text-white">
+        <span
+          className={`font-[family-name:var(--font-inter)] text-[28px] font-semibold tracking-[-0.045em] ${isLight ? 'text-white' : 'text-[#061A3A]'}`}
+        >
           Shardwise
         </span>
       ) : (
