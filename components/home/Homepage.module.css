@@ -851,7 +851,7 @@
 :global(body):has(.page) :global(footer > div:last-child a) {
   color: #756d83;
 }
-:global(body):has(.page) :global(footer a:hover) {
+:global(body):has(.page) :global(footer a:not([data-social-link]):hover) {
   color: #6546e9;
 }
 :global(body):has(.page) :global(footer a[aria-label='Shardwise Home'] > span:last-child) {
@@ -860,7 +860,7 @@
   text-transform: none;
   letter-spacing: -0.045em;
 }
-:global(body):has(.page) :global(footer svg) {
+:global(body):has(.page) :global(footer svg:not([data-social-icon])) {
   color: #8f7bc2;
 }
 :global(body):has(.page) :global(footer a[aria-label='Shardwise Home'] svg) {
