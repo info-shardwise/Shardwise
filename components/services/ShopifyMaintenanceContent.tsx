@@ -421,17 +421,22 @@ export function ShopifyMaintenanceContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="store-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="store-cta-title">Start with the care your Shopify store needs.</h2>
-        <p>
-          Share your store URL, theme, apps, markets, current issues, and important campaign dates.
-          Let’s define practical coverage and the first priorities.
-        </p>
-        <Link href="/contact/">
-          Discuss your Shopify care plan <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function ShopifyMaintenanceProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="store-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="store-cta-title">Start with the care your Shopify store needs.</h2>
+      <p>
+        Share your store URL, theme, apps, markets, current issues, and important campaign dates.
+        Let’s define practical coverage and the first priorities.
+      </p>
+      <Link href="/contact/">
+        Discuss your Shopify care plan <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

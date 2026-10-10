@@ -400,17 +400,22 @@ export function WebsiteMaintenanceContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="care-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="care-cta-title">Start with the care your website actually needs.</h2>
-        <p>
-          Share your website, platform, hosting, current concerns, and important visitor journeys.
-          Let’s define practical coverage, responsibilities, and the first priorities.
-        </p>
-        <Link href="/contact/">
-          Discuss your maintenance plan <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function WebsiteMaintenanceProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="care-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="care-cta-title">Start with the care your website actually needs.</h2>
+      <p>
+        Share your website, platform, hosting, current concerns, and important visitor journeys.
+        Let’s define practical coverage, responsibilities, and the first priorities.
+      </p>
+      <Link href="/contact/">
+        Discuss your maintenance plan <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

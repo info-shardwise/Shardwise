@@ -16,7 +16,11 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
-import { WebsiteMaintenanceCoverage, WebsiteMaintenanceContent } from './WebsiteMaintenanceContent'
+import {
+  WebsiteMaintenanceCoverage,
+  WebsiteMaintenanceContent,
+  WebsiteMaintenanceProjectCTA,
+} from './WebsiteMaintenanceContent'
 import styles from './WebsiteMaintenanceService.module.css'
 
 export function WebsiteMaintenanceService({ service }: { service: ServiceItem }) {
@@ -219,6 +223,7 @@ export function WebsiteMaintenanceService({ service }: { service: ServiceItem })
             ))}
           </ol>
         </section>
+        <WebsiteMaintenanceProjectCTA />
         <WebsiteMaintenanceContent />
       </div>
     </HomeMotion>

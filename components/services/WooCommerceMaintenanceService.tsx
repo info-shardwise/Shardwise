@@ -21,6 +21,7 @@ import { SERVICE_PROFILES } from './serviceProfiles'
 import {
   WooCommerceMaintenanceCoverage,
   WooCommerceMaintenanceContent,
+  WooCommerceMaintenanceProjectCTA,
 } from './WooCommerceMaintenanceContent'
 import styles from './WooCommerceMaintenanceService.module.css'
 
@@ -232,6 +233,7 @@ export function WooCommerceMaintenanceService({ service }: { service: ServiceIte
             ))}
           </ol>
         </section>
+        <WooCommerceMaintenanceProjectCTA />
         <WooCommerceMaintenanceContent />
       </div>
     </HomeMotion>

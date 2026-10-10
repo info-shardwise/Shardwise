@@ -17,7 +17,11 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
-import { ShopifyMaintenanceCoverage, ShopifyMaintenanceContent } from './ShopifyMaintenanceContent'
+import {
+  ShopifyMaintenanceCoverage,
+  ShopifyMaintenanceContent,
+  ShopifyMaintenanceProjectCTA,
+} from './ShopifyMaintenanceContent'
 import styles from './ShopifyMaintenanceService.module.css'
 
 export function ShopifyMaintenanceService({ service }: { service: ServiceItem }) {
@@ -228,6 +232,7 @@ export function ShopifyMaintenanceService({ service }: { service: ServiceItem })
             ))}
           </ol>
         </section>
+        <ShopifyMaintenanceProjectCTA />
         <ShopifyMaintenanceContent />
       </div>
     </HomeMotion>
