@@ -391,18 +391,23 @@ export function AppDesignContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="app-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="app-cta-title">Have an app that needs better design?</h2>
-        <p>
-          Share your app, users, target platforms, important journeys, and current challenges. Let’s
-          define the research, interface design, and developer handoff work that supports your next
-          step.
-        </p>
-        <Link href="/contact/">
-          Start your app design project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function AppDesignProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="app-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="app-cta-title">Have an app that needs better design?</h2>
+      <p>
+        Share your app, users, target platforms, important journeys, and current challenges. Let’s
+        define the research, interface design, and developer handoff work that supports your next
+        step.
+      </p>
+      <Link href="/contact/">
+        Start your app design project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

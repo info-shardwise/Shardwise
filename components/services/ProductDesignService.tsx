@@ -15,7 +15,11 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
-import { ProductDesignOptions, ProductDesignContent } from './ProductDesignContent'
+import {
+  ProductDesignOptions,
+  ProductDesignContent,
+  ProductDesignProjectCTA,
+} from './ProductDesignContent'
 import styles from './ProductDesignService.module.css'
 
 export function ProductDesignService({ service }: { service: ServiceItem }) {
@@ -213,6 +217,7 @@ export function ProductDesignService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <ProductDesignProjectCTA />
         <ProductDesignContent />
       </div>
     </HomeMotion>

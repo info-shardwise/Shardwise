@@ -392,18 +392,23 @@ export function ProductDesignContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="product-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="product-cta-title">Have a software product that needs clearer design?</h2>
-        <p>
-          Share your product, users, important workflows, current challenges, and engineering
-          constraints. Let’s define the research, design, and handoff work that supports your next
-          step.
-        </p>
-        <Link href="/contact/">
-          Start your product design project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function ProductDesignProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="product-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="product-cta-title">Have a software product that needs clearer design?</h2>
+      <p>
+        Share your product, users, important workflows, current challenges, and engineering
+        constraints. Let’s define the research, design, and handoff work that supports your next
+        step.
+      </p>
+      <Link href="/contact/">
+        Start your product design project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

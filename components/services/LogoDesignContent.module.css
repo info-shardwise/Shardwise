@@ -34,14 +34,14 @@
 }
 .card {
   padding: 30px;
-  border: 1px solid #e9e3f2;
+  border: 1px solid #f2e5e3;
   border-radius: 22px;
-  background: #faf9fd;
+  background: #fdfaf9;
 }
 .card:hover {
-  background: #f2edff;
-  border-color: #cbb9ed;
-  box-shadow: 0 12px 30px #6546e90c;
+  background: #ffefed;
+  border-color: #edc0b9;
+  box-shadow: 0 12px 30px #e95c460c;
 }
 .section h3 {
   font-size: 19px;
@@ -56,7 +56,7 @@
   flex-shrink: 0;
   width: 38px;
   height: 38px;
-  background: #eee8ff;
+  background: #ffebe8;
   color: var(--purple);
   border-radius: 12px;
   font-size: 12px;
@@ -69,7 +69,7 @@
 }
 .stack article {
   padding: 25px 0;
-  border-top: 1px solid #e6dfee;
+  border-top: 1px solid #eee1df;
 }
 .stack svg {
   width: 28px;
@@ -80,7 +80,7 @@
 .note {
   padding: 24px 28px;
   border-left: 3px solid var(--purple);
-  background: #f6f3ff;
+  background: #fff5f3;
   border-radius: 0 16px 16px 0;
   margin-top: 25px;
 }
@@ -90,8 +90,8 @@
   margin-bottom: 7px;
 }
 .tint {
-  background: #f7f4fd;
-  border: 1px solid #eee7f7;
+  background: #fdf5f4;
+  border: 1px solid #f7e9e7;
   border-radius: 26px;
   padding: 38px;
 }
@@ -124,7 +124,7 @@
   align-items: flex-start;
   gap: 12px;
   padding: 18px 0;
-  border-bottom: 1px solid #e9e3f2;
+  border-bottom: 1px solid #f2e5e3;
   font-size: 14px;
   line-height: 1.7;
 }
@@ -162,7 +162,7 @@
   max-width: 880px;
 }
 .faq details {
-  border-bottom: 1px solid #e7e1f0;
+  border-bottom: 1px solid #f0e3e1;
 }
 .faq summary {
   list-style: none;
@@ -202,7 +202,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  border: 1px solid #e9e3f2;
+  border: 1px solid #f2e5e3;
   border-radius: 16px;
   padding: 22px;
   font-size: 15px;
@@ -212,9 +212,9 @@
   flex-shrink: 0;
 }
 .related a:hover {
-  background: #f2edff;
+  background: #ffefed;
   color: var(--purple);
-  border-color: #cbb9ed;
+  border-color: #edc0b9;
 }
 .related a:hover svg,
 .textLink:hover svg,
@@ -224,7 +224,7 @@
 .cta {
   text-align: center;
   border-radius: 26px;
-  background: #f1ecff;
+  background: #ffefec;
   padding: 48px 30px;
 }
 .cta p {
@@ -243,15 +243,15 @@
   font-size: 14px;
 }
 .cta a:hover {
-  background: #4c2bd0;
-  box-shadow: 0 12px 25px #6546e933;
+  background: #d0412b;
+  box-shadow: 0 12px 25px #e95c4633;
 }
 .cta svg {
   width: 18px;
 }
 .section a:focus-visible,
 .faq summary:focus-visible {
-  outline: 3px solid #b19aff;
+  outline: 3px solid #ffa79a;
   outline-offset: 4px;
   border-radius: 5px;
 }
@@ -327,4 +327,21 @@
   letter-spacing: -0.045em;
   font-weight: 600;
   margin-top: 15px;
+}
+
+/* Design category palette. */
+.card {
+  background: #fff9f6;
+  border-color: #f0dcd6;
+}
+.card:hover,
+.tint,
+.cta {
+  background: #fceae5;
+}
+.cta a {
+  background: #b65142;
+}
+.cta a:hover {
+  background: #8b3e32;
 }

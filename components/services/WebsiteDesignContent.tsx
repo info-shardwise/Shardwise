@@ -373,17 +373,22 @@ export function WebsiteDesignContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="website-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="website-cta-title">Ready for a clearer, more useful website?</h2>
-        <p>
-          Share your website, audience, goals, platform, content status, and target date. Let’s
-          define the layouts, responsive behavior, and handoff work needed for your next step.
-        </p>
-        <Link href="/contact/">
-          Start your website design project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function WebsiteDesignProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="website-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="website-cta-title">Ready for a clearer, more useful website?</h2>
+      <p>
+        Share your website, audience, goals, platform, content status, and target date. Let’s define
+        the layouts, responsive behavior, and handoff work needed for your next step.
+      </p>
+      <Link href="/contact/">
+        Start your website design project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

@@ -1,5 +1,6 @@
 .page {
-  --app-accent: #8664b3;
+  --purple: #b65142;
+  --app-accent: #b65142;
   background: #fff;
   color: var(--ink);
   padding-bottom: 96px;
@@ -9,8 +10,8 @@
   padding: 30px 28px 70px;
   border-radius: 0 0 36px 36px;
   background:
-    radial-gradient(ellipse at 0 100%, #ece3f5, transparent 60%),
-    radial-gradient(ellipse at 100% 40%, #f8e8e9, transparent 60%), #fcfaff;
+    radial-gradient(ellipse at 0 100%, #f5e5e3, transparent 60%),
+    radial-gradient(ellipse at 100% 40%, #f8eae8, transparent 60%), #fffbfa;
 }
 .inner {
   max-width: 1160px;
@@ -47,11 +48,11 @@
   align-items: center;
   gap: 8px;
   background: #fff9;
-  border: 1px solid #dfd6ee;
+  border: 1px solid #eed9d6;
   padding: 9px 14px;
   border-radius: 30px;
   font-size: 11px;
-  color: #6d5e84;
+  color: #84635e;
 }
 .eyebrow svg {
   width: 15px;
@@ -90,11 +91,11 @@
   background: var(--app-accent);
   color: #fff;
   border-radius: 12px;
-  box-shadow: 0 8px 20px #8664b31a;
+  box-shadow: 0 8px 20px #b36f641a;
 }
 .secondary {
   padding: 12px 0;
-  color: #51466c;
+  color: #6c4b46;
 }
 .actions svg {
   width: 17px;
@@ -102,8 +103,8 @@
   flex-shrink: 0;
 }
 .primary:hover {
-  background: #744835;
-  box-shadow: 0 12px 25px #8664b333;
+  background: #743d35;
+  box-shadow: 0 12px 25px #b36f6433;
 }
 .secondary:hover {
   color: var(--app-accent);
@@ -115,7 +116,7 @@
   background: #ffffffb3;
   border: 1px solid #fff;
   border-radius: 28px;
-  box-shadow: 0 28px 60px #423b6b12;
+  box-shadow: 0 28px 60px #6b413b12;
   overflow: hidden;
 }
 .visualTop {
@@ -123,8 +124,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
-  border-bottom: 1px solid #eee9f5;
-  color: #766b89;
+  border-bottom: 1px solid #f5ebe9;
+  color: #896f6b;
   font-size: 11px;
 }
 .visualTop > span {
@@ -140,14 +141,14 @@
 .statusDot {
   width: 6px;
   height: 6px;
-  background: #8c6ae9;
+  background: #e97b6a;
   border-radius: 50%;
 }
 .visual figcaption {
-  border-top: 1px solid #eee9f5;
+  border-top: 1px solid #f5ebe9;
   padding: 16px 24px;
   font-size: 9px;
-  color: #95889f;
+  color: #9f8b88;
 }
 .approach {
   max-width: 1208px;
@@ -164,7 +165,7 @@
 .kicker {
   font-size: 10px;
   letter-spacing: 0.1em;
-  color: #9586ab;
+  color: #ab8b86;
 }
 .page .sectionTitle {
   font-size: clamp(30px, 3.1vw, 44px);
@@ -186,8 +187,8 @@
 }
 .card {
   padding: 28px;
-  border: 1px solid #ece6f4;
-  background: #faf7fd;
+  border: 1px solid #f4e8e6;
+  background: #fdf8f7;
   border-radius: 22px;
 }
 .cardTop {
@@ -198,7 +199,7 @@
 }
 .cardTop > span:last-child {
   font-size: 10px;
-  color: #aa9dbb;
+  color: #bba19d;
 }
 .cardIcon {
   display: grid;
@@ -206,7 +207,7 @@
   width: 47px;
   height: 47px;
   border-radius: 14px;
-  background: #f3e7dd;
+  background: #f3e0dd;
   color: var(--app-accent);
 }
 .cardIcon svg {
@@ -226,8 +227,8 @@
 }
 .card:hover {
   background: #fff;
-  border-color: #d9bdab;
-  box-shadow: 0 14px 30px #8664b30c;
+  border-color: #d9b1ab;
+  box-shadow: 0 14px 30px #b36f640c;
 }
 .card:hover .cardIcon {
   color: #fff;
@@ -239,8 +240,8 @@
   display: grid;
   grid-template-columns: 1fr 1.15fr;
   gap: 60px;
-  background: #f7f2fb;
-  border: 1px solid #ede6f6;
+  background: #fbf3f2;
+  border: 1px solid #f6e8e6;
   border-radius: 28px;
   padding: 45px;
 }
@@ -252,8 +253,8 @@
   place-items: center;
   width: 62px;
   height: 62px;
-  background: #f0e0d3;
-  color: #b18c73;
+  background: #f0d7d3;
+  color: #b17b73;
   border-radius: 18px;
   margin-top: 28px;
 }
@@ -270,7 +271,7 @@
   align-items: center;
   gap: 16px;
   padding: 21px 0;
-  border-bottom: 1px solid #e3daef;
+  border-bottom: 1px solid #efddda;
   font-size: 14px;
   line-height: 1.6;
 }
@@ -278,7 +279,7 @@
   border-bottom: 0;
 }
 .itemNumber {
-  color: #a091b5;
+  color: #b59691;
   font-size: 10px;
   flex-shrink: 0;
 }
@@ -292,7 +293,7 @@
 .primary:focus-visible,
 .secondary:focus-visible,
 .breadcrumb a:focus-visible {
-  outline: 3px solid #b49aed;
+  outline: 3px solid #eda59a;
   outline-offset: 4px;
 }
 @media (max-width: 1050px) {
@@ -404,7 +405,7 @@
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 20px;
-  color: #a598b5;
+  color: #b59c98;
   font-size: 8px;
   letter-spacing: 0.05em;
 }
@@ -425,11 +426,11 @@
   padding: 0 12px 16px;
 }
 .appScreen {
-  border: 5px solid #e8e0ee;
+  border: 5px solid #eee2e0;
   border-radius: 28px;
   background: #fff;
   overflow: hidden;
-  box-shadow: 0 15px 25px #765a8c12;
+  box-shadow: 0 15px 25px #8c615a12;
 }
 .appScreen:first-child {
   transform: rotate(-3deg);
@@ -445,12 +446,12 @@
   align-items: center;
   padding: 11px 14px;
   font-size: 6px;
-  color: #a195ac;
+  color: #ac9895;
 }
 .screenTop > i {
   width: 15px;
   height: 5px;
-  border: 1px solid #c4b8cd;
+  border: 1px solid #cdbbb8;
   border-radius: 2px;
 }
 .screenContent {
@@ -458,10 +459,10 @@
 }
 .appMark {
   display: inline-flex;
-  background: #f0e8f7;
+  background: #f7eae8;
   padding: 8px;
   border-radius: 11px;
-  color: #a38bc0;
+  color: #c0928b;
   margin-bottom: 22px;
 }
 .appMark svg {
@@ -472,7 +473,7 @@
   display: block;
   font-size: 5px;
   letter-spacing: 0.1em;
-  color: #b3a1c3;
+  color: #c3a6a1;
   margin-bottom: 9px;
 }
 .screenContent > strong {
@@ -480,7 +481,7 @@
   font-size: 21px;
   line-height: 1.13;
   letter-spacing: -0.045em;
-  color: #69547f;
+  color: #7f5a54;
   font-weight: 550;
 }
 .artwork {
@@ -492,7 +493,7 @@
   position: absolute;
   width: 60px;
   height: 100px;
-  background: #c7b0df;
+  background: #dfb6b0;
   border-radius: 55px;
   left: 22%;
   top: 8px;
@@ -501,13 +502,13 @@
 .artwork i:nth-child(2) {
   left: 40%;
   top: 20px;
-  background: #a98bc8;
+  background: #c8938b;
   transform: rotate(35deg);
 }
 .artwork i:nth-child(3) {
   left: 24%;
   top: 55px;
-  background: #e2d2ec;
+  background: #ecd5d2;
   height: 60px;
   transform: rotate(70deg);
 }
@@ -520,7 +521,7 @@
 .textLines i {
   width: 80%;
   height: 3px;
-  background: #e2d9e9;
+  background: #e9dbd9;
   border-radius: 4px;
 }
 .textLines i:last-child {
@@ -530,7 +531,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #9a7bc0;
+  background: #c0847b;
   color: white;
   font-size: 8px;
   border-radius: 9px;
@@ -549,19 +550,19 @@
 .pageDots i {
   width: 4px;
   height: 4px;
-  background: #e1d5eb;
+  background: #ebd8d5;
   border-radius: 5px;
 }
 .pageDots i:first-child {
   width: 13px;
-  background: #b095cb;
+  background: #cb9c95;
 }
 .appNav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
-  color: #a18aba;
+  color: #ba908a;
 }
 .appNav svg {
   width: 16px;
@@ -570,16 +571,16 @@
 .appNav > span {
   width: 19px;
   height: 19px;
-  background: #eddfe9;
+  background: #ede1df;
   border-radius: 50%;
 }
 .searchField {
   display: flex;
   align-items: center;
   gap: 7px;
-  background: #f6f1fa;
-  border: 1px solid #eee6f4;
-  color: #b6a5c6;
+  background: #faf2f1;
+  border: 1px solid #f4e8e6;
+  color: #c6a9a5;
   font-size: 6px;
   border-radius: 8px;
   padding: 10px;
@@ -588,11 +589,11 @@
 .searchField i {
   width: 7px;
   height: 7px;
-  border: 1px solid #b9a8c9;
+  border: 1px solid #c9aca8;
   border-radius: 50%;
 }
 .featureCard {
-  background: #eee3f7;
+  background: #f7e6e3;
   border-radius: 12px;
   padding: 14px;
   overflow: hidden;
@@ -601,13 +602,13 @@
 }
 .featureCard > span {
   font-size: 5px;
-  color: #b8a1cd;
+  color: #cda7a1;
 }
 .featureCard > strong {
   display: block;
   font-size: 13px;
   font-weight: 550;
-  color: #9473b5;
+  color: #b57c73;
   margin: 7px 0;
 }
 .miniArt {
@@ -620,20 +621,20 @@
   top: 8px;
   width: 40px;
   height: 40px;
-  border: 9px solid #c6a8df;
+  border: 9px solid #dfafa8;
   border-radius: 50%;
 }
 .miniArt i:last-child {
   right: 0;
   top: 0;
-  border-color: #ddc5ee;
+  border-color: #eecac5;
 }
 .listItem {
   display: flex;
   align-items: center;
   gap: 9px;
   margin-top: 12px;
-  border: 1px solid #eee6f2;
+  border: 1px solid #f2e8e6;
   border-radius: 9px;
   padding: 10px;
 }
@@ -641,11 +642,11 @@
   width: 22px;
   height: 22px;
   border-radius: 7px;
-  background: #ede3f6;
+  background: #f6e6e3;
   flex-shrink: 0;
 }
 .listItem:nth-last-child(2) > span {
-  background: #f4e4e7;
+  background: #f4e6e4;
 }
 .listItem > div {
   flex: 1;
@@ -655,7 +656,7 @@
   width: 90%;
   height: 3px;
   border-radius: 4px;
-  background: #e0d5e9;
+  background: #e9d8d5;
 }
 .listItem i:last-child {
   width: 60%;
@@ -664,7 +665,7 @@
 .listItem svg {
   width: 9px;
   height: 9px;
-  color: #b5a0c6;
+  color: #c6a5a0;
 }
 .bottomNav {
   display: flex;
@@ -672,8 +673,8 @@
   align-items: center;
   margin: 20px 0 0;
   padding: 10px 0 0;
-  border-top: 1px solid #f0e9f5;
-  color: #b4a0c5;
+  border-top: 1px solid #f5ebe9;
+  color: #c5a5a0;
 }
 .bottomNav svg {
   width: 13px;
@@ -682,7 +683,7 @@
 .bottomNav > span {
   width: 12px;
   height: 12px;
-  border: 2px solid #d2c4df;
+  border: 2px solid #dfc8c4;
   border-radius: 50%;
 }
 .interactionRow {
@@ -691,8 +692,8 @@
   gap: 8px;
   margin-top: 16px;
   padding: 12px;
-  background: #faf7fd;
-  border: 1px solid #eee6f5;
+  background: #fdf8f7;
+  border: 1px solid #f5e8e6;
   border-radius: 11px;
 }
 .interactionRow > span {
@@ -700,7 +701,7 @@
   align-items: center;
   gap: 5px;
   font-size: 7px;
-  color: #a894b9;
+  color: #b99994;
 }
 .interactionRow svg {
   width: 11px;
@@ -716,11 +717,11 @@
   flex: 1;
   font-size: 10px;
   line-height: 1.6;
-  color: #a58cb8;
+  color: #b8928c;
 }
 .platformLabels small {
   display: block;
-  color: #cab8d6;
+  color: #d6bcb8;
   font-size: 8px;
   margin-bottom: 4px;
 }
@@ -904,4 +905,22 @@
   .platformLabels > span {
     font-size: 8px;
   }
+}
+
+/* Design category palette. */
+.delivery {
+  background: #fff9f6;
+  border-color: #f0dcd6;
+}
+.delivery .kicker,
+.delivery .itemNumber,
+.delivery .checklist svg {
+  color: #b65142;
+}
+.delivery .deliveryMark {
+  background: #fceae5;
+  color: #b65142;
+}
+.delivery .checklist li {
+  border-color: #f0dcd6;
 }

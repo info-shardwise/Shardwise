@@ -13,7 +13,7 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
-import { LogoDesignOptions, LogoDesignContent } from './LogoDesignContent'
+import { LogoDesignOptions, LogoDesignContent, LogoDesignProjectCTA } from './LogoDesignContent'
 import styles from './LogoDesignService.module.css'
 
 export function LogoDesignService({ service }: { service: ServiceItem }) {
@@ -193,6 +193,7 @@ export function LogoDesignService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <LogoDesignProjectCTA />
         <LogoDesignContent />
       </div>
     </HomeMotion>

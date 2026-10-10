@@ -16,7 +16,11 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './WebsiteDesignService.module.css'
-import { WebsiteDesignOptions, WebsiteDesignContent } from './WebsiteDesignContent'
+import {
+  WebsiteDesignOptions,
+  WebsiteDesignContent,
+  WebsiteDesignProjectCTA,
+} from './WebsiteDesignContent'
 
 export function WebsiteDesignService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['website-design']
@@ -250,6 +254,7 @@ export function WebsiteDesignService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <WebsiteDesignProjectCTA />
         <WebsiteDesignContent />
       </div>
     </HomeMotion>

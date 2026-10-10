@@ -16,7 +16,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './AppDesignService.module.css'
-import { AppDesignOptions, AppDesignContent } from './AppDesignContent'
+import { AppDesignOptions, AppDesignContent, AppDesignProjectCTA } from './AppDesignContent'
 
 export function AppDesignService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['app-design']
@@ -245,6 +245,7 @@ export function AppDesignService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <AppDesignProjectCTA />
         <AppDesignContent />
       </div>
     </HomeMotion>

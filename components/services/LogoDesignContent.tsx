@@ -348,17 +348,22 @@ export function LogoDesignContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="logo-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="logo-cta-title">Have a logo or identity project in mind?</h2>
-        <p>
-          Share your business, audience, existing identity, intended applications, and launch
-          timing. Let’s define the design scope and the assets you need.
-        </p>
-        <Link href="/contact/">
-          Start your logo project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function LogoDesignProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="logo-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="logo-cta-title">Have a logo or identity project in mind?</h2>
+      <p>
+        Share your business, audience, existing identity, intended applications, and launch timing.
+        Let’s define the design scope and the assets you need.
+      </p>
+      <Link href="/contact/">
+        Start your logo project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }
