@@ -19,7 +19,11 @@ import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './StrategyService.module.css'
 import visual from './TechnicalSeoService.module.css'
-import { TechnicalSeoOptions, TechnicalSeoContent } from './TechnicalSeoContent'
+import {
+  TechnicalSeoOptions,
+  TechnicalSeoContent,
+  TechnicalSeoProjectCTA,
+} from './TechnicalSeoContent'
 
 export function TechnicalSeoService({ service }: { service: ServiceItem }) {
   const config = SERVICE_PROFILES[service.slug]
@@ -179,6 +183,7 @@ export function TechnicalSeoService({ service }: { service: ServiceItem }) {
             ))}
           </ul>
         </section>
+        <TechnicalSeoProjectCTA />
         <TechnicalSeoContent />
       </div>
     </HomeMotion>

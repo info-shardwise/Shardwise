@@ -1,4 +1,6 @@
 .page {
+  --purple: #986126;
+  --purple: #986926;
   background: #fff;
   color: var(--ink);
   padding-bottom: 100px;
@@ -8,8 +10,8 @@
   padding: 30px 24px 80px;
   border-radius: 0 0 34px 34px;
   background:
-    radial-gradient(ellipse at 92% 80%, #dbefff, transparent 45%),
-    radial-gradient(ellipse at 15% 100%, #ded5ff, transparent 55%), #fafaff;
+    radial-gradient(ellipse at 92% 80%, #fff0db, transparent 45%),
+    radial-gradient(ellipse at 15% 100%, #ffeed5, transparent 55%), #fffdfa;
 }
 .heroInner {
   max-width: 1152px;
@@ -45,10 +47,10 @@
   align-items: center;
   gap: 8px;
   padding: 9px 14px;
-  border: 1px solid #e3ddee;
+  border: 1px solid #eee7dd;
   border-radius: 30px;
   background: #fff9;
-  color: #625c78;
+  color: #786c5c;
   font-size: 11px;
 }
 .eyebrow svg {
@@ -90,7 +92,7 @@
 .primary {
   color: #fff;
   background: var(--purple);
-  box-shadow: 0 8px 22px #6546e925;
+  box-shadow: 0 8px 22px #e9a54625;
 }
 .primary svg,
 .secondary svg {
@@ -99,20 +101,20 @@
   height: 18px;
 }
 .primary:hover {
-  background: #4c2bd0;
-  box-shadow: 0 12px 25px #6546e93a;
+  background: #d08b2b;
+  box-shadow: 0 12px 25px #e9a5463a;
 }
 .primary:hover svg {
   transform: translate(2px, -2px);
 }
 .secondary {
   color: var(--ink);
-  border: 1px solid #d9d1e8;
+  border: 1px solid #e8ded1;
   background: #fff7;
 }
 .secondary:hover {
-  background: #eee8ff;
-  border-color: #bca8ec;
+  background: #fff5e8;
+  border-color: #ecd0a8;
 }
 .secondary:hover svg {
   transform: translateX(3px);
@@ -120,14 +122,14 @@
 .primary:focus-visible,
 .secondary:focus-visible,
 .breadcrumb a:focus-visible {
-  outline: 3px solid #baa6f3;
+  outline: 3px solid #f3d3a6;
   outline-offset: 4px;
 }
 .diagram {
   border-radius: 24px;
-  border: 1px solid #e4dcee;
+  border: 1px solid #eee7dc;
   background: #fff;
-  box-shadow: 0 25px 60px #49366715;
+  box-shadow: 0 25px 60px #67533615;
   transform: rotate(2deg);
   overflow: hidden;
 }
@@ -137,10 +139,10 @@
   justify-content: space-between;
   gap: 15px;
   padding: 18px 22px;
-  background: #fbfaff;
-  border-bottom: 1px solid #eee8f4;
+  background: #fffdfa;
+  border-bottom: 1px solid #f4efe8;
   font-size: 11px;
-  color: #776c89;
+  color: #897d6c;
 }
 .diagramBar > svg {
   width: 16px;
@@ -155,22 +157,22 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #cabce8;
+  background: #e8d6bc;
 }
 .dots i:first-child {
-  background: #6546e9;
+  background: #e9a546;
 }
 .diagramBody {
   padding: 30px;
-  background-image: radial-gradient(#e6ddf5 1px, transparent 1px);
+  background-image: radial-gradient(#f5ebdd 1px, transparent 1px);
   background-size: 18px 18px;
 }
 .rootNode {
   display: flex;
   align-items: center;
   gap: 14px;
-  background: #f0ebff;
-  border: 1px solid #dacef5;
+  background: #fff7eb;
+  border: 1px solid #f5e5ce;
   border-radius: 14px;
   padding: 18px;
   font-size: 16px;
@@ -191,7 +193,7 @@
 .connector {
   width: 1px;
   height: 25px;
-  background: #c3b2e8;
+  background: #e8d2b2;
   margin: auto;
 }
 .nodes {
@@ -203,7 +205,7 @@
   display: flex;
   align-items: center;
   gap: 9px;
-  border: 1px solid #e6def2;
+  border: 1px solid #f2eade;
   background: #fff;
   border-radius: 12px;
   padding: 16px 12px;
@@ -211,7 +213,7 @@
   min-width: 0;
 }
 .node > span {
-  color: #a291b8;
+  color: #b8a891;
   font-size: 10px;
 }
 .node svg {
@@ -222,12 +224,12 @@
   flex-shrink: 0;
 }
 .node:hover {
-  background: #f4efff;
-  border-color: #c4adee;
+  background: #fff8ef;
+  border-color: #eed3ad;
 }
 .diagram figcaption {
   text-align: center;
-  color: #8a8098;
+  color: #988e80;
   font-size: 11px;
   line-height: 1.6;
   margin-top: 24px;
@@ -261,15 +263,15 @@
   gap: 20px;
 }
 .card {
-  background: #faf9fd;
-  border: 1px solid #eee8f5;
+  background: #fdfbf9;
+  border: 1px solid #f5f0e8;
   border-radius: 22px;
   padding: 28px;
 }
 .card:hover {
-  background: #f2edff;
-  border-color: #d5c6fb;
-  box-shadow: 0 14px 34px #5939970c;
+  background: #fff8ed;
+  border-color: #fbe5c6;
+  box-shadow: 0 14px 34px #9770390c;
 }
 .cardTop {
   display: flex;
@@ -278,7 +280,7 @@
   margin-bottom: 25px;
 }
 .cardTop > span:last-child {
-  color: #a397b0;
+  color: #b0a697;
   font-size: 12px;
 }
 .cardIcon {
@@ -286,7 +288,7 @@
   place-items: center;
   width: 52px;
   height: 52px;
-  background: #eee8ff;
+  background: #fff5e8;
   color: var(--purple);
   border-radius: 15px;
 }
@@ -316,7 +318,7 @@
   margin: auto;
   padding: 48px;
   border-radius: 28px;
-  background: #f6f3ff;
+  background: #fffaf3;
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
   gap: 55px;
@@ -333,7 +335,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  border: 1px solid #e9e1f5;
+  border: 1px solid #f5ede1;
   border-radius: 13px;
   background: #fff;
   padding: 17px;
@@ -346,7 +348,7 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #eee8ff;
+  background: #fff5e8;
   color: var(--purple);
   flex-shrink: 0;
 }
@@ -356,7 +358,7 @@
 }
 .itemNumber {
   font-size: 10px;
-  color: #b0a5bc;
+  color: #bcb2a5;
   margin-left: auto;
 }
 @media (max-width: 1000px) {
@@ -460,4 +462,40 @@
   .page .sectionTitle {
     font-size: 35px;
   }
+}
+
+/* SEO category deliverables palette. */
+.delivery {
+  background: #fffbf5;
+  border-color: #eeddc5;
+}
+.delivery .kicker,
+.delivery .itemNumber,
+.delivery .checklist svg {
+  color: #986926;
+}
+.delivery .deliveryMark {
+  background: #fcedd9;
+  color: #986926;
+}
+.delivery .checklist li {
+  border-color: #eeddc5;
+}
+
+/* SEO category palette. */
+.delivery {
+  background: #fffcf5;
+  border-color: #eedfc5;
+}
+.delivery .kicker,
+.delivery .itemNumber,
+.delivery .checklist svg {
+  color: #986126;
+}
+.delivery .deliveryMark {
+  background: #fcf0d9;
+  color: #986126;
+}
+.delivery .checklist li {
+  border-color: #eedfc5;
 }

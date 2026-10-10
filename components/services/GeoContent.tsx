@@ -477,18 +477,23 @@ export function GeoContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="geo-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="geo-cta-title">Ready to understand your brand’s AI visibility?</h2>
-        <p>
-          Share your website, audiences, priority questions, markets, and existing source material.
-          We can define the platform research, content, technical review, and reporting that support
-          your next step.
-        </p>
-        <Link href="/contact/">
-          Start your GEO project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function GeoProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="geo-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="geo-cta-title">Ready to understand your brand’s AI visibility?</h2>
+      <p>
+        Share your website, audiences, priority questions, markets, and existing source material. We
+        can define the platform research, content, technical review, and reporting that support your
+        next step.
+      </p>
+      <Link href="/contact/">
+        Start your GEO project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

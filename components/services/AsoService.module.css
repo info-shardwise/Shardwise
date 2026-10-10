@@ -1,9 +1,9 @@
 .audit {
-  background: linear-gradient(145deg, #fff, #f1ebfc);
-  border: 1px solid #e5dcf1;
+  background: linear-gradient(145deg, #fff, #fcf5eb);
+  border: 1px solid #f1e8dc;
   border-radius: 28px;
   padding: 26px;
-  box-shadow: 0 25px 65px #49366715;
+  box-shadow: 0 25px 65px #67533615;
   min-width: 0;
 }
 .auditTop {
@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  color: #796c91;
+  color: #91826c;
   font-size: 10px;
   letter-spacing: 0.06em;
 }
@@ -25,7 +25,7 @@
 .auditTop svg {
   width: 17px;
   height: 17px;
-  color: #7851c9;
+  color: #c99751;
 }
 .auditIntro {
   padding: 34px 0 24px;
@@ -33,18 +33,18 @@
 .auditIntro > span {
   font-size: 10px;
   letter-spacing: 0.12em;
-  color: #7851c9;
+  color: #c99751;
 }
 .auditIntro h2 {
   font-size: clamp(28px, 3vw, 40px);
   line-height: 1.15;
-  color: #211637;
+  color: #372916;
   letter-spacing: -0.04em;
   margin: 14px 0;
 }
 .auditIntro p {
   font-size: 13px;
-  color: #756c82;
+  color: #82796c;
   line-height: 1.7;
 }
 .auditRows {
@@ -56,7 +56,7 @@
   align-items: center;
   gap: 14px;
   background: #ffffffc9;
-  border: 1px solid #e9e1f4;
+  border: 1px solid #f4ece1;
   border-radius: 16px;
   padding: 18px;
   transition:
@@ -65,7 +65,7 @@
 }
 .auditRows > div:hover {
   background: #fff;
-  box-shadow: 0 8px 20px #7851c91a;
+  box-shadow: 0 8px 20px #c997511a;
 }
 .auditRows > div > span {
   display: grid;
@@ -73,18 +73,18 @@
   width: 34px;
   height: 34px;
   flex-shrink: 0;
-  background: #ece4fb;
-  color: #7851c9;
+  background: #fbf1e4;
+  color: #c99751;
   border-radius: 10px;
   font-size: 11px;
 }
 .auditRows strong {
   font-size: 13px;
-  color: #2a1d41;
+  color: #41321d;
 }
 .auditRows p {
   font-size: 11px;
-  color: #756c82;
+  color: #82796c;
   margin: 5px 0 0;
   line-height: 1.5;
 }
@@ -93,11 +93,11 @@
   height: 16px;
   margin-left: auto;
   flex-shrink: 0;
-  color: #7851c9;
+  color: #c99751;
 }
 .audit figcaption {
   font-size: 10px;
-  color: #8b8099;
+  color: #998f80;
   line-height: 1.6;
   padding-top: 18px;
 }
@@ -132,10 +132,10 @@
   width: 64px;
   height: 64px;
   border-radius: 19px;
-  background: linear-gradient(135deg, #9270d8, #5c39ba);
+  background: linear-gradient(135deg, #d8ad70, #ba8439);
   color: #fff;
   flex-shrink: 0;
-  box-shadow: 0 10px 24px #7851c92b;
+  box-shadow: 0 10px 24px #c997512b;
 }
 .appIcon svg {
   width: 30px;
@@ -144,18 +144,18 @@
 .listing > div > span {
   font-size: 9px;
   letter-spacing: 0.1em;
-  color: #7851c9;
+  color: #c99751;
 }
 .listing strong {
   display: block;
   font-size: 22px;
   line-height: 1.3;
-  color: #2b1c45;
+  color: #45341c;
   margin: 7px 0;
 }
 .listing p {
   font-size: 11px;
-  color: #82738d;
+  color: #8d8273;
   margin: 0;
 }
 .screens {
@@ -165,19 +165,19 @@
 }
 .screens > div {
   overflow: hidden;
-  background: #e9e1f7;
+  background: #f7eee1;
   padding: 16px 12px 0;
-  border: 1px solid #dfd3f1;
+  border: 1px solid #f1e4d3;
   border-radius: 16px;
   min-width: 0;
 }
 .screens span {
   font-size: 9px;
-  color: #7851c9;
+  color: #c99751;
 }
 .screens strong {
   font-size: 13px;
-  color: #39244e;
+  color: #4e3d24;
   display: block;
   line-height: 1.4;
   margin: 10px 0 18px;
@@ -187,29 +187,29 @@
   border: 5px solid #fff;
   border-bottom: 0;
   border-radius: 17px 17px 0 0;
-  background: #faf8fd;
+  background: #fdfbf8;
   height: 180px;
   padding: 12px 8px;
   max-width: 110px;
-  box-shadow: 0 7px 18px #76529e1a;
+  box-shadow: 0 7px 18px #9e7e521a;
 }
 .phone > i {
   display: block;
   width: 28px;
   height: 4px;
   border-radius: 4px;
-  background: #d9cdec;
+  background: #ecdfcd;
   margin: 0 auto 16px;
 }
 .phone > div {
   height: 55px;
   border-radius: 10px;
-  background: linear-gradient(135deg, #e0d2f5, #a791d7);
+  background: linear-gradient(135deg, #f5e6d2, #d7ba91);
 }
 .phone > p {
   height: 6px;
   border-radius: 4px;
-  background: #e7dff2;
+  background: #f2eadf;
   margin-top: 15px;
 }
 .phone > p:last-child {
@@ -224,10 +224,10 @@
 }
 .platforms > span {
   padding: 7px 11px;
-  border: 1px solid #ded1ef;
+  border: 1px solid #efe3d1;
   border-radius: 99px;
   font-size: 10px;
-  color: #79678e;
+  color: #8e7e67;
   background: #ffffff90;
 }
 @media (max-width: 480px) {
@@ -259,4 +259,22 @@
   .phone > div {
     height: 40px;
   }
+}
+
+/* SEO category palette. */
+.delivery {
+  background: #fffcf5;
+  border-color: #eedfc5;
+}
+.delivery .kicker,
+.delivery .itemNumber,
+.delivery .checklist svg {
+  color: #986126;
+}
+.delivery .deliveryMark {
+  background: #fcf0d9;
+  color: #986126;
+}
+.delivery .checklist li {
+  border-color: #eedfc5;
 }

@@ -429,18 +429,23 @@ export function AeoContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="aeo-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="aeo-cta-title">Ready to answer the questions your customers ask?</h2>
-        <p>
-          Share your website, priority topics, markets, existing content, and search concerns. We
-          can define the question research, editorial work, technical review, and measurement that
-          support your next step.
-        </p>
-        <Link href="/contact/">
-          Start your AEO project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function AeoProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="aeo-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="aeo-cta-title">Ready to answer the questions your customers ask?</h2>
+      <p>
+        Share your website, priority topics, markets, existing content, and search concerns. We can
+        define the question research, editorial work, technical review, and measurement that support
+        your next step.
+      </p>
+      <Link href="/contact/">
+        Start your AEO project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

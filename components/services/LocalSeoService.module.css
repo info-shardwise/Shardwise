@@ -1,9 +1,9 @@
 .audit {
-  background: linear-gradient(145deg, #fff, #f1ebfc);
-  border: 1px solid #e5dcf1;
+  background: linear-gradient(145deg, #fff, #fcf5eb);
+  border: 1px solid #f1e8dc;
   border-radius: 28px;
   padding: 26px;
-  box-shadow: 0 25px 65px #49366715;
+  box-shadow: 0 25px 65px #67533615;
   min-width: 0;
 }
 .auditTop {
@@ -11,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  color: #796c91;
+  color: #91826c;
   font-size: 10px;
   letter-spacing: 0.06em;
 }
@@ -25,7 +25,7 @@
 .auditTop svg {
   width: 17px;
   height: 17px;
-  color: #7851c9;
+  color: #c99751;
 }
 .auditIntro {
   padding: 34px 0 24px;
@@ -33,18 +33,18 @@
 .auditIntro > span {
   font-size: 10px;
   letter-spacing: 0.12em;
-  color: #7851c9;
+  color: #c99751;
 }
 .auditIntro h2 {
   font-size: clamp(28px, 3vw, 40px);
   line-height: 1.15;
-  color: #211637;
+  color: #372916;
   letter-spacing: -0.04em;
   margin: 14px 0;
 }
 .auditIntro p {
   font-size: 13px;
-  color: #756c82;
+  color: #82796c;
   line-height: 1.7;
 }
 .auditRows {
@@ -56,7 +56,7 @@
   align-items: center;
   gap: 14px;
   background: #ffffffc9;
-  border: 1px solid #e9e1f4;
+  border: 1px solid #f4ece1;
   border-radius: 16px;
   padding: 18px;
   transition:
@@ -65,7 +65,7 @@
 }
 .auditRows > div:hover {
   background: #fff;
-  box-shadow: 0 8px 20px #7851c91a;
+  box-shadow: 0 8px 20px #c997511a;
 }
 .auditRows > div > span {
   display: grid;
@@ -73,18 +73,18 @@
   width: 34px;
   height: 34px;
   flex-shrink: 0;
-  background: #ece4fb;
-  color: #7851c9;
+  background: #fbf1e4;
+  color: #c99751;
   border-radius: 10px;
   font-size: 11px;
 }
 .auditRows strong {
   font-size: 13px;
-  color: #2a1d41;
+  color: #41321d;
 }
 .auditRows p {
   font-size: 11px;
-  color: #756c82;
+  color: #82796c;
   margin: 5px 0 0;
   line-height: 1.5;
 }
@@ -93,11 +93,11 @@
   height: 16px;
   margin-left: auto;
   flex-shrink: 0;
-  color: #7851c9;
+  color: #c99751;
 }
 .audit figcaption {
   font-size: 10px;
-  color: #8b8099;
+  color: #998f80;
   line-height: 1.6;
   padding-top: 18px;
 }
@@ -125,7 +125,7 @@
   position: relative;
   overflow: hidden;
   margin: 24px 0;
-  border: 1px solid #e5dcf1;
+  border: 1px solid #f1e8dc;
   border-radius: 20px;
   background:
     repeating-linear-gradient(
@@ -136,7 +136,7 @@
       #ffffff 54px,
       transparent 55px
     ),
-    repeating-linear-gradient(90deg, #ede8f6, #ede8f6 55px, #fff 56px, #fff 66px, #ede8f6 67px);
+    repeating-linear-gradient(90deg, #f6f0e8, #f6f0e8 55px, #fff 56px, #fff 66px, #f6f0e8 67px);
 }
 .park {
   position: absolute;
@@ -145,7 +145,7 @@
   height: 72px;
   width: 120px;
   border-radius: 22px;
-  background: #d6e9de;
+  background: #e9e1d6;
   transform: rotate(-12deg);
 }
 .route {
@@ -154,7 +154,7 @@
   top: -40%;
   width: 25px;
   height: 170%;
-  background: #d4c4f1;
+  background: #f1dec4;
   transform: rotate(36deg);
   border-left: 6px solid #fff;
   border-right: 6px solid #fff;
@@ -169,9 +169,9 @@
   width: 60px;
   height: 60px;
   border-radius: 20px;
-  background: #7851c9;
+  background: #c99751;
   color: #fff;
-  box-shadow: 0 12px 24px #7851c940;
+  box-shadow: 0 12px 24px #c9975140;
 }
 .pin svg {
   width: 32px;
@@ -186,7 +186,7 @@
   padding: 9px 14px;
   border-radius: 10px;
   font-size: 11px;
-  color: #58466e;
+  color: #6e5d46;
   white-space: nowrap;
 }
 @media (max-width: 760px) {
@@ -196,4 +196,22 @@
   .park {
     width: 95px;
   }
+}
+
+/* SEO category palette. */
+.delivery {
+  background: #fffcf5;
+  border-color: #eedfc5;
+}
+.delivery .kicker,
+.delivery .itemNumber,
+.delivery .checklist svg {
+  color: #986126;
+}
+.delivery .deliveryMark {
+  background: #fcf0d9;
+  color: #986126;
+}
+.delivery .checklist li {
+  border-color: #eedfc5;
 }

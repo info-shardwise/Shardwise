@@ -18,7 +18,11 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import styles from './StrategyService.module.css'
 import visual from './ContentStrategyService.module.css'
-import { ContentStrategyOptions, ContentStrategyContent } from './ContentStrategyContent'
+import {
+  ContentStrategyOptions,
+  ContentStrategyContent,
+  ContentStrategyProjectCTA,
+} from './ContentStrategyContent'
 
 export function ContentStrategyService({ service }: { service: ServiceItem }) {
   const config = {
@@ -216,6 +220,7 @@ export function ContentStrategyService({ service }: { service: ServiceItem }) {
             ))}
           </ul>
         </section>
+        <ContentStrategyProjectCTA />
         <ContentStrategyContent />
       </div>
     </HomeMotion>

@@ -413,18 +413,22 @@ export function AsoContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="aso-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="aso-cta-title">Ready to give your app a clearer store presence?</h2>
-        <p>
-          Share your app links, target stores, markets, current assets, and discovery concerns. We
-          can define the research, listing, creative, and measurement work that supports your next
-          step.
-        </p>
-        <Link href="/contact/">
-          Start your ASO project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function AsoProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="aso-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="aso-cta-title">Ready to give your app a clearer store presence?</h2>
+      <p>
+        Share your app links, target stores, markets, current assets, and discovery concerns. We can
+        define the research, listing, creative, and measurement work that supports your next step.
+      </p>
+      <Link href="/contact/">
+        Start your ASO project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

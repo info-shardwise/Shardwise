@@ -437,18 +437,23 @@ export function LocalSeoContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="local-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="local-cta-title">Ready to improve how nearby customers find your business?</h2>
-        <p>
-          Share your business, real locations or service areas, website, existing profiles, and
-          current local visibility concerns. We can define the profile, content, and measurement
-          work that supports your next step.
-        </p>
-        <Link href="/contact/">
-          Start your local SEO project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function LocalSeoProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="local-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="local-cta-title">Ready to improve how nearby customers find your business?</h2>
+      <p>
+        Share your business, real locations or service areas, website, existing profiles, and
+        current local visibility concerns. We can define the profile, content, and measurement work
+        that supports your next step.
+      </p>
+      <Link href="/contact/">
+        Start your local SEO project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

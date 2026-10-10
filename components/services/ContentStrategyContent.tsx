@@ -418,17 +418,22 @@ export function ContentStrategyContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="content-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="content-cta-title">Ready to give your content a clearer direction?</h2>
-        <p>
-          Share your website, audience, goals, existing content, and available expertise. We can
-          define the research, editorial plan, and production work that supports your next step.
-        </p>
-        <Link href="/contact/">
-          Start your content project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function ContentStrategyProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="content-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="content-cta-title">Ready to give your content a clearer direction?</h2>
+      <p>
+        Share your website, audience, goals, existing content, and available expertise. We can
+        define the research, editorial plan, and production work that supports your next step.
+      </p>
+      <Link href="/contact/">
+        Start your content project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

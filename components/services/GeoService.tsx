@@ -5,7 +5,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import styles from './StrategyService.module.css'
 import visual from './GeoService.module.css'
-import { GeoOptions, GeoContent } from './GeoContent'
+import { GeoOptions, GeoContent, GeoProjectCTA } from './GeoContent'
 
 export function GeoService({ service }: { service: ServiceItem }) {
   return (
@@ -95,6 +95,35 @@ export function GeoService({ service }: { service: ServiceItem }) {
         </section>
         <GeoOptions />
 
+        <section className={styles.delivery} aria-labelledby="deliverables-title">
+          <div className={styles.deliveryIntro}>
+            <span className={styles.kicker}>A PRACTICAL HANDOVER</span>
+            <RevealHeading
+              id="deliverables-title"
+              text="Key Deliverables & Standards"
+              className={styles.sectionTitle}
+            />
+            <p>
+              Agree the questions, platforms, content and review responsibilities before work
+              begins.
+            </p>
+          </div>
+          <ol className={styles.checklist}>
+            {[
+              'Audience questions and platform research scope',
+              'Source and brand information review',
+              'Content clarity and supporting evidence recommendations',
+              'Prioritized content and technical work plan',
+              'Observation and reporting framework with stated limitations',
+            ].map((item, index) => (
+              <li key={item}>
+                <span className={styles.itemNumber}>0{index + 1}</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+        <GeoProjectCTA />
         <GeoContent />
       </div>
     </HomeMotion>

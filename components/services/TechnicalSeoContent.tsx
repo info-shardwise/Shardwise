@@ -437,18 +437,23 @@ export function TechnicalSeoContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="seo-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="seo-cta-title">Ready to investigate what is holding your website back?</h2>
-        <p>
-          Share your app, users, target platforms, important journeys, and current challenges. Let’s
-          define the research, interface design, and developer handoff work that supports your next
-          step.
-        </p>
-        <Link href="/contact/">
-          Start your technical SEO project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function TechnicalSeoProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="seo-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="seo-cta-title">Ready to investigate what is holding your website back?</h2>
+      <p>
+        Share your app, users, target platforms, important journeys, and current challenges. Let’s
+        define the research, interface design, and developer handoff work that supports your next
+        step.
+      </p>
+      <Link href="/contact/">
+        Start your technical SEO project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

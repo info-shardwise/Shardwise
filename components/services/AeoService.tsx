@@ -19,7 +19,7 @@ import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './StrategyService.module.css'
 import visual from './AeoService.module.css'
-import { AeoOptions, AeoContent } from './AeoContent'
+import { AeoOptions, AeoContent, AeoProjectCTA } from './AeoContent'
 
 export function AeoService({ service }: { service: ServiceItem }) {
   const config = SERVICE_PROFILES[service.slug]
@@ -176,6 +176,7 @@ export function AeoService({ service }: { service: ServiceItem }) {
             ))}
           </ul>
         </section>
+        <AeoProjectCTA />
         <AeoContent />
       </div>
     </HomeMotion>

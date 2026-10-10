@@ -19,7 +19,7 @@ import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './StrategyService.module.css'
 import visual from './AsoService.module.css'
-import { AsoOptions, AsoContent } from './AsoContent'
+import { AsoOptions, AsoContent, AsoProjectCTA } from './AsoContent'
 
 export function AsoService({ service }: { service: ServiceItem }) {
   const config = SERVICE_PROFILES[service.slug]
@@ -188,6 +188,7 @@ export function AsoService({ service }: { service: ServiceItem }) {
             ))}
           </ul>
         </section>
+        <AsoProjectCTA />
         <AsoContent />
       </div>
     </HomeMotion>

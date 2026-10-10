@@ -20,7 +20,7 @@ import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './StrategyService.module.css'
 import visual from './LocalSeoService.module.css'
-import { LocalSeoOptions, LocalSeoContent } from './LocalSeoContent'
+import { LocalSeoOptions, LocalSeoContent, LocalSeoProjectCTA } from './LocalSeoContent'
 
 export function LocalSeoService({ service }: { service: ServiceItem }) {
   const config = SERVICE_PROFILES[service.slug]
@@ -178,6 +178,7 @@ export function LocalSeoService({ service }: { service: ServiceItem }) {
             ))}
           </ul>
         </section>
+        <LocalSeoProjectCTA />
         <LocalSeoContent />
       </div>
     </HomeMotion>
