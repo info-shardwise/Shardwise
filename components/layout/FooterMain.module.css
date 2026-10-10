@@ -1,0 +1,28 @@
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 8px;
+  background-color: rgb(255 255 255 / 5%);
+  color: #94a3b8;
+  transition:
+    background-color var(--motion-hover-duration) var(--motion-hover-ease),
+    color var(--motion-hover-duration) var(--motion-hover-ease);
+}
+
+.socialLink svg {
+  color: inherit;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  background-color: #0878f9;
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .socialLink {
+    transition: none;
+  }
+}
