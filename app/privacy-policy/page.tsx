@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
           It explains what information may be processed, why it is used, and how to contact us about
           it. Project-specific handling may also be described in a client agreement. Third-party
           websites reached through links have their own policies. The privacy contact for Shardwise
-          is <a href="mailto:virenstudio.in@gmail.com">virenstudio.in@gmail.com</a>.
+          is <a href="mailto:info.shardwise@gmail.com">info.shardwise@gmail.com</a>.
         </p>
         <h2 id="section-1">Information we collect</h2>
         <div
@@ -317,7 +317,7 @@ export default function PrivacyPolicyPage() {
         </p>
         <h2 id="privacy-contact">Contact and privacy requests</h2>
         <p>
-          Email <a href="mailto:virenstudio.in@gmail.com">virenstudio.in@gmail.com</a> with the
+          Email <a href="mailto:info.shardwise@gmail.com">info.shardwise@gmail.com</a> with the
           subject “Privacy request.” Describe the request and, where possible, use the address
           associated with your enquiry. We may request proportionate information to verify your
           identity or an agent’s authority; do not send passwords or identity documents unless a

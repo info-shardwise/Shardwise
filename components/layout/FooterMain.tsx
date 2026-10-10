@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Logo } from '@/components/layout/Logo'
 import { SERVICE_CATEGORIES } from '@/lib/services'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail } from 'lucide-react'
 import styles from './FooterMain.module.css'
 
 export function FooterMain() {
@@ -149,19 +149,11 @@ export function FooterMain() {
               <li className="flex items-start gap-2.5">
                 <Mail className="h-4 w-4 text-[#11C5F5] mt-0.5 shrink-0" />
                 <a
-                  href="mailto:contact@shardwise.com"
+                  href="mailto:info.shardwise@gmail.com"
                   className="hover:text-white transition-colors"
                 >
-                  contact@shardwise.com
+                  info.shardwise@gmail.com
                 </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Phone className="h-4 w-4 text-[#11C5F5] mt-0.5 shrink-0" />
-                <span>+1 (800) SHARDWISE</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 text-[#11C5F5] mt-0.5 shrink-0" />
-                <span>San Francisco, California</span>
               </li>
             </ul>
             <div className="pt-2">

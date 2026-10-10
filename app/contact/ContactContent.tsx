@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Plus } from 'lucide-react'
+import { ArrowRight, Mail, Plus } from 'lucide-react'
 import styles from './Contact.module.css'
 
 const steps = [
@@ -58,6 +58,14 @@ export function ContactNextSteps() {
           </li>
         ))}
       </ol>
+      <div className={styles.emailBox}>
+        <Mail aria-hidden="true" />
+        <div>
+          <h3>Prefer email?</h3>
+          <a href="mailto:info.shardwise@gmail.com">info.shardwise@gmail.com</a>
+          <p>You can send your project brief directly to this inbox.</p>
+        </div>
+      </div>
     </aside>
   )
 }

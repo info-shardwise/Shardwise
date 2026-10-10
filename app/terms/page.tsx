@@ -341,7 +341,7 @@ export default function TermsPage() {
           <h2 id="terms-contact">Contact and legal enquiries</h2>
           <p>
             For questions about these terms, email{' '}
-            <a href="mailto:virenstudio.in@gmail.com">virenstudio.in@gmail.com</a> with the subject
+            <a href="mailto:info.shardwise@gmail.com">info.shardwise@gmail.com</a> with the subject
             “Terms enquiry” and enough information to identify the project or issue. This is the
             current operator contact. Project agreements should specify the contracting parties and
             any formal address or method required for legal notices.
