@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Logo } from '@/components/layout/Logo'
 import { SERVICE_CATEGORIES } from '@/lib/services'
-import { Mail, Phone, MapPin, Instagram, Facebook } from 'lucide-react'
+import { Mail, Phone, MapPin } from 'lucide-react'
 import styles from './FooterMain.module.css'
 
 export function FooterMain() {
@@ -51,7 +51,18 @@ export function FooterMain() {
                 aria-label="Instagram"
                 className={styles.socialLink}
               >
-                <Instagram className="h-4 w-4" aria-hidden="true" />
+                <svg
+                  className="h-4 w-4"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  aria-hidden="true"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="5" />
+                  <circle cx="12" cy="12" r="4" />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+                </svg>
               </a>
               {/* Facebook */}
               <a
@@ -61,7 +72,9 @@ export function FooterMain() {
                 aria-label="Facebook"
                 className={styles.socialLink}
               >
-                <Facebook className="h-4 w-4" aria-hidden="true" />
+                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M14 21v-8h3l.5-4H14V7c0-1.16.34-2 2-2h2V1.5A26 26 0 0 0 15 1c-3 0-5 1.82-5 5v3H7v4h3v8z" />
+                </svg>
               </a>
             </div>
           </div>
