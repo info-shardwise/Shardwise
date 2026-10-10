@@ -139,10 +139,6 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
-        <AboutRoles />
-        <AboutDifference />
-        <AboutCulture />
-        <AboutNextSteps />
         <section className={styles.contact} aria-labelledby="together-title" data-reveal="up">
           <div className={styles.contactDecoration} aria-hidden="true" />
           <div>
@@ -156,6 +152,10 @@ export default function AboutPage() {
             Get In Touch <ArrowUpRight aria-hidden="true" />
           </Link>
         </section>
+        <AboutRoles />
+        <AboutDifference />
+        <AboutCulture />
+        <AboutNextSteps />
       </div>
     </HomeMotion>
   )
