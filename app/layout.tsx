@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     'Shardwise builds websites, applications, digital experiences, and growth-focused solutions for modern businesses.',
   metadataBase: new URL(SITE_CONFIG.url),
   verification: {
-    google: 'SSYYS10DDu_wipUXt4LEbHiIP5TINV8bZ7Gc0A0xAKQ',
+    google: 'wRYjVinKqMG2-LK_SGhdLmHCFSduXd7tZyOb7gGWseA',
   },
   openGraph: {
     type: 'website',
@@ -40,14 +40,14 @@ export default function RootLayout({
       className={`${fontJakarta.variable} ${fontAnton.variable} ${fontInter.variable}`}
     >
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6X3JYQHLT2" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JERT38N2S4" />
         <script
           id="google-analytics"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-6X3JYQHLT2');`,
+gtag('config', 'G-JERT38N2S4');`,
           }}
         />
         <OrganizationSchema />
