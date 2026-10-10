@@ -70,6 +70,22 @@ const models = [
 export function ServicesContent() {
   return (
     <div className={styles.content}>
+      <section className={styles.cta} aria-labelledby="services-next-title">
+        <span className={styles.eyebrow}>LET’S FIND YOUR NEXT STEP</span>
+        <h2 id="services-next-title">
+          Not sure which service fits?
+          <br />
+          Let’s scope it together.
+        </h2>
+        <p>
+          Share what you are building, what is getting in the way, and what a good outcome looks
+          like. We will use that brief to discuss the right combination of services.
+        </p>
+        <Link href="/contact/">
+          Start a conversation
+          <ArrowUpRight aria-hidden="true" />
+        </Link>
+      </section>
       <section className={styles.section} aria-labelledby="engagement-title">
         <span className={styles.eyebrow}>WAYS TO WORK TOGETHER</span>
         <RevealHeading
@@ -129,7 +145,12 @@ export function ServicesContent() {
           ))}
         </ol>
       </section>
-      <section className={styles.section} aria-labelledby="service-examples-title">
+      <section
+        hidden
+        style={{ display: 'none' }}
+        className={styles.section}
+        aria-labelledby="service-examples-title"
+      >
         <span className={styles.eyebrow}>CONNECT THE DISCIPLINES</span>
         <RevealHeading
           id="service-examples-title"
@@ -173,7 +194,12 @@ export function ServicesContent() {
           ))}
         </div>
       </section>
-      <aside className={styles.proofNote} aria-label="Client feedback publication status">
+      <aside
+        hidden
+        style={{ display: 'none' }}
+        className={styles.proofNote}
+        aria-label="Client feedback publication status"
+      >
         <div>
           <span className={styles.eyebrow}>CLIENT PERSPECTIVES</span>
           <h2>Real feedback belongs here.</h2>
@@ -212,22 +238,6 @@ export function ServicesContent() {
             </details>
           ))}
         </div>
-      </section>
-      <section className={styles.cta} aria-labelledby="services-next-title">
-        <span className={styles.eyebrow}>LET’S FIND YOUR NEXT STEP</span>
-        <h2 id="services-next-title">
-          Not sure which service fits?
-          <br />
-          Let’s scope it together.
-        </h2>
-        <p>
-          Share what you are building, what is getting in the way, and what a good outcome looks
-          like. We will use that brief to discuss the right combination of services.
-        </p>
-        <Link href="/contact/">
-          Start a conversation
-          <ArrowUpRight aria-hidden="true" />
-        </Link>
       </section>
     </div>
   )
