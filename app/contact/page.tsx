@@ -124,6 +124,7 @@ export default function ContactPage() {
                             {c.name}
                           </option>
                         ))}
+                        <option value="Other">Other</option>
                       </select>
                     </div>
 
