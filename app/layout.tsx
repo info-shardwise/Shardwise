@@ -40,6 +40,16 @@ export default function RootLayout({
       className={`${fontJakarta.variable} ${fontAnton.variable} ${fontInter.variable}`}
     >
       <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6X3JYQHLT2" />
+        <script
+          id="google-analytics"
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-6X3JYQHLT2');`,
+          }}
+        />
         <OrganizationSchema />
       </head>
       <body className="min-h-screen bg-black text-white font-body antialiased flex flex-col justify-between selection:bg-[#0878F9] selection:text-white">
