@@ -448,18 +448,23 @@ export function ShopifyContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="shopify-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="shopify-cta-title">Ready to build your next Shopify storefront?</h2>
-        <p>
-          Share your current store, catalog, target markets, important integrations, and launch
-          constraints. Start with a scope that connects the customer experience with the operations
-          behind it.
-        </p>
-        <Link href="/contact/">
-          Start your Shopify project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function ShopifyProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="shopify-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="shopify-cta-title">Ready to build your next Shopify storefront?</h2>
+      <p>
+        Share your current store, catalog, target markets, important integrations, and launch
+        constraints. Start with a scope that connects the customer experience with the operations
+        behind it.
+      </p>
+      <Link href="/contact/">
+        Start your Shopify project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

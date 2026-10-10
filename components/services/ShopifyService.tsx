@@ -15,7 +15,7 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
-import { ShopifyBuildOptions, ShopifyContent } from './ShopifyContent'
+import { ShopifyBuildOptions, ShopifyContent, ShopifyProjectCTA } from './ShopifyContent'
 import styles from './ShopifyService.module.css'
 
 export function ShopifyService({ service }: { service: ServiceItem }) {
@@ -212,6 +212,7 @@ export function ShopifyService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <ShopifyProjectCTA />
         <ShopifyContent />
       </div>
     </HomeMotion>

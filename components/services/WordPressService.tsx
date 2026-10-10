@@ -14,7 +14,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './WordPressService.module.css'
-import { WordPressBuildOptions, WordPressContent } from './WordPressContent'
+import { WordPressBuildOptions, WordPressContent, WordPressProjectCTA } from './WordPressContent'
 
 export function WordPressService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['wordpress-development']
@@ -206,6 +206,7 @@ export function WordPressService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <WordPressProjectCTA />
         <WordPressContent />
       </div>
     </HomeMotion>

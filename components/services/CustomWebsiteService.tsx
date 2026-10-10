@@ -14,7 +14,11 @@ import type { ServiceItem } from '@/lib/services'
 import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
-import { CustomWebsiteBuildOptions, CustomWebsiteContent } from './CustomWebsiteContent'
+import {
+  CustomWebsiteBuildOptions,
+  CustomWebsiteContent,
+  CustomWebsiteProjectCTA,
+} from './CustomWebsiteContent'
 import styles from './CustomWebsiteService.module.css'
 
 export function CustomWebsiteService({ service }: { service: ServiceItem }) {
@@ -224,6 +228,7 @@ export function CustomWebsiteService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <CustomWebsiteProjectCTA />
         <CustomWebsiteContent />
       </div>
     </HomeMotion>

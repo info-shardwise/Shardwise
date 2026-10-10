@@ -388,17 +388,22 @@ export function WordPressContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="wp-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="wp-cta-title">Have a WordPress project in mind? Let’s scope it.</h2>
-        <p>
-          Share your current website, publishing needs, important integrations, and any launch
-          constraints. Start with the decisions that make the site easier to use and maintain.
-        </p>
-        <Link href="/contact/">
-          Start your WordPress project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function WordPressProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="wp-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="wp-cta-title">Have a WordPress project in mind? Let’s scope it.</h2>
+      <p>
+        Share your current website, publishing needs, important integrations, and any launch
+        constraints. Start with the decisions that make the site easier to use and maintain.
+      </p>
+      <Link href="/contact/">
+        Start your WordPress project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

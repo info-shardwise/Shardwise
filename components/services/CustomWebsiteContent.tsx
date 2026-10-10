@@ -413,17 +413,22 @@ export function CustomWebsiteContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="custom-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="custom-cta-title">Have a custom website in mind? Let’s scope it.</h2>
-        <p>
-          Share your current website, content workflow, design goals, integrations, and launch
-          constraints. Start with the decisions that make the experience useful and maintainable.
-        </p>
-        <Link href="/contact/">
-          Start your custom project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function CustomWebsiteProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="custom-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="custom-cta-title">Have a custom website in mind? Let’s scope it.</h2>
+      <p>
+        Share your current website, content workflow, design goals, integrations, and launch
+        constraints. Start with the decisions that make the experience useful and maintainable.
+      </p>
+      <Link href="/contact/">
+        Start your custom project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }
