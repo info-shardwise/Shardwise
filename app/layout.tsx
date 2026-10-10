@@ -40,14 +40,14 @@ export default function RootLayout({
       className={`${fontJakarta.variable} ${fontAnton.variable} ${fontInter.variable}`}
     >
       <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JERT38N2S4" />
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZC8THR424" />
         <script
           id="google-analytics"
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-JERT38N2S4');`,
+gtag('config', 'G-PZC8THR424');`,
           }}
         />
         <OrganizationSchema />
