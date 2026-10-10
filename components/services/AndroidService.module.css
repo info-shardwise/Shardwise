@@ -722,3 +722,21 @@
     gap: 4px;
   }
 }
+
+/* Shared Application Development deliverables palette. */
+.delivery {
+  background: #faf8ff;
+  border-color: #eae5f1;
+}
+.delivery .kicker,
+.delivery .itemNumber,
+.delivery .checklist svg {
+  color: #6546e9;
+}
+.delivery .deliveryMark {
+  background: #f0eaff;
+  color: #6546e9;
+}
+.delivery .checklist li {
+  border-color: #eae5f1;
+}

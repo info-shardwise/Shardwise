@@ -361,17 +361,22 @@ export function WebAppContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="web-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="web-cta-title">Have a web app in mind? Let’s scope it.</h2>
-        <p>
-          Share your users, essential workflows, existing systems, and any launch constraints. We
-          can start with the decisions that shape a useful first release.
-        </p>
-        <Link href="/contact/">
-          Start your web app project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function WebAppProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="web-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="web-cta-title">Have a web app in mind? Let’s scope it.</h2>
+      <p>
+        Share your users, essential workflows, existing systems, and any launch constraints. We can
+        start with the decisions that shape a useful first release.
+      </p>
+      <Link href="/contact/">
+        Start your web app project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }

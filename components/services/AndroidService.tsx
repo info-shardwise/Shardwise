@@ -16,7 +16,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './AndroidService.module.css'
-import { AndroidBuildOptions, AndroidContent } from './AndroidContent'
+import { AndroidBuildOptions, AndroidContent, AndroidProjectCTA } from './AndroidContent'
 
 export function AndroidService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['android-app-development']
@@ -194,6 +194,7 @@ export function AndroidService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <AndroidProjectCTA />
         <AndroidContent />
       </div>
     </HomeMotion>

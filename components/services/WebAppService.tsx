@@ -17,7 +17,7 @@ import { HomeMotion } from '@/components/home/HomeMotion'
 import { RevealHeading } from '@/components/home/RevealHeading'
 import { SERVICE_PROFILES } from './serviceProfiles'
 import styles from './WebAppService.module.css'
-import { WebAppBuildOptions, WebAppContent } from './WebAppContent'
+import { WebAppBuildOptions, WebAppContent, WebAppProjectCTA } from './WebAppContent'
 
 export function WebAppService({ service }: { service: ServiceItem }) {
   const profile = SERVICE_PROFILES['web-app-development']
@@ -222,6 +222,7 @@ export function WebAppService({ service }: { service: ServiceItem }) {
             ))}
           </ol>
         </section>
+        <WebAppProjectCTA />
         <WebAppContent />
       </div>
     </HomeMotion>

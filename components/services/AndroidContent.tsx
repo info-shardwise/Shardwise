@@ -359,17 +359,22 @@ export function AndroidContent() {
           ))}
         </div>
       </section>
-      <section className={`${styles.section} ${styles.cta}`} aria-labelledby="android-cta-title">
-        <span>YOUR NEXT STEP</span>
-        <h2 id="android-cta-title">Have an Android app in mind? Let’s scope it.</h2>
-        <p>
-          Share your core idea, current product, intended devices, and any launch constraints. Start
-          with the decisions that shape a useful first release.
-        </p>
-        <Link href="/contact/">
-          Start your Android project <ArrowRight aria-hidden="true" />
-        </Link>
-      </section>
     </>
+  )
+}
+
+export function AndroidProjectCTA() {
+  return (
+    <section className={`${styles.section} ${styles.cta}`} aria-labelledby="android-cta-title">
+      <span>YOUR NEXT STEP</span>
+      <h2 id="android-cta-title">Have an Android app in mind? Let’s scope it.</h2>
+      <p>
+        Share your core idea, current product, intended devices, and any launch constraints. Start
+        with the decisions that shape a useful first release.
+      </p>
+      <Link href="/contact/">
+        Start your Android project <ArrowRight aria-hidden="true" />
+      </Link>
+    </section>
   )
 }
