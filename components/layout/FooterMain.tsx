@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { Logo } from '@/components/layout/Logo'
 import { SERVICE_CATEGORIES } from '@/lib/services'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail } from 'lucide-react'
 
 export function FooterMain() {
   return (
@@ -12,8 +12,8 @@ export function FooterMain() {
           <div className="lg:col-span-4 space-y-4">
             <Logo />
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              Shardwise builds websites, applications, digital experiences, and growth-focused
-              solutions for modern businesses.
+              Shardwise connects website and app development, design, maintenance and SEO for
+              businesses targeting UK and US audiences.
             </p>
 
             {/* Social links */}
@@ -62,8 +62,8 @@ export function FooterMain() {
             <h4 className="text-xs font-semibold uppercase tracking-wider text-white">Company</h4>
             <ul className="space-y-2.5 text-sm">
               {[
-                { label: 'About', href: '/about' },
-                { label: 'Blogs', href: '/blogs' },
+                { label: 'About Shardwise', href: '/about' },
+                { label: 'Insights', href: '/blogs' },
                 { label: 'Contact', href: '/contact' },
               ].map(({ label, href }) => (
                 <li key={href}>
@@ -104,19 +104,11 @@ export function FooterMain() {
               <li className="flex items-start gap-2.5">
                 <Mail className="h-4 w-4 text-[#11C5F5] mt-0.5 shrink-0" />
                 <a
-                  href="mailto:contact@shardwise.com"
+                  href="mailto:virenstudio.in@gmail.com"
                   className="hover:text-white transition-colors"
                 >
-                  contact@shardwise.com
+                  virenstudio.in@gmail.com
                 </a>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <Phone className="h-4 w-4 text-[#11C5F5] mt-0.5 shrink-0" />
-                <span>+1 (800) SHARDWISE</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 text-[#11C5F5] mt-0.5 shrink-0" />
-                <span>San Francisco, California</span>
               </li>
             </ul>
             <div className="pt-2">
