@@ -838,6 +838,9 @@
   background: #5034c7;
   color: #fff;
 }
+:global(body):has(.page) :global(footer > section a:first-child:hover) {
+  color: #000;
+}
 :global(body):has(.page) :global(footer > div) {
   background: #fff;
   border-color: #e8e3ef;
@@ -851,7 +854,7 @@
 :global(body):has(.page) :global(footer > div:last-child a) {
   color: #756d83;
 }
-:global(body):has(.page) :global(footer a:not([data-social-link]):hover) {
+:global(body):has(.page) :global(footer > div a:not([data-social-link]):hover) {
   color: #6546e9;
 }
 :global(body):has(.page) :global(footer a[aria-label='Shardwise Home'] > span:last-child) {
