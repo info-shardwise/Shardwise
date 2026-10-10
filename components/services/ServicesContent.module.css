@@ -42,7 +42,7 @@
 .content {
   max-width: 1208px;
   margin: auto;
-  padding: 0 24px;
+  padding: clamp(40px, 6vw, 80px) 24px 0;
 }
 .section {
   padding: 86px 0;
