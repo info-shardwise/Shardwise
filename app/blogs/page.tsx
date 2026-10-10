@@ -45,6 +45,23 @@ export default function BlogsPage() {
         )}
         <BlogExplorer posts={posts} />
         <div className={hub.lower}>
+          <section className={hub.cta} aria-labelledby="blog-next-title">
+            <span className={hub.eyebrow}>PUT IDEAS INTO PRACTICE</span>
+            <h2 id="blog-next-title">
+              Reading about it is one thing.
+              <br />
+              Let’s build it.
+            </h2>
+            <p>
+              Explore our <Link href="/services/">development, design, and search services</Link>,
+              or share the challenge you are working through. We can discuss the next step for your
+              project.
+            </p>
+            <Link href="/contact/">
+              Start a project
+              <ArrowUpRight aria-hidden="true" />
+            </Link>
+          </section>
           <section className={hub.authors} aria-labelledby="authors-title">
             <span className={hub.eyebrow}>BEHIND THE ARTICLES</span>
             <h2 id="authors-title">Written by our teams.</h2>
@@ -69,23 +86,6 @@ export default function BlogsPage() {
                 </article>
               ))}
             </div>
-          </section>
-          <section className={hub.cta} aria-labelledby="blog-next-title">
-            <span className={hub.eyebrow}>PUT IDEAS INTO PRACTICE</span>
-            <h2 id="blog-next-title">
-              Reading about it is one thing.
-              <br />
-              Let’s build it.
-            </h2>
-            <p>
-              Explore our <Link href="/services/">development, design, and search services</Link>,
-              or share the challenge you are working through. We can discuss the next step for your
-              project.
-            </p>
-            <Link href="/contact/">
-              Start a project
-              <ArrowUpRight aria-hidden="true" />
-            </Link>
           </section>
         </div>
         <script
