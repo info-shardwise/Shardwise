@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useTransition } from 'react'
+import { useRef, useState, useTransition } from 'react'
+import ContactSecurity from './ContactSecurity'
 import { submitContactForm, type ContactState } from './actions'
 import { CheckCircle, AlertCircle, ArrowRight } from 'lucide-react'
 import { SERVICE_CATEGORIES } from '@/lib/services'
@@ -17,13 +18,23 @@ const initialFormState: ContactState = {
 export default function ContactPage() {
   const [state, setState] = useState<ContactState>(initialFormState)
   const [isPending, startTransition] = useTransition()
+  const [securityReady, setSecurityReady] = useState(false)
+  const [securityVersion, setSecurityVersion] = useState(0)
+  const submissionId = useRef('')
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!securityReady || isPending) return
+    if (!submissionId.current) submissionId.current = crypto.randomUUID()
     const formData = new FormData(e.currentTarget)
+    formData.set('id', submissionId.current)
     startTransition(async () => {
       const result = await submitContactForm(state, formData)
       setState(result)
+      if (!result.success) {
+        setSecurityReady(false)
+        setSecurityVersion((version) => version + 1)
+      }
     })
   }
 
@@ -90,6 +101,7 @@ export default function ContactPage() {
                           id="name"
                           autoComplete="name"
                           name="name"
+                          maxLength={120}
                           type="text"
                           required
                           placeholder="Jane Doe"
@@ -105,6 +117,7 @@ export default function ContactPage() {
                           id="email"
                           autoComplete="email"
                           name="email"
+                          maxLength={254}
                           type="email"
                           required
                           placeholder="jane@company.com"
@@ -136,6 +149,7 @@ export default function ContactPage() {
                         id="message"
                         name="message"
                         rows={5}
+                        maxLength={5000}
                         required
                         placeholder="Tell us about your project scope, timeline, and goals..."
                         className={styles.field}
@@ -147,7 +161,17 @@ export default function ContactPage() {
                       </p>
                     </div>
 
-                    <button type="submit" disabled={isPending} className={styles.submit}>
+                    <div className="hidden" aria-hidden="true">
+                      <label htmlFor="website">Website</label>
+                      <input id="website" name="website" tabIndex={-1} autoComplete="off" />
+                    </div>
+                    <ContactSecurity key={securityVersion} onReady={setSecurityReady} />
+
+                    <button
+                      type="submit"
+                      disabled={isPending || !securityReady}
+                      className={styles.submit}
+                    >
                       {isPending ? 'Sending...' : 'Start the conversation'}
                       <ArrowRight className="h-4 w-4" />
                     </button>
