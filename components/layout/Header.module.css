@@ -443,7 +443,7 @@
 .homeHeader .megaMenu a:hover {
   background-color: #eee7fa;
 }
-.homeHeader .megaMenu a > div {
+.homeHeader .megaMenu .serviceIcon {
   background-color: #f3edf9;
 }
 .homeHeader .megaMenu a > div svg {

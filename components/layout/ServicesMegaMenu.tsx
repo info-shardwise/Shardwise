@@ -117,7 +117,7 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
                 <Link
                   href="/services"
                   onClick={onClose}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#11C5F5] hover:underline"
+                  className="inline-flex items-center gap-1.5 rounded-lg px-2 py-1.5 text-xs font-semibold text-[#11C5F5] hover:underline"
                 >
                   View all services overview
                   <ArrowRight className="h-3.5 w-3.5" />
@@ -139,9 +139,11 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
                       key={item.slug}
                       href={item.href}
                       onClick={onClose}
-                      className="group flex items-start gap-3.5 rounded-xl border border-white/5 bg-white/[0.03] p-3.5 transition-all hover:border-[#0878F9]/50 hover:bg-white/[0.07] hover:shadow-lg"
+                      className="group flex items-start gap-3.5 rounded-xl border border-white/5 bg-transparent p-3.5 transition-all hover:border-[#0878F9]/50 hover:bg-white/[0.07] hover:shadow-lg"
                     >
-                      <div className="mt-0.5 rounded-lg bg-[#0878F9]/15 p-2 transition-colors group-hover:bg-[#0878F9] group-focus-visible:bg-[#0878F9]">
+                      <div
+                        className={`${styles.serviceIcon} mt-0.5 rounded-lg bg-[#0878F9]/15 p-2 transition-colors group-hover:bg-[#0878F9] group-focus-visible:bg-[#0878F9]`}
+                      >
                         {renderIcon(item.iconName)}
                       </div>
                       <div className="min-w-0 flex-1">
@@ -164,7 +166,7 @@ export function ServicesMegaMenu({ isOpen, onClose }: ServicesMegaMenuProps) {
                 <Link
                   href="/contact"
                   onClick={onClose}
-                  className="font-medium text-[#11C5F5] hover:text-white transition-colors"
+                  className="rounded-lg px-2 py-1.5 font-medium text-[#11C5F5] hover:text-white transition-colors"
                 >
                   Schedule a discovery call →
                 </Link>
