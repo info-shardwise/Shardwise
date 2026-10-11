@@ -384,6 +384,13 @@ export function WebsiteMaintenanceContent() {
           <span>THE WEBSITE LIFECYCLE</span>
           <h2 id="care-related-title">Find the right service for your platform.</h2>
           <p>
+            Preparing an update or launch? Use our{' '}
+            <Link href="/blogs/wordpress-staging-site-checklist/">
+              WordPress staging site checklist
+            </Link>{' '}
+            to plan tests, deployment scope and live verification.
+          </p>
+          <p>
             Planning ongoing care? Follow our{' '}
             <Link href="/blogs/website-maintenance-checklist-small-business/">
               small business website maintenance checklist
