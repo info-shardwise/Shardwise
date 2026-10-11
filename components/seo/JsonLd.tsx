@@ -70,12 +70,14 @@ export function ArticleSchema({
   url,
   datePublished,
   authorName,
+  authorType = 'Person',
 }: {
   title: string
   description: string
   url: string
   datePublished: string
   authorName: string
+  authorType?: 'Person' | 'Organization'
 }) {
   const schema = {
     '@context': 'https://schema.org',
@@ -85,7 +87,7 @@ export function ArticleSchema({
     url,
     datePublished,
     author: {
-      '@type': 'Person',
+      '@type': authorType,
       name: authorName,
     },
     publisher: {

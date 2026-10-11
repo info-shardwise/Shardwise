@@ -383,6 +383,13 @@ export function WebsiteMaintenanceContent() {
         <div className={styles.heading}>
           <span>THE WEBSITE LIFECYCLE</span>
           <h2 id="care-related-title">Find the right service for your platform.</h2>
+          <p>
+            Planning ongoing care? Follow our{' '}
+            <Link href="/blogs/website-maintenance-checklist-small-business/">
+              small business website maintenance checklist
+            </Link>{' '}
+            to plan regular checks and assign responsibilities.
+          </p>
         </div>
         <div className={styles.related}>
           {[

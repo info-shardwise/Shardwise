@@ -28,8 +28,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return { title: 'Article Not Found' }
 
   return {
-    title: `${post.meta.title} | Shardwise Blog`,
+    title: { absolute: `${post.meta.title} | Shardwise` },
     description: post.meta.description,
+    alternates: { canonical: `${SITE_CONFIG.url}/blogs/${post.meta.slug}/` },
+    openGraph: {
+      type: 'article',
+      title: post.meta.title,
+      description: post.meta.description,
+      url: `${SITE_CONFIG.url}/blogs/${post.meta.slug}/`,
+      publishedTime: post.meta.date,
+      authors: [post.meta.author.name],
+    },
+    twitter: { card: 'summary', title: post.meta.title, description: post.meta.description },
   }
 }
 
@@ -41,7 +51,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     notFound()
   }
 
-  const fullUrl = `${SITE_CONFIG.url}/blogs/${post.meta.slug}`
+  const fullUrl = `${SITE_CONFIG.url}/blogs/${post.meta.slug}/`
   const breadcrumbs = [
     { name: 'Home', url: SITE_CONFIG.url },
     { name: 'Blogs', url: `${SITE_CONFIG.url}/blogs` },
@@ -59,6 +69,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         url={fullUrl}
         datePublished={post.meta.date}
         authorName={post.meta.author.name}
+        authorType={post.meta.author.name.startsWith('Shardwise') ? 'Organization' : 'Person'}
       />
       <BreadcrumbSchema items={breadcrumbs} />
       <HomeMotion>

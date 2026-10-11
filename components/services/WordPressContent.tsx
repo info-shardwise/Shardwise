@@ -371,6 +371,13 @@ export function WordPressContent() {
         <div className={styles.heading}>
           <span>THE WEBSITE LIFECYCLE</span>
           <h2 id="wp-related-title">Connect the build with the right next step.</h2>
+          <p>
+            After launch, use our{' '}
+            <Link href="/blogs/website-maintenance-checklist-small-business/">
+              small business website maintenance checklist
+            </Link>{' '}
+            to plan regular checks and assign responsibilities.
+          </p>
         </div>
         <div className={styles.related}>
           {[

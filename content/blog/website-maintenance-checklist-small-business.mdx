@@ -1,0 +1,155 @@
+---
+title: 'Website Maintenance Checklist for Small Business'
+description: 'Use this small business website maintenance checklist to check forms, backups, updates, security and SEO, with a practical weekly and monthly schedule.'
+slug: 'website-maintenance-checklist-small-business'
+date: '2026-10-11'
+author:
+  name: 'Shardwise Engineering'
+  role: 'Website Development and Maintenance Team'
+tags: ['Website Maintenance', 'Small Business', 'WordPress']
+featured: true
+published: true
+---
+
+A website maintenance checklist for small business should cover the customer journey, backups, software updates, security, performance and content accuracy. Start by checking whether a visitor can contact you or complete an order. Then work through the technical checks that keep those journeys reliable.
+
+The schedule below is a suggested operating routine, not a universal standard. A brochure website, a busy online store and a custom application need different levels of monitoring. Increase the frequency of checks when a failure would interrupt sales or when the site changes frequently.
+
+## Your website maintenance schedule at a glance
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Frequency</th>
+      <th scope="col">What to check</th>
+      <th scope="col">Evidence to keep</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Ongoing</td>
+      <td>Availability alerts, backup jobs and critical security notices</td>
+      <td>Alert recipient and latest successful backup</td>
+    </tr>
+    <tr>
+      <td>Weekly</td>
+      <td>Enquiry forms, booking links, key pages and business details</td>
+      <td>Test submission, inbox receipt and issue list</td>
+    </tr>
+    <tr>
+      <td>Monthly</td>
+      <td>Planned updates, restore readiness, mobile usability and analytics</td>
+      <td>Update log, mobile checks and tracking results</td>
+    </tr>
+    <tr>
+      <td>Quarterly</td>
+      <td>Access permissions, content relevance, search visibility and recovery process</td>
+      <td>Access review and priorities for the next quarter</td>
+    </tr>
+    <tr>
+      <td>Before renewal</td>
+      <td>Domain, hosting, subscriptions and account ownership</td>
+      <td>Renewal date, payment contact and recovery details</td>
+    </tr>
+  </tbody>
+</table>
+
+Give each task an owner. “The developer handles it” is incomplete unless someone knows what is included, when it happens and how a problem is reported. Our [website maintenance service](/services/website-maintenance/) can help define that scope for your platform.
+
+## Weekly: test the actions that bring you enquiries
+
+### Submit the contact form and confirm delivery
+
+Open the public website on a phone and submit a clearly labelled test enquiry. Confirm all three outcomes: the visitor sees the expected confirmation, the submission is stored if storage is part of the implementation, and the notification reaches the intended inbox.
+
+A successful-looking screen is not proof of email delivery. Check the receiving mailbox, including Spam, and inspect delivery logs where available. Record the test time so you can find the matching entry. If a spam challenge is enabled, test the complete visitor flow rather than only the email provider's test button.
+
+Check the Reply-To address too. Replying to a notification should reach the visitor, while the sending address should be one your delivery service is authorized to use. After changing a mailbox, domain or hosting account, repeat the test immediately.
+
+### Check the rest of the customer journey
+
+- Open booking, phone and email links on a mobile device.
+- Confirm service links lead to the correct page rather than an old offer.
+- Review opening hours, contact details and availability information.
+- For stores, check product selection, cart changes and the route to checkout.
+- Test important journeys after a deployment or configuration change, even if the next scheduled review is several days away.
+
+Use an appropriate test environment or payment-provider test mode for purchase checks. Avoid placing real orders just to satisfy a checklist.
+
+## Monthly: protect recovery before making changes
+
+### Check backups and the restore process
+
+A backup needs to include the data required to rebuild the site. For WordPress, that means both files and the database. [WordPress's backup guidance](https://learn.wordpress.org/lesson-plan/backing-up-your-wordpress-site/) explains these two parts.
+
+Check the latest successful backup, where it is stored, who can retrieve it and whether there is a documented restore procedure. Use a separate environment for restore tests; do not overwrite the live website. Agree how much recent data the business could afford to lose, then choose a backup frequency that fits that requirement.
+
+A Git repository preserves application code, but it does not automatically preserve enquiry records, uploaded files, secrets or third-party settings. Include those dependencies in the recovery plan.
+
+### Update software with a rollback plan
+
+List pending updates and check for known compatibility concerns before applying them. Take a recoverable backup, use staging when appropriate, and retest important journeys after deployment. [WordPress's update documentation](https://wordpress.org/documentation/article/updating-wordpress/) recommends backing up before updating.
+
+Keep the platform distinction clear:
+
+- **WordPress:** review core, theme and plugin updates, alongside hosting requirements.
+- **Shopify:** review theme changes, installed apps and integrations; merchants do not patch Shopify's hosted core themselves.
+- **Custom websites:** review dependencies, hosting configuration, deployment checks and server-side integrations.
+
+For build changes beyond routine care, see [WordPress development](/services/wordpress-development/) or [custom website development](/services/custom-website-development/). For an existing store, [Shopify store maintenance](/services/shopify-store-maintenance/) and [WooCommerce maintenance](/services/woocommerce-maintenance/) address platform-specific needs.
+
+## Monthly: check usability, tracking and performance
+
+Open representative pages on a phone and desktop. Check navigation, readable text, buttons, form labels and error messages. Use the keyboard to reach the menu and submit controls. A change can work with a mouse while making another visitor's journey harder.
+
+Compare performance using the same pages and similar test conditions. Start with the homepage, a service page and the Contact page. Investigate new regressions instead of treating a single laboratory score as a complete health check.
+
+[Google's page-experience guidance](https://developers.google.com/search/docs/appearance/page-experience) recommends good Core Web Vitals while explaining that good scores alone do not guarantee top rankings. If performance or crawl issues need deeper investigation, explore [technical and on-page SEO](/services/technical-onpage-seo/).
+
+Check that analytics uses the intended property and records the actions you care about, subject to your site's consent settings. A page-view event is different from a completed enquiry. Do not put visitors' names, email addresses or message text into analytics events.
+
+## Quarterly: review access, content and search visibility
+
+Review who can access the domain registrar, hosting, website administration, source repository and email-delivery service. Remove access that is no longer needed and confirm the business can recover each account without relying on one former supplier.
+
+Review the pages that describe your services. Are the offers still available? Do the internal links point to useful next steps? Does the Contact page use the right inbox? Record corrections before commissioning new content.
+
+In Search Console, review indexing changes and the queries bringing visitors to relevant pages. Investigate unexpected drops alongside changes to the website; do not assume every fluctuation is caused by a maintenance failure. Keep canonical URLs, redirects and the sitemap consistent when you change page addresses.
+
+## A handover checklist for your maintenance provider
+
+Ask for written answers to these questions:
+
+1. Which pages and customer journeys will be tested?
+2. What is backed up, where is it kept and how is it restored?
+3. Which updates are included, and which require a separate development scope?
+4. Who receives availability and email-delivery alerts?
+5. What response coverage is agreed for incidents?
+6. How are completed work, unresolved issues and next priorities reported?
+7. Which accounts remain under the business's control?
+
+This makes maintenance reviewable. It also helps separate a small content correction from a larger integration or redesign project. See our [development, design and maintenance services](/services/) to find the right starting point.
+
+## Frequently asked questions
+
+### How often should a small business maintain its website?
+
+Use weekly checks for important visitor actions and a monthly review for planned technical work. Availability monitoring and urgent security updates may need faster attention. Choose the schedule around your platform, update frequency and the consequences of downtime.
+
+### Can I do website maintenance myself?
+
+Business owners can check content, links and enquiry delivery. Updates, restore work, permissions and integrations need someone who understands the platform and can recover from a failed change. Agree the boundaries before giving a supplier access.
+
+### Does website maintenance improve SEO?
+
+Maintenance can address broken links, outdated content, performance problems and indexing mistakes. It supports a usable, accessible website, but it does not guarantee rankings or replace relevant content and a search strategy.
+
+### What should I do first if my contact form stops working?
+
+Check whether the submission was accepted and saved, then check the notification settings and delivery logs. A sending failure and an inbox-filtering problem need different fixes. Preserve existing entries and use an alternative contact route while investigating.
+
+## Build a maintenance plan around your website
+
+Start with one documented check of your main customer journey. List the platform, important integrations, account owners and unresolved issues. Then set a recurring schedule with clear responsibilities.
+
+Need help turning the checklist into a workable plan? [Discuss website maintenance with Shardwise](/contact/) and share your website address, platform and the tasks you want covered.

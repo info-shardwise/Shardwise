@@ -226,6 +226,16 @@ export function ServicesContent() {
             Have a question about your specific platform or scope? Include it with your project
             enquiry.
           </p>
+          <p className={styles.lead}>
+            Planning support after launch? Read our{' '}
+            <Link
+              href="/blogs/website-maintenance-checklist-small-business/"
+              className={styles.textLink}
+            >
+              website maintenance checklist for small business
+            </Link>{' '}
+            before choosing your coverage.
+          </p>
         </div>
         <div>
           {SERVICES_FAQS.map((item) => (
