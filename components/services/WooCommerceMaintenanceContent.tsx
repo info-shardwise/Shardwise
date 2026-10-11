@@ -405,6 +405,13 @@ export function WooCommerceMaintenanceContent() {
         <div className={styles.heading}>
           <span>THE WEBSITE LIFECYCLE</span>
           <h2 id="woo-related-title">Find the right service for your platform.</h2>
+          <p>
+            Review your store releases with our{' '}
+            <Link href="/blogs/woocommerce-checkout-testing-checklist/">
+              WooCommerce checkout testing checklist
+            </Link>
+            , covering totals, payment outcomes and order records.
+          </p>
         </div>
         <div className={styles.related}>
           {[

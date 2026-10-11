@@ -372,6 +372,13 @@ export function WordPressContent() {
           <span>THE WEBSITE LIFECYCLE</span>
           <h2 id="wp-related-title">Connect the build with the right next step.</h2>
           <p>
+            Review your store releases with our{' '}
+            <Link href="/blogs/woocommerce-checkout-testing-checklist/">
+              WooCommerce checkout testing checklist
+            </Link>
+            , covering totals, payment outcomes and order records.
+          </p>
+          <p>
             Preparing an update or launch? Use our{' '}
             <Link href="/blogs/wordpress-staging-site-checklist/">
               WordPress staging site checklist
