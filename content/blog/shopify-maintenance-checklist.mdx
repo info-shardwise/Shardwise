@@ -1,0 +1,170 @@
+---
+title: 'Shopify Maintenance Checklist: Weekly and Monthly Tasks'
+description: 'Keep your Shopify store ready to sell with practical checks for checkout, themes, apps, product content, redirects and recovery, plus a maintenance schedule.'
+slug: 'shopify-maintenance-checklist'
+date: '2026-10-11'
+author:
+  name: 'Shardwise Engineering'
+  role: 'Ecommerce Development and Maintenance Team'
+tags: ['Shopify', 'Ecommerce', 'Website Maintenance']
+featured: true
+published: true
+---
+
+A Shopify maintenance checklist should cover the parts of the store you control: the buying journey, theme customizations, installed apps, product information, tracking and account access. Shopify manages the hosted platform, but your store still needs regular checks after campaigns, app installations and theme changes.
+
+Start with a simple question: can a customer find the right product, select a variant and complete the intended purchase journey? Then check whether the resulting order information reaches the people and systems that need it.
+
+This guide suggests a weekly, monthly and quarterly routine. Adapt the frequency to your order volume, integrations and release schedule. It complements our broader [small business website maintenance checklist](/blogs/website-maintenance-checklist-small-business/) with checks specific to Shopify.
+
+## Shopify maintenance schedule at a glance
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">When</th>
+      <th scope="col">Priority checks</th>
+      <th scope="col">Record</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Weekly</td>
+      <td>Product selection, cart, promotions and customer messages</td>
+      <td>Test results and unresolved issues</td>
+    </tr>
+    <tr>
+      <td>Monthly</td>
+      <td>Apps, theme changes, mobile usability, redirects and tracking</td>
+      <td>Change log and named owners</td>
+    </tr>
+    <tr>
+      <td>Quarterly</td>
+      <td>Access, recovery coverage, integration dependencies and outdated content</td>
+      <td>Access review and recovery notes</td>
+    </tr>
+    <tr>
+      <td>After a significant change</td>
+      <td>Affected purchase journeys and connected systems</td>
+      <td>Release checks and rollback decision</td>
+    </tr>
+  </tbody>
+</table>
+
+Give each task an owner. A list without responsibility or follow-up can leave the same issue unnoticed for months. If you need help defining the routine, our [Shopify store maintenance service](/services/shopify-store-maintenance/) is a relevant starting point.
+
+## Weekly: check the buying journey
+
+### Follow a real customer route on mobile
+
+Open the public storefront and follow a typical path from a collection to a product, variant selection and cart. Check a second path through search or a campaign landing page.
+
+- Product images and descriptions match the selected item.
+- Available variants can be selected without confusing error messages.
+- Cart quantities, removal and any cart drawer work on a narrow screen.
+- An advertised discount has the expected conditions and expiry information.
+- Delivery and returns links are easy to find before checkout.
+
+Record the product, device, browser and test time when something fails. A screenshot and repeatable steps are more useful than a note saying the store is broken.
+
+### Test checkout without disrupting customers
+
+A cart that opens successfully does not prove the complete order flow works. After payment or checkout configuration changes, follow [Shopify's test order guidance](https://help.shopify.com/en/manual/checkout-settings/test-orders) and verify the relevant order, shipping and notification behavior.
+
+<Callout type="warning">
+  Customers cannot place live orders while payment providers are in test mode. Plan the check
+  carefully, restore the live payment configuration afterward, and confirm that test orders will not
+  trigger real fulfillment.
+</Callout>
+
+Use clearly labelled test data. Before testing integrations, agree how test orders will be excluded from dispatch, customer messaging and operational reporting. Do not assume an app recognizes every simulated order automatically.
+
+### Check customer messages and active promotions
+
+Submit a test contact enquiry and confirm it reaches the intended inbox. Review the current homepage banners, announcement bar and campaign links. Remove expired offers deliberately rather than leaving customers to discover an unavailable discount at checkout.
+
+## Monthly: review themes and installed apps
+
+### Prepare a theme change before publishing it
+
+Keep a record of the live theme, custom sections and integrations that depend on it. [Shopify recommends duplicating a theme before customization](https://help.shopify.com/en/manual/online-store/themes/managing-themes/duplicating-themes), so you have a copy to return to if necessary.
+
+A theme copy is not a complete backup of the business. It does not independently preserve every product, order, customer record or external app configuration. Define recovery coverage separately for the information your store needs.
+
+Preview changes against representative templates: homepage, collection, product, cart and an information page. Check navigation, app blocks, variant selection and keyboard access. Where a preview cannot exercise a live integration completely, document the remaining production check instead of marking it passed.
+
+If changes require new templates or custom behavior, [Shopify development](/services/shopify-development/) can address the implementation alongside the maintenance plan.
+
+### Keep an app register
+
+For each app, record its purpose, owner, billing status, required permissions and the journey that depends on it. Ask whether it duplicates another tool and whether the team still uses its features.
+
+Before uninstalling, check the app provider's instructions and dependencies. Confirm whether removing it affects subscriptions, product options, reviews or customer communications. Do not remove an app solely because it seems unused on the homepage.
+
+After an app installation, update or removal, repeat the affected journey. Check both the storefront and the connected service. For example, a product can display correctly while its stock synchronization is failing.
+
+## Monthly: check content, links and performance
+
+### Maintain product and collection information
+
+Review important products for inaccurate availability, inconsistent imagery and outdated specifications. Check that collection links still lead to useful products. A sold-out item may still deserve a helpful page; permanent removal is a separate editorial decision.
+
+When a URL changes or a page is removed, review the old URL and choose a relevant replacement where one exists. Shopify's [redirect documentation](https://help.shopify.com/en/manual/online-store/menus-and-links/url-redirect) explains that its URL redirects work from broken URLs and have reserved-path restrictions. Test the old link on the public storefront after making the change.
+
+Avoid sending every removed product to the homepage. Visitors who expected a specific item need a meaningful destination or a clear explanation.
+
+### Compare performance before and after changes
+
+Choose a consistent set of representative pages and test them on mobile and desktop. Note large images, layout movement and delays around important controls. Compare the same journey before and after a theme or app change, rather than drawing conclusions from one isolated speed score.
+
+Use field data when available, and treat lab tests as diagnostic evidence. Record what changed and what customers can now do more reliably. A higher test score alone does not establish a sales increase or a ranking improvement.
+
+### Verify tracking without exposing customer data
+
+Check that agreed analytics events still fire after storefront changes. Confirm that important events are not duplicated by an app and a separate tracking implementation. Use the platform's diagnostic tools and respect the visitor's consent choices.
+
+Keep names, email addresses and message contents out of analytics event parameters. Compare analytics with operational records to investigate differences; do not expect different systems to report identical totals in every circumstance.
+
+For search-related technical issues, explore [technical and on-page SEO](/services/technical-onpage-seo/). A maintenance check can identify a problem, while a focused review can investigate its cause.
+
+## Quarterly: review access and recovery
+
+Confirm who can manage the store, edit the theme, install apps and receive operational alerts. Remove access that is no longer required and check that the account owner can recover access if a team member leaves.
+
+Write down what you can restore, where the recovery material lives and who is responsible. Cover theme files, essential exports and app-specific data where applicable. Verify the recovery process with a suitable test rather than assuming that a downloaded file contains everything needed.
+
+Keep recovery files private. They may contain customer or business information and should not be uploaded to the website or committed to a public repository.
+
+## A maintenance handover your team can use
+
+At the end of each review, record:
+
+1. What was tested and which device or environment was used.
+2. What changed in the theme, apps or settings.
+3. Which issues remain and who owns the next action.
+4. Which customer journeys need another check after the fix.
+5. Where recovery instructions and authorized access are stored.
+
+This makes the next review repeatable and helps separate routine upkeep from a larger redesign or integration project.
+
+## Frequently asked questions
+
+### Does Shopify need maintenance if hosting is managed?
+
+Yes. Hosted infrastructure reduces some platform responsibilities, but your products, theme customizations, installed apps, promotions and connected workflows still need attention. Focus the routine on the parts your business controls.
+
+### How often should I check my Shopify store?
+
+Use a regular schedule and repeat relevant checks after significant changes. Weekly journey checks and monthly app/content reviews are a practical starting point, not a requirement for every store. A busy or heavily integrated store may need more frequent monitoring.
+
+### Is duplicating my theme enough for a backup?
+
+No. It preserves a theme copy, not every category of store and app data. Document recovery separately for the information and integrations needed to operate the business.
+
+### Will this checklist improve search rankings?
+
+It can help uncover broken links, weak mobile journeys and outdated pages. Search performance also depends on relevance, competition and other factors. Maintenance does not guarantee a ranking gain.
+
+## Plan your store's next maintenance review
+
+Share your storefront, important apps and the buying journeys you rely on. We can discuss practical coverage through [Shopify store maintenance](/services/shopify-store-maintenance/) or scope a specific improvement. [Contact Shardwise](/contact/) with the issue and the result you need.

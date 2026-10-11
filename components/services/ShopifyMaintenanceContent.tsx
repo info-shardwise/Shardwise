@@ -404,6 +404,11 @@ export function ShopifyMaintenanceContent() {
         <div className={styles.heading}>
           <span>THE WEBSITE LIFECYCLE</span>
           <h2 id="store-related-title">Find the right service for your platform.</h2>
+          <p>
+            Plan your ongoing store care with our{' '}
+            <Link href="/blogs/shopify-maintenance-checklist/">Shopify maintenance checklist</Link>,
+            covering checkout, themes, apps and recovery responsibilities.
+          </p>
         </div>
         <div className={styles.related}>
           {[
