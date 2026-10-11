@@ -5,6 +5,7 @@ import type { BlogPostMeta } from '@/lib/mdx'
 import styles from './BlogListing.module.css'
 
 function photoFor(post: BlogPostMeta) {
+  if (post.image) return { src: post.image, alt: post.imageAlt || post.title }
   const search = post.tags.some((tag) => ['seo', 'geo', 'strategy'].includes(tag.toLowerCase()))
   return search
     ? {

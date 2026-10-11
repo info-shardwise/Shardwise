@@ -37,9 +37,22 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: post.meta.description,
       url: `${SITE_CONFIG.url}/blogs/${post.meta.slug}/`,
       publishedTime: post.meta.date,
+      images: post.meta.image
+        ? [
+            {
+              url: `${SITE_CONFIG.url}${post.meta.image}`,
+              alt: post.meta.imageAlt || post.meta.title,
+            },
+          ]
+        : undefined,
       authors: [post.meta.author.name],
     },
-    twitter: { card: 'summary', title: post.meta.title, description: post.meta.description },
+    twitter: {
+      card: post.meta.image ? 'summary_large_image' : 'summary',
+      title: post.meta.title,
+      description: post.meta.description,
+      images: post.meta.image ? [`${SITE_CONFIG.url}${post.meta.image}`] : undefined,
+    },
   }
 }
 
@@ -68,6 +81,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         description={post.meta.description}
         url={fullUrl}
         datePublished={post.meta.date}
+        image={post.meta.image ? `${SITE_CONFIG.url}${post.meta.image}` : undefined}
         authorName={post.meta.author.name}
         authorType={post.meta.author.name.startsWith('Shardwise') ? 'Organization' : 'Person'}
       />

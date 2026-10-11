@@ -7,6 +7,8 @@ const BLOG_DIR = path.join(process.cwd(), 'content/blog')
 export interface BlogPostMeta {
   title: string
   description: string
+  image?: string
+  imageAlt?: string
   slug: string
   date: string
   author: {
@@ -50,6 +52,8 @@ export function getAllPosts(): BlogPostMeta[] {
       return {
         title: data.title || 'Untitled Post',
         description: data.description || '',
+        image: typeof data.image === 'string' ? data.image : undefined,
+        imageAlt: typeof data.imageAlt === 'string' ? data.imageAlt : undefined,
         slug,
         date: data.date ? (new Date(data.date).toISOString().split('T')[0] ?? '') : '',
         author: data.author || {
@@ -82,6 +86,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
     meta: {
       title: data.title || 'Untitled Post',
       description: data.description || '',
+      image: typeof data.image === 'string' ? data.image : undefined,
+      imageAlt: typeof data.imageAlt === 'string' ? data.imageAlt : undefined,
       slug,
       date: data.date ? (new Date(data.date).toISOString().split('T')[0] ?? '') : '',
       author: data.author || {
