@@ -420,6 +420,13 @@ export function TechnicalSeoContent() {
           <span>CONNECTED SEARCH SERVICES</span>
           <h2 id="seo-related-title">Connect the technical foundation with your wider goals.</h2>
         </div>
+        <p>
+          Planning a domain or platform change? Use our{' '}
+          <Link href="/blogs/website-migration-seo-checklist/">
+            website migration SEO checklist
+          </Link>{' '}
+          to prepare redirects, launch checks, and monitoring.
+        </p>
         <div className={styles.related}>
           {[
             ['Local & Google Business SEO', 'local-google-business-seo'],

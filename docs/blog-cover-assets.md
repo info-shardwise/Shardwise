@@ -13,4 +13,13 @@ Topic-specific prompt sections:
 
 Each prompt ended with: “Crisp premium composition, soft studio lighting, large central objects, plenty of breathing room safe for 16:9 crops. No text, no letters, no brand logos, no watermark. Save the image for website use.”
 
-The two earlier articles retain their separate existing stock images. All six articles now explicitly declare `image` and `imageAlt` in front matter. These fields supply blog thumbnails, social previews and BlogPosting image metadata. Originals remain in the local Codex generated-images folder.
+The two earlier articles retain their separate existing stock images. All articles explicitly declare `image` and `imageAlt` in front matter. These fields supply blog thumbnails, social previews and BlogPosting image metadata. Originals remain in the local Codex generated-images folder.
+
+## Covers added 13 October 2026
+
+Two further original covers were generated with the built-in imagegen tool and optimized with Sharp to 1200 × 800 WebP:
+
+- `website-migration-seo-checklist.webp`: luminous cyan URL-path ribbons bridging old and modern server towers; midnight navy architecture with restrained amber lighting.
+- `website-accessibility-checklist-small-business.webp`: layered paper-cut welcoming doorway, keyboard, contrasting color swatches and glowing focus outline; ivory, terracotta, mustard and forest green.
+
+Both prompts requested a wide 3:2 editorial composition safe for 16:9 crops, with no text, letters, brand logos or watermark. The styles and subjects differ from the existing browser-dashboard, storefront, staging-panel and checkout illustrations.

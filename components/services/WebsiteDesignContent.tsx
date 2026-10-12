@@ -356,6 +356,13 @@ export function WebsiteDesignContent() {
           <span>THE WEBSITE LIFECYCLE</span>
           <h2 id="website-related-title">Connect website design with the right next step.</h2>
         </div>
+        <p>
+          Review your customer journeys with our{' '}
+          <Link href="/blogs/website-accessibility-checklist-small-business/">
+            website accessibility checklist for small businesses
+          </Link>{' '}
+          before your next website update.
+        </p>
         <div className={styles.related}>
           {[
             ['WordPress Development', 'wordpress-development'],

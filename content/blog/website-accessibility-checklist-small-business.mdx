@@ -1,0 +1,120 @@
+---
+title: 'Website Accessibility Checklist for Small Businesses'
+description: 'Check keyboard access, contrast, forms, images, and mobile zoom with a practical website accessibility checklist for small businesses and their development teams.'
+image: '/images/blog/covers/website-accessibility-checklist-small-business.webp'
+imageAlt: 'Warm layered paper illustration of a welcoming doorway with a keyboard, color swatches, and a highlighted button.'
+slug: 'website-accessibility-checklist-small-business'
+date: '2026-10-13'
+author:
+  name: 'Shardwise Engineering'
+  role: 'Website Design & Development'
+tags: ['Accessibility', 'Website Design', 'Small Business']
+featured: true
+published: true
+---
+
+## Review real customer tasks first
+
+Can someone find your services, read the details, and contact you without a mouse? Can a visitor enlarge the text without losing the submit button? These are useful starting questions for a small-business website accessibility review.
+
+This checklist helps you identify practical barriers and prepare clear fixes for a designer or developer. It is an initial review, not proof of WCAG conformance or legal compliance. [W3C's Easy Checks](https://www.w3.org/WAI/test-evaluate/easy-checks/) similarly presents first checks that do not replace a comprehensive accessibility evaluation.
+
+Choose three important journeys: for example, finding a service, submitting an enquiry, and completing a purchase. Review them across the homepage, a service page, a form, and any navigation or dialog shared throughout the site. Include a mobile device and a desktop browser. Write down what you tested so the next person can repeat it.
+
+## 1. Navigate without a mouse
+
+Start at the top of a page and use Tab, Shift+Tab, Enter, and the keys appropriate to the controls. You should be able to reach links, buttons, form fields, and menus in a meaningful order.
+
+Look for these problems:
+
+- A menu that opens only when the pointer hovers over it.
+- A clickable icon that cannot receive keyboard focus.
+- A dialog that traps you without a usable close action.
+- A focus position that jumps unexpectedly after an action.
+- A sticky header that hides the focused control.
+
+Check that you can tell which element currently has focus. [WCAG's focus-visible guidance](https://www.w3.org/WAI/WCAG22/Understanding/focus-visible.html) explains the need for a visible keyboard focus indicator. If a button loses its outline, ask the developer to provide a clear replacement rather than simply removing the styling.
+
+Record the starting page and exact key sequence for every failure. “Navigation is broken” is harder to fix than “Tab reaches the menu trigger, but Enter does not open the submenu.”
+
+## 2. Make text and controls understandable
+
+Read the page as an outline. Does the main heading explain the subject? Do section headings describe their content? Repeated visual styling does not automatically produce useful heading structure in the underlying page.
+
+Use descriptive link text. “Read our website maintenance checklist” gives more context than several unrelated “click here” links. Buttons should describe actions such as “Send enquiry” or “Continue to payment.”
+
+Ask a developer to review accessible names for icon-only controls. A search icon or close button needs a name that communicates its purpose to assistive technology. Where visible labels exist, keep the naming consistent so the control is easier to identify.
+
+These decisions belong in [website design](/services/website-design/) and [product design](/services/product-design/) discussions, before the same ambiguous pattern is copied across every page.
+
+## 3. Check contrast and information conveyed by color
+
+Measure text against its background, including buttons, muted descriptions, and text over photographs. A tool can calculate contrast; visual judgment alone is unreliable.
+
+[WCAG's contrast-minimum criterion](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html) specifies at least 4.5:1 for ordinary text and 3:1 for qualifying large text, with defined exceptions. Review the criterion when choosing a threshold rather than treating every element as ordinary body text.
+
+Also inspect how the interface communicates meaning. A red field border should have a readable error message. A chart with colored categories should offer labels or another way to distinguish them. A selected pricing option should remain identifiable without relying only on a color change.
+
+Test the real states customers encounter: hover, keyboard focus, validation errors, loading, and disabled controls. A palette that works on a design board can fail when a button's label is placed over a different background.
+
+## 4. Give images the right text alternative
+
+For each image, ask what information it contributes in this specific context. A product photo may need a description of the product or a distinguishing feature. An image used as a link needs a text alternative that communicates the destination or action. A purely decorative flourish can use an empty alternative so it does not add noise.
+
+[W3C's image tutorial](https://www.w3.org/WAI/tutorials/images/) explains these different purposes, including complex images that need a fuller text equivalent. Avoid copying filenames into alt text or stuffing search keywords into descriptions.
+
+For charts and diagrams, provide the important conclusion or data in nearby accessible text. For images containing essential words, make that information available as real text where possible. Test how the page reads when the images are unavailable.
+
+## 5. Test forms from start to finish
+
+Your enquiry form is often the most important page on the site. Every field needs an understandable label, and any required format should be explained before the visitor encounters an error.
+
+Try submitting an empty form and then a form with a deliberately invalid email address. Check that errors identify the affected fields, explain how to fix the problem, and preserve useful entered information. Confirm that successful submission produces an understandable confirmation.
+
+[W3C's forms tutorial](https://www.w3.org/WAI/tutorials/forms/) covers labeling, instructions, validation, and feedback. Have a developer inspect the relationship between visible labels, fields, and error messages; a label placed near a field is not necessarily associated with it in the markup.
+
+Include any verification challenge, file upload, newsletter checkbox, and payment step in the test. A visitor who can fill in the first fields but cannot finish the journey still faces a barrier.
+
+## 6. Enlarge content and check narrow layouts
+
+Increase browser zoom and inspect the page at a narrow width. Look for clipped headings, overlapping navigation, fixed-height cards, and controls that move off screen. Check the form again, not just the homepage.
+
+[WCAG's reflow guidance](https://www.w3.org/WAI/WCAG22/Understanding/reflow.html) describes content fitting a width equivalent to 320 CSS pixels without losing information or functionality, with exceptions for content that inherently requires a two-dimensional layout. A wide data table and an ordinary paragraph therefore need different handling.
+
+Treat mobile layouts as complete customer experiences. If a sticky call-to-action covers the form's error message or an enlarged cookie panel hides its own controls, record that as a functional issue.
+
+## 7. Include media and motion in the review
+
+If you publish videos, check that visitors can understand important spoken information through accurate captions. Consider what visual information also needs a text or audio equivalent. Do not assume automatic transcription has captured product names, instructions, or important context correctly.
+
+For animated banners and interface transitions, ask whether movement is necessary to understand the action. Review reduced-motion behavior and the controls provided for moving content. Avoid introducing animation as the only indication that a task has succeeded.
+
+These checks need more detailed evaluation when media is central to your service. Add those requirements to the project brief rather than treating them as a final decorative adjustment.
+
+## Turn findings into a manageable repair plan
+
+For each problem, record the URL, device or browser, steps to reproduce, expected behavior, actual behavior, and a screenshot where useful. Assign an owner and retest after the fix.
+
+Prioritize barriers that stop customers completing a task, then patterns repeated throughout the site, then more isolated issues. Keep a list of open findings rather than calling the whole site accessible after a single successful test.
+
+Add these checks to your [website maintenance routine](/blogs/website-maintenance-checklist-small-business/) and repeat them when templates or forms change. During a rebuild, use the [website migration SEO checklist](/blogs/website-migration-seo-checklist/) alongside this review to check both discoverability and usability.
+
+## Common accessibility checklist questions
+
+### Is an automated scan enough?
+
+No. Use it to identify potential issues, then test actual interactions and have knowledgeable reviewers assess what the tool cannot establish. A passing scan does not show that every customer can finish an enquiry or purchase.
+
+### Should we test only the homepage?
+
+No. Shared components matter, but service pages, forms, checkout steps, and third-party widgets can introduce different barriers. Test representative templates and complete journeys.
+
+### When should a small business request a fuller audit?
+
+Consider a fuller evaluation when important journeys remain difficult to use, when the site has complex interactions, or when you need an assessed conformance target. Agree the scope and evidence required with an accessibility specialist.
+
+## Build accessibility into the next update
+
+Keep the checklist close to your content and release process. Editors can maintain useful headings and image descriptions; designers can specify readable states; developers can verify semantics and keyboard behavior.
+
+Explore [website maintenance](/services/website-maintenance/) for ongoing improvements, or [contact Shardwise](/contact/) with your website and the customer journey you want to review.

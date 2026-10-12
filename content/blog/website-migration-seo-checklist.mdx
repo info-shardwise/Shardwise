@@ -1,0 +1,117 @@
+---
+title: 'Website Migration SEO Checklist for a Safer Launch'
+description: 'Plan redirects, protect important pages, check indexing, and monitor results with a practical website migration SEO checklist for business owners and developers.'
+image: '/images/blog/covers/website-migration-seo-checklist.webp'
+imageAlt: 'Glowing URL paths bridge two server towers in a midnight-blue architectural illustration.'
+slug: 'website-migration-seo-checklist'
+date: '2026-10-13'
+author:
+  name: 'Shardwise Engineering'
+  role: 'Web Development & Technical SEO'
+tags: ['Technical SEO', 'Website Migration', 'Web Development']
+featured: true
+published: true
+---
+
+## Start with the pages your business cannot afford to lose
+
+A website migration changes how people and search engines reach your content. That might mean moving domains, replacing a CMS, changing URL patterns, or rebuilding the site. A beautiful new design can still launch with broken landing pages, forgotten redirects, and an indexing block left over from staging.
+
+This website migration SEO checklist gives owners and developers a shared launch plan. It cannot promise unchanged rankings. It can help you find preventable mistakes before customers find them.
+
+Before assigning tasks, describe the migration in one sentence: “We are moving from WordPress to a custom site while keeping the domain and changing service URLs.” That sentence tells the team which checks matter. A hosting-only move with unchanged URLs needs different work from a domain change.
+
+## 1. Capture a baseline and inventory existing URLs
+
+Save the current sitemap, crawl the accessible site, and export important landing-page data from Search Console and your analytics tool. Include URLs receiving enquiries, sales, organic visits, or relevant inbound links. Do not rely on navigation alone: campaign pages and older articles may still matter.
+
+For each important URL, record:
+
+- Its current address, page purpose, and destination after launch.
+- The title, description, canonical URL, and indexability.
+- Relevant traffic and conversions over a comparable period.
+- Whether it stays, redirects, merges with another page, or disappears.
+- A named person responsible for checking the result.
+
+Keep a copy of the existing site and an agreed rollback procedure. Define what would trigger a rollback, such as the checkout failing or every important service page returning an error. Normal day-to-day traffic variation is not a useful rollback rule.
+
+For a rebuild, involve [custom website development](/services/custom-website-development/) early so the URL inventory becomes an implementation requirement rather than an after-launch spreadsheet.
+
+## 2. Map old URLs to useful replacements
+
+Make the redirect map before the new site is deployed. When a page moves, point its old URL directly to the closest relevant new page. Avoid sending every removed page to the homepage: a visitor looking for a particular service should reach a meaningful replacement.
+
+For example, if `/web-design-package/` becomes `/services/website-design/`, test that the old address reaches that specific destination. Include trailing-slash variations and any previously published URL versions that your server accepted.
+
+If content has no replacement, decide intentionally whether the old address should return a not-found or gone response. Do not invent a redirect purely to make an error report look smaller.
+
+[Google's redirect documentation](https://developers.google.com/search/docs/crawling-indexing/301-redirects) explains how permanent redirects signal a lasting move. Choose a server-side permanent redirect for permanent URL changes where your hosting setup supports it. Test the actual HTTP response; a clickable link to the new page does not prove the redirect works.
+
+Check for loops and unnecessary chains. Each old URL should reach the intended final address without bouncing through several intermediate addresses.
+
+## 3. Keep staging and production settings separate
+
+Staging needs a deliberate access and indexing policy. Production needs a separate checklist that removes temporary restrictions from pages intended for search. Write down where those settings live: hosting authentication, robots directives, page metadata, or CMS controls.
+
+Before launch, inspect rendered pages rather than trusting an unchecked configuration file. Confirm that production canonicals use the public hostname and that navigation, images, and structured data do not reference a preview address.
+
+Our [WordPress staging site checklist](/blogs/wordpress-staging-site-checklist/) covers a related review workflow. Even outside WordPress, the same handoff principle helps: someone must own the switch from test configuration to public configuration.
+
+## 4. Check the new site's search and customer journeys
+
+Review representative pages from every template, plus all high-value landing pages. A template error can affect many URLs at once.
+
+- Keep clear, descriptive titles and one visible main heading for each page.
+- Check descriptions against the actual page content rather than copying the same text everywhere.
+- Update internal links to final URLs, including footer links and article recommendations.
+- Confirm canonical URLs identify the intended public pages.
+- Generate a sitemap containing the intended indexable destination URLs.
+- Validate structured data against the visible content.
+- Test enquiry forms, purchases, email links, and analytics events.
+- Check mobile layouts and keyboard use on critical journeys.
+
+A migration is also a useful time to run a [website accessibility checklist](/blogs/website-accessibility-checklist-small-business/). A working URL is only one part of a working customer journey.
+
+## 5. Use a launch gate with evidence
+
+Create a short release record with the URL tested, expected result, observed result, and owner. Include the homepage, a service page, an article, a form submission, a deliberately missing URL, and several redirects from the old inventory.
+
+Your minimum launch gate should answer these questions:
+
+1. Can customers complete the most important business task?
+2. Do priority old URLs reach their intended replacements?
+3. Are public pages accessible without staging credentials?
+4. Are indexing directives and canonical addresses correct?
+5. Are the sitemap, monitoring, and rollback instructions ready?
+
+Run these checks on the deployed public hostname as well as the preview. Hosting rules can behave differently from a local build. Save the evidence and have the people responsible for content, development, and business operations review it.
+
+## 6. Monitor the move after launch
+
+Submit the new sitemap in Search Console and inspect priority URLs. For a domain change, check whether Google's Change of Address tool applies to your move. [Google's site-move guide](https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes) recommends planning, redirecting, and monitoring the transition; it also explains that processing a move can cause temporary search fluctuations.
+
+Review server errors, broken links, indexing reports, organic landing pages, and conversions. Compare equivalent time periods and account for campaigns, seasonality, and tracking changes. A traffic drop accompanied by broken redirects needs a different response from a drop caused by an analytics tag that stopped firing.
+
+Keep the redirect map under maintenance rather than treating it as disposable launch paperwork. Schedule follow-up checks and retain old-domain access when relevant so you can manage the transition.
+
+Our [small-business website maintenance checklist](/blogs/website-maintenance-checklist-small-business/) can help turn this follow-up into a regular routine.
+
+## Common website migration questions
+
+### Can a migration happen without changing URLs?
+
+Yes. A hosting or platform change can preserve public URLs. You should still verify page content, server responses, indexing settings, canonicals, and customer journeys because those can change independently of the address.
+
+### Does every removed page need a redirect?
+
+No. Redirect when there is a relevant replacement. Document pages deliberately retired without a replacement, and make sure internal links no longer send visitors to them.
+
+### How long should we monitor results?
+
+Start immediately and keep reviewing until priority pages and customer journeys are behaving consistently. There is no single recovery date that applies to every site. Set checkpoints based on the size and scope of the migration.
+
+## Make the migration review part of the project
+
+The most useful checklist is one your team actually owns. Assign URL mapping, technical checks, content review, and monitoring before setting the launch date.
+
+If you need help reviewing your site's migration risks, explore [technical and on-page SEO](/services/technical-onpage-seo/) or [contact Shardwise](/contact/) with your current platform, planned changes, and priority pages.
