@@ -398,6 +398,13 @@ export function WebsiteMaintenanceContent() {
             to plan regular checks and assign responsibilities.
           </p>
         </div>
+        <p>
+          Reviewing website speed? Use our{' '}
+          <Link href="/blogs/core-web-vitals-checklist-small-business/">
+            Core Web Vitals checklist for small business websites
+          </Link>{' '}
+          to investigate loading, responsiveness, and layout stability.
+        </p>
         <div className={styles.related}>
           {[
             ['WordPress Development', 'wordpress-development'],

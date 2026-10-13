@@ -23,3 +23,7 @@ Two further original covers were generated with the built-in imagegen tool and o
 - `website-accessibility-checklist-small-business.webp`: layered paper-cut welcoming doorway, keyboard, contrasting color swatches and glowing focus outline; ivory, terracotta, mustard and forest green.
 
 Both prompts requested a wide 3:2 editorial composition safe for 16:9 crops, with no text, letters, brand logos or watermark. The styles and subjects differ from the existing browser-dashboard, storefront, staging-panel and checkout illustrations.
+
+## Cover added 14 October 2026
+
+`core-web-vitals-checklist-small-business.webp`: original imagegen editorial cover featuring a cobalt-blue kinetic mobile, three chrome spheres and a miniature storefront on a lilac plinth. The prompt requested speed trails, calibration rings, coral accents, soft studio lighting and a 3:2 composition safe for 16:9 crops, without text, numbers, letters, logos or watermark. Optimized to 1200 × 800 WebP with Sharp.

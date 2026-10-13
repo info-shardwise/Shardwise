@@ -1,0 +1,130 @@
+---
+title: 'Core Web Vitals Checklist for Small Business Websites'
+description: 'Review LCP, INP, and CLS, identify practical website performance fixes, and separate real-user data from lab tests with this small-business checklist.'
+slug: 'core-web-vitals-checklist-small-business'
+image: '/images/blog/covers/core-web-vitals-checklist-small-business.webp'
+imageAlt: 'Three balanced chrome spheres above a miniature storefront with cobalt-blue speed trails on a lilac background.'
+date: '2026-10-14'
+author:
+  name: 'Shardwise Engineering'
+  role: 'Website Performance & Maintenance'
+tags: ['Website Performance', 'Core Web Vitals', 'Small Business']
+featured: true
+published: true
+---
+
+## Start with loading, responsiveness, and stability
+
+A useful Core Web Vitals checklist starts with three questions: does the main content appear promptly, do controls respond when customers use them, and does the layout stay steady while the page loads? For a small business, the aim is a dependable service page, enquiry form, or checkout, with measurable evidence behind improvements.
+
+This guide helps owners and developers decide what to test, which problems to investigate first, and how to verify a fix. It does not require you to rebuild the site or buy a performance plugin before understanding the problem.
+
+## 1. Understand the three metrics
+
+Google's current Core Web Vitals are Largest Contentful Paint, Interaction to Next Paint, and Cumulative Layout Shift. The [official Web Vitals overview](https://web.dev/articles/vitals) gives these good-performance targets:
+
+- **LCP: 2.5 seconds or less.** Measures when the largest qualifying visible content element appears.
+- **INP: 200 milliseconds or less.** Measures responsiveness to user interactions.
+- **CLS: 0.1 or less.** Measures unexpected layout movement; it is a score, not a time.
+
+Evaluate these targets at the 75th percentile, separately for mobile and desktop. Meeting them in one test run does not establish that the site passes for real visitors.
+
+Treat the numbers as investigation guides. If a page's main image arrives late, review the loading path. If a menu pauses after a tap, investigate the work triggered by that interaction. If the enquiry button moves while a banner appears, inspect how the layout reserves space.
+
+## 2. Save a baseline before changing the site
+
+Choose representative URLs: the homepage, an important service page, a content page, and the main enquiry or purchase journey. Include templates with different images, scripts, and integrations. Testing the homepage alone can miss a slow product gallery or an unresponsive booking widget.
+
+Run the URLs through [PageSpeed Insights](https://pagespeed.web.dev/) and save the reports. Note the test date, mobile or desktop mode, reported metric values, and any recent site changes. Also describe what a visitor experiences: “The service image appears late” is useful context for the developer reading the report.
+
+Use a short issue record:
+
+1. Page and device category.
+2. Symptom and affected customer action.
+3. Metric or trace supporting the observation.
+4. Suspected cause, clearly labeled as a hypothesis.
+5. Proposed change, owner, and retest method.
+
+This keeps the work focused. “Improve speed” is a vague request; “Investigate the delayed hero image on mobile service pages” gives the team a reproducible starting point.
+
+## 3. Separate field evidence from lab diagnostics
+
+PageSpeed Insights combines real-user field data, when available, with Lighthouse lab diagnostics. [Google's explanation of PageSpeed Insights](https://developers.google.com/speed/docs/insights/v5/about) describes field data collected over a rolling 28-day period and explains that insufficient eligible data can prevent reporting. Check whether the report describes the specific URL or falls back to the origin.
+
+A small or newly launched website may not have enough field data. That is a measurement limitation, not proof that the site passes or fails. Use controlled tests to find issues, and consider properly implemented real-user monitoring when it is appropriate for the project.
+
+Keep lab results comparable by using the same test mode and conditions. Repeat runs to understand variation instead of selecting only the highest score. A Lighthouse performance score is not interchangeable with the Core Web Vitals field assessment. Its standard page-load audit uses Total Blocking Time as a diagnostic rather than directly measuring INP from a full set of real interactions.
+
+If the lab report looks good but users still report delays, investigate their devices, networks, and actual journeys. A page-load test does not exercise every menu, form, or checkout action.
+
+## 4. Investigate slow main content before compressing everything
+
+For poor LCP, first identify the element being measured. It may be a hero image or a text block; the right fix depends on the loading path. [Google's LCP optimization guide](https://web.dev/articles/optimize-lcp) breaks this path into server response, resource discovery and loading, and rendering delays.
+
+Ask your developer to check:
+
+- Whether the server responds promptly or spends time generating the page.
+- Whether the important image is discoverable early rather than inserted after unnecessary JavaScript work.
+- Whether the image dimensions and file format suit its displayed size.
+- Whether the above-the-fold LCP image is incorrectly lazy-loaded.
+- Whether styles, fonts, or scripts delay showing otherwise available content.
+
+Do not remove useful imagery indiscriminately. Start with the resource affecting the important page and measure the result. Likewise, a smaller image may not solve a delay caused by late discovery or blocked rendering.
+
+For example, a service page might display a modest image file only after a carousel initializes. Reducing that file again would leave the carousel dependency intact. The investigation should explain where the time is spent before proposing a change.
+
+## 5. Test interactions, not just the initial load
+
+Open the mobile navigation, select a product option, submit the enquiry form, and use any filter or booking control. Watch for pauses and delayed feedback. Record the action, page state, and whether the problem occurs consistently.
+
+[Google's INP optimization guidance](https://web.dev/articles/optimize-inp) explains how work on the browser's main thread can delay processing or painting an interaction. A developer can use a performance trace to identify expensive handlers, long tasks, and rendering work.
+
+Review third-party scripts with their business purpose in mind. A chat tool, tracking integration, or review widget may be useful, but it should have an owner and a justified loading strategy. Test any change to its timing or presence against consent handling, analytics, and customer support requirements.
+
+Avoid solving a delay by silently disabling the feature customers need. Verify that the form still validates, the booking tool still completes, and the interface communicates the result after the performance change.
+
+## 6. Reserve space for content that arrives later
+
+Poor CLS often appears as a visitor is about to click: an image loads, a notice expands, or a widget pushes the page downward. Record the movement and inspect the element that changed size or position.
+
+[Google's CLS optimization guide](https://web.dev/articles/optimize-cls) recommends addressing causes such as images without dimensions, injected content, and font-related shifts. Give images appropriate dimensions or aspect ratios, and plan space for embeds and other delayed content.
+
+Review the whole journey, including scrolling and interactions. Check promotional banners, reviews, video embeds, and confirmation messages. A layout that stays still for the first second can move later.
+
+For an enquiry page, consider how an error message appears. The visitor needs clear feedback, and the team should evaluate its layout deliberately. Recheck keyboard focus and readability using our [website accessibility checklist](/blogs/website-accessibility-checklist-small-business/) so a performance adjustment remains usable.
+
+## 7. Prioritize a small set of verified fixes
+
+Start with problems affecting important journeys and shared templates. Agree one or two changes, implement them in a safe test environment, and rerun the same checks. Keep screenshots or traces alongside the original report.
+
+Compare the deployed version, not just the developer's local build. Hosting, cache behavior, scripts, and production configuration can affect the experience. Our [WordPress staging checklist](/blogs/wordpress-staging-site-checklist/) describes a related test and handoff process; a custom site still needs an explicit release check.
+
+Confirm that enquiries and purchases continue to work, and record the release date. Field data will not instantly represent only the new version because it covers a rolling period. Follow up over time rather than declaring success from a single post-release lab score.
+
+## 8. Keep performance in the maintenance routine
+
+Website performance can change as editors upload images, campaigns add tracking, or integrations introduce new work. Assign someone to review representative pages after significant changes and at a regular interval suited to your publishing pace.
+
+Add performance checks to your [small-business website maintenance checklist](/blogs/website-maintenance-checklist-small-business/). For a platform change, also use our [website migration SEO checklist](/blogs/website-migration-seo-checklist/) to preserve URL handling and review indexing settings.
+
+Improving Core Web Vitals does not guarantee higher rankings. [Google's search guidance](https://developers.google.com/search/docs/appearance/core-web-vitals) places these signals within a broader assessment of page experience and relevance. Continue working on accurate content, clear navigation, and useful customer journeys.
+
+## Common Core Web Vitals questions
+
+### Do we need a perfect Lighthouse score?
+
+No. Use the diagnostics to identify worthwhile fixes, and evaluate real-user metrics and business journeys separately. A score alone cannot tell you whether every customer can complete a task.
+
+### What if PageSpeed Insights has no field data?
+
+Keep the absence of data in your report. Use lab tests to investigate problems and, where justified, implement real-user monitoring. Do not convert missing evidence into a passing result.
+
+### Can we fix everything with a plugin?
+
+A tool may help with a particular issue, but it needs to match the cause and platform. Test the proposed change and its effect on forms, scripts, caching, and the visible page before relying on it.
+
+## Choose the next improvement from evidence
+
+Start with a representative page and a repeatable report. Identify the customer task affected, agree the change, and verify it after release. That process is more useful than collecting scores without a repair plan.
+
+Explore [website maintenance](/services/website-maintenance/) for ongoing checks or [technical and on-page SEO](/services/technical-onpage-seo/) for a broader review. [Contact Shardwise](/contact/) with your website, platform, and the performance issue you want to investigate.
