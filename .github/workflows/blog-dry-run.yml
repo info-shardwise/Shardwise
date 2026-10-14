@@ -1,0 +1,37 @@
+name: Blog automation dry run
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: blog-automation-dry-run
+  cancel-in-progress: false
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - name: Generate isolated draft from pending queue
+        run: node scripts/blog-automation/dry-run.mjs
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          BLOG_SHEET_ID: ${{ secrets.BLOG_SHEET_ID }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
+          DRY_RUN_BUILD: '1'
+      - name: Build draft in disposable runner only
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://shardwise.pages.dev
+      - run: node scripts/blog-automation/verify-dry-build.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blog-dry-run-review
+          path: artifacts/blog-dry-run/
+          retention-days: 3

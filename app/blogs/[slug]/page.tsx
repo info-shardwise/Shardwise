@@ -10,6 +10,8 @@ import styles from '@/components/blog/ArticleLayout.module.css'
 import { ArrowLeft, ArrowUpRight, Calendar, Clock, User } from 'lucide-react'
 import { ArticleSchema, BreadcrumbSchema } from '@/components/seo/JsonLd'
 import { SITE_CONFIG } from '@/lib/seo'
+import { absoluteBlogImage } from '@/lib/blog-images'
+import { ImageCredit } from '@/components/blog/ImageCredit'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -41,7 +43,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: post.meta.image
         ? [
             {
-              url: `${SITE_CONFIG.url}${post.meta.image}`,
+              url: absoluteBlogImage(post.meta.image),
               alt: post.meta.imageAlt || post.meta.title,
             },
           ]
@@ -52,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: post.meta.image ? 'summary_large_image' : 'summary',
       title: post.meta.title,
       description: post.meta.description,
-      images: post.meta.image ? [`${SITE_CONFIG.url}${post.meta.image}`] : undefined,
+      images: post.meta.image ? [absoluteBlogImage(post.meta.image)] : undefined,
     },
   }
 }
@@ -82,7 +84,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         description={post.meta.description}
         url={fullUrl}
         datePublished={post.meta.date}
-        image={post.meta.image ? `${SITE_CONFIG.url}${post.meta.image}` : undefined}
+        image={post.meta.image ? absoluteBlogImage(post.meta.image) : undefined}
         authorName={post.meta.author.name}
         authorType={post.meta.author.name.startsWith('Shardwise') ? 'Organization' : 'Person'}
       />
@@ -134,6 +136,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 height={800}
                 sizes="(max-width: 1048px) calc(100vw - 48px), 1000px"
               />
+              <ImageCredit credit={post.meta.imageCredit} />
             </div>
           )}
           <div className={styles.reading}>

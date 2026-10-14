@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowUpRight, Clock, Sparkles } from 'lucide-react'
 import type { BlogPostMeta } from '@/lib/mdx'
 import styles from './BlogListing.module.css'
+import { ImageCredit } from './ImageCredit'
 
 function photoFor(post: BlogPostMeta) {
   if (post.image) return { src: post.image, alt: post.imageAlt || post.title }
@@ -70,6 +71,7 @@ export function EditorialBlogCard({
         <div className={styles.mediaAccent} aria-hidden="true" />
       </div>
       <div className={styles.cardCopy}>
+        <ImageCredit credit={post.imageCredit} />
         <div className={styles.tags}>
           {post.tags.map((tag) => (
             <span key={tag}>{tag}</span>

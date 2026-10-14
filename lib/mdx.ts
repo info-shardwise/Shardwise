@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { parseImageCredit, type BlogImageCredit } from './blog-images'
 
 const BLOG_DIR = path.join(process.cwd(), 'content/blog')
 
@@ -9,6 +10,7 @@ export interface BlogPostMeta {
   description: string
   image?: string
   imageAlt?: string
+  imageCredit?: BlogImageCredit
   slug: string
   date: string
   author: {
@@ -54,6 +56,7 @@ export function getAllPosts(): BlogPostMeta[] {
         description: data.description || '',
         image: typeof data.image === 'string' ? data.image : undefined,
         imageAlt: typeof data.imageAlt === 'string' ? data.imageAlt : undefined,
+        imageCredit: parseImageCredit(data.imageCredit),
         slug,
         date: data.date ? (new Date(data.date).toISOString().split('T')[0] ?? '') : '',
         author: data.author || {
@@ -88,6 +91,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       description: data.description || '',
       image: typeof data.image === 'string' ? data.image : undefined,
       imageAlt: typeof data.imageAlt === 'string' ? data.imageAlt : undefined,
+      imageCredit: parseImageCredit(data.imageCredit),
       slug,
       date: data.date ? (new Date(data.date).toISOString().split('T')[0] ?? '') : '',
       author: data.author || {
