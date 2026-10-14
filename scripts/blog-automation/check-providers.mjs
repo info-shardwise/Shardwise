@@ -28,17 +28,26 @@ try {
   }, 'Google Sheet read')
   if (sheet.values?.length !== 20 || sheet.values[0][0] !== 'id') throw new Error('Expected header and 19 queue rows')
   console.log('PASS: GitHub service-account secret reads the 19-row queue')
+  let geminiError
+  try {
   const gemini = await checked('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent', {
     method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': process.env.GEMINI_API_KEY },
     body: JSON.stringify({ contents: [{ parts: [{ text: 'Reply with OK.' }] }], generationConfig: { maxOutputTokens: 32, thinkingConfig: { thinkingBudget: 0 } } }),
   }, 'Gemini model access')
   if (!gemini.candidates?.some((c) => c.content?.parts?.some((p) => p.text))) throw new Error('Gemini returned no text')
   console.log('PASS: Gemini 2.5 Flash generates text; billing plan remains dashboard/user-confirmed')
+  } catch (error) {
+    geminiError = error
+    console.log(error.message)
+    const models = await checked('https://generativelanguage.googleapis.com/v1beta/models', { headers: { 'x-goog-api-key': process.env.GEMINI_API_KEY } }, 'Gemini model listing')
+    console.log('Available text models: ' + models.models?.filter(m => m.supportedGenerationMethods?.includes('generateContent')).map(m => m.name).join(', '))
+  }
   const photos = await checked('https://api.unsplash.com/search/photos?query=website&per_page=1', {
     headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}`, 'Accept-Version': 'v1' },
   }, 'Unsplash search')
   if (!photos.results?.[0]?.urls?.regular || !photos.results[0]?.user?.links?.html || !photos.results[0]?.links?.download_location) throw new Error('Unsplash image or attribution fields missing')
   console.log('PASS: Unsplash search returns image, photographer and download tracking information')
+  if (geminiError) throw geminiError
 } catch (error) {
   console.error(error instanceof SyntaxError ? 'Invalid service-account JSON' : error.message)
   process.exitCode = 1
