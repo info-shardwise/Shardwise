@@ -32,6 +32,7 @@ jobs:
           node-version: '20'
           cache: npm
       - run: npm ci
+      - run: node --test tests/blog-automation.test.mjs
       - run: node scripts/blog-automation/publish.mjs prepare
       - run: npm run lint
       - run: node --test tests/contact.test.mjs

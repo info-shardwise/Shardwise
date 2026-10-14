@@ -33,6 +33,10 @@ export async function sheets() {
     if (!r.ok) throw new Error(`Sheets request HTTP ${r.status}`)
     return r.json()
   }
+  return createSheetClient(api)
+}
+
+export function createSheetClient(api) {
   async function read(id) {
     const result = await api(
       `/values/${encodeURIComponent("'BlogQueue'!A:S")}?valueRenderOption=UNFORMATTED_VALUE`,
@@ -50,12 +54,22 @@ export async function sheets() {
       data: Object.fromEntries(headers.map((name, i) => [name, matches[0].values[i] ?? ''])),
     }
   }
-  async function update(id, fields, allowedStatuses, runId) {
+  async function update(id, fields, allowedStatuses, runId, expected = {}) {
     const current = await read(id)
     if (allowedStatuses && !allowedStatuses.includes(current.data.status))
       throw new Error('Queue status changed; refusing update')
     if (runId && current.data.run_id !== runId)
       throw new Error('Queue claim belongs to another run')
+    for (const [field, value] of Object.entries(expected)) {
+      if (String(current.data[field]) !== String(value))
+        throw new Error('Queue data changed; refusing update')
+    }
+    const confirmed = await read(id)
+    if (
+      confirmed.number !== current.number ||
+      JSON.stringify(confirmed.data) !== JSON.stringify(current.data)
+    )
+      throw new Error('Queue moved or changed during update; retry after review')
     const data = { ...current.data, ...fields, updated_at: new Date().toISOString() }
     const range = `'BlogQueue'!A${current.number}:S${current.number}`
     await api(`/values/${encodeURIComponent(range)}?valueInputOption=RAW`, 'PUT', {
