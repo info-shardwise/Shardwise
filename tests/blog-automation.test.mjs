@@ -11,6 +11,11 @@ import { createSheetClient } from '../scripts/blog-automation/sheets.mjs'
 import { createProviderRequest } from '../scripts/blog-automation/provider-request.mjs'
 import { safeError } from '../scripts/blog-automation/validation.mjs'
 import { choosePublication } from '../scripts/blog-automation/schedule.mjs'
+import remarkGfm from 'remark-gfm'
+import { compileMDX } from 'next-mdx-remote/rsc'
+import { renderToStaticMarkup } from 'react-dom/server'
+import { verifyRenderedTables } from '../scripts/blog-automation/table-check.mjs'
+import { validateApprovedArticle } from '../scripts/blog-automation/validation.mjs'
 
 const approvedPath = 'content/blog-automation/approved/blog-028'
 const source = await realFs.readFile(`${approvedPath}.mdx`, 'utf8')
@@ -137,7 +142,7 @@ function fixture() {
   function html() {
     const s = state()
     const meta = matter(files.get(s.articlePath)).data
-    return `<h1>${esc(meta.title)}</h1><link rel="canonical" href="${s.articleUrl}"/><meta name="description" content="${esc(meta.description)}"/><meta property="og:image" content="${esc(s.imageUrl)}"/>Photo by <a href="${esc(meta.imageCredit.photographerUrl)}">Photographer</a><script type="application/ld+json">${JSON.stringify({ '@type': 'BlogPosting', datePublished: s.publishDate, image: s.imageUrl })}</script>`
+    return `<table><thead><tr><th>Area</th><th>Question</th><th>Evidence</th></tr></thead><tbody><tr><td>Scope</td><td>Check?</td><td>Report</td></tr></tbody></table><h1>${esc(meta.title)}</h1><link rel="canonical" href="${s.articleUrl}"/><meta name="description" content="${esc(meta.description)}"/><meta property="og:image" content="${esc(s.imageUrl)}"/>Photo by <a href="${esc(meta.imageCredit.photographerUrl)}">Photographer</a><script type="application/ld+json">${JSON.stringify({ '@type': 'BlogPosting', datePublished: s.publishDate, image: s.imageUrl })}</script>`
   }
   function build() {
     const s = state()
@@ -603,4 +608,41 @@ test('schedule uses 12:08 UTC for 17:38 Asia/Kolkata', async () => {
     minute: '2-digit',
   }).format(new Date('2026-10-15T12:08:00Z'))
   assert.equal(time, '17:38')
+})
+
+test('published comparison renders three headers and six evidence rows', async () => {
+  const { content } = await compileMDX({
+    source,
+    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+  })
+  const html = renderToStaticMarkup(content)
+  verifyRenderedTables(matter(source).content, html)
+  assert.equal((html.match(/<th>/g) || []).length, 3)
+  assert.equal((html.match(/<td>/g) || []).length, 18)
+  assert.ok(!html.includes('| Area |'))
+})
+
+test('table cells retain escaped pipe text', async () => {
+  const md = '| Area | Evidence |\n| --- | --- |\n| Theme \\| plugin | Tested |'
+  const { content } = await compileMDX({
+    source: md,
+    options: { mdxOptions: { remarkPlugins: [remarkGfm] } },
+  })
+  const html = renderToStaticMarkup(content)
+  verifyRenderedTables(md, html)
+  assert.ok(html.includes('Theme | plugin'))
+})
+
+test('pipeline rejects missing HTML table conversion', () => {
+  assert.throws(
+    () => verifyRenderedTables('| A | B |\n| --- | --- |\n| X | Y |', '<p>| A | B |</p>'),
+    /did not render/,
+  )
+})
+
+test('pipeline rejects short table rows', async () => {
+  await assert.rejects(
+    validateApprovedArticle(matter(source).data, '| A | B | C |\n| --- | --- | --- |\n| X | Y |'),
+    /match header columns/,
+  )
 })

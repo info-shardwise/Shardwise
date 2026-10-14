@@ -4,6 +4,7 @@ import crypto from 'node:crypto'
 import assert from 'node:assert/strict'
 import matter from 'gray-matter'
 import { compileMDX } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { createProviderRequest } from './provider-request.mjs'
 
 const origin = 'https://shardwise.pages.dev'
@@ -385,7 +386,10 @@ async function main() {
     published: false,
   }
   const mdx = matter.stringify(body, metadata)
-  await compileMDX({ source: mdx, options: { parseFrontmatter: true } })
+  await compileMDX({
+    source: mdx,
+    options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+  })
   await fs.writeFile(path.join(output, draft.slug + '.mdx'), mdx)
   await fs.writeFile(
     path.join(output, 'review.json'),

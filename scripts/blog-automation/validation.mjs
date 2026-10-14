@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict'
 import { compile } from '@mdx-js/mdx'
+import remarkGfm from 'remark-gfm'
 
 export function safeError(error, env = {}) {
   if (error instanceof SyntaxError) return 'Invalid publication JSON'
@@ -44,8 +45,20 @@ export async function validateApprovedArticle(data, content, checkLink) {
   const links = []
   await compile(content, {
     remarkPlugins: [
+      remarkGfm,
       () => (tree) => {
         function visit(node) {
+          if (node.type === 'table') {
+            const columns = node.children[0]?.children.length
+            assert.ok(
+              columns >= 2 && node.children.length >= 2,
+              'Table needs headers and data rows',
+            )
+            assert.ok(
+              node.children.every((row) => row.children.length === columns),
+              'Table rows must match header columns',
+            )
+          }
           if (node.type.startsWith('mdx') || node.type === 'html')
             throw new Error('Executable MDX or HTML is not allowed in automated drafts')
           if (node.type === 'heading' && node.depth === 1)

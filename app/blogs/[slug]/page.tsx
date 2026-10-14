@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { getAllPosts, getPostBySlug } from '@/lib/mdx'
 import { mdxComponents } from '@/components/blog/MDXComponents'
 import { HomeMotion } from '@/components/home/HomeMotion'
@@ -141,7 +142,11 @@ export default async function BlogPostPage({ params }: PageProps) {
           )}
           <div className={styles.reading}>
             <div className={styles.body}>
-              <MDXRemote source={post.content} components={mdxComponents} />
+              <MDXRemote
+                source={post.content}
+                components={mdxComponents}
+                options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }}
+              />
             </div>
             <nav className={styles.end} aria-label="Article navigation">
               <Link href="/blogs/">

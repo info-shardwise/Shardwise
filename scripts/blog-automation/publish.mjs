@@ -6,8 +6,10 @@ import { execFileSync } from 'node:child_process'
 import assert from 'node:assert/strict'
 import matter from 'gray-matter'
 import { compileMDX } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
 import { sheets } from './sheets.mjs'
 import { safeError, validateApprovedArticle } from './validation.mjs'
+import { verifyRenderedTables } from './table-check.mjs'
 
 export function createPublisher({
   fs = realFs,
@@ -99,7 +101,10 @@ export function createPublisher({
     }
     const date = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Kolkata' }).format(new Date())
     const article = matter.stringify(content, { ...data, date, published: true })
-    await compileMDX({ source: article, options: { parseFrontmatter: true } })
+    await compileMDX({
+      source: article,
+      options: { parseFrontmatter: true, mdxOptions: { remarkPlugins: [remarkGfm] } },
+    })
     await queue.update(
       id,
       {
@@ -134,8 +139,10 @@ export function createPublisher({
   }
 
   async function verifyHtml(read, state) {
-    const article = matter(await fs.readFile(state.articlePath, 'utf8')).data
+    const parsed = matter(await fs.readFile(state.articlePath, 'utf8'))
+    const article = parsed.data
     const html = await read(`blogs/${state.slug}/index.html`)
+    verifyRenderedTables(parsed.content, html)
     const escape = (value) =>
       value
         .replaceAll('&', '&amp;')
