@@ -594,13 +594,13 @@ test('disabling schedule permits manual recovery but no automatic run', () => {
   assert.equal(choosePublication({ ...input, requested: 'blog-029' }).recovery, true)
 })
 
-test('schedule uses 03:30 UTC for 09:00 Asia/Kolkata', async () => {
+test('schedule uses 12:30 UTC for 18:00 Asia/Kolkata', async () => {
   const yaml = await realFs.readFile('.github/workflows/blog-publish.yml', 'utf8')
-  assert.ok(yaml.includes("cron: '30 3 * * *'"))
+  assert.ok(yaml.includes("cron: '30 12 * * *'"))
   const time = new Intl.DateTimeFormat('en-GB', {
     timeZone: 'Asia/Kolkata',
     hour: '2-digit',
     minute: '2-digit',
-  }).format(new Date('2026-10-15T03:30:00Z'))
-  assert.equal(time, '09:00')
+  }).format(new Date('2026-10-15T12:30:00Z'))
+  assert.equal(time, '18:00')
 })
