@@ -20,6 +20,14 @@ import { validateApprovedArticle } from '../scripts/blog-automation/validation.m
 const approvedPath = 'content/blog-automation/approved/blog-028'
 const source = await realFs.readFile(`${approvedPath}.mdx`, 'utf8')
 const approval = JSON.parse(await realFs.readFile(`${approvedPath}.json`, 'utf8'))
+approval.editorial = {
+  usefulness: 8,
+  specificity: 8,
+  clarity: 8,
+  sourceSupport: 8,
+  searchIntent: 8,
+  blockingIssues: [],
+}
 const sha = 'a'.repeat(40)
 const deploymentId = '12345678-1234-4123-8123-123456789abc'
 const hash = (text) => crypto.createHash('sha256').update(text).digest('hex')
@@ -224,10 +232,10 @@ test('competing publishers admit only one owner of the pending row', async () =>
   assert.ok(['1', '2'].includes(f.row.run_id))
 })
 
-test('changed approval hash fails before queue writes', async () => {
+test('changed validated draft hash fails before queue writes', async () => {
   const f = fixture()
   f.files.set(`${approvedPath}.mdx`, source + '\nChanged')
-  await assert.rejects(f.make('1').prepare(), /Approved draft changed/)
+  await assert.rejects(f.make('1').prepare(), /Validated draft changed/)
   assert.equal(f.writes.length, 0)
 })
 
@@ -533,18 +541,22 @@ function scheduleFixture() {
         hashVerified: true,
       },
     },
-    settings: { scheduledPublishingEnabled: true, dailyArticleLimit: 1 },
+    settings: {
+      scheduledPublishingEnabled: true,
+      automaticGenerationEnabled: true,
+      dailyArticleLimit: 1,
+    },
     today: '2026-10-15',
   }
 }
 
-test('scheduler selects a due reviewed pending keyword', () => {
+test('scheduler selects a due keyword for automatic generation', () => {
   const decision = choosePublication(scheduleFixture())
   assert.equal(decision.ready, true)
   assert.equal(decision.rowId, 'blog-029')
 })
 
-test('scheduler does not skip an unreviewed first keyword to publish a later one', () => {
+test('scheduler generates the first due keyword without requiring approval', () => {
   const input = scheduleFixture()
   input.approvals = {}
   input.rows.push({ id: 'blog-030', keyword: 'Later topic', status: 'pending' })
@@ -555,9 +567,9 @@ test('scheduler does not skip an unreviewed first keyword to publish a later one
     hashVerified: true,
   }
   const decision = choosePublication(input)
-  assert.equal(decision.ready, false)
+  assert.equal(decision.ready, true)
+  assert.equal(decision.generate, true)
   assert.equal(decision.rowId, 'blog-029')
-  assert.match(decision.reason, /reviewed draft/)
 })
 
 test('scheduler enforces one new publication per India calendar date', () => {
@@ -584,9 +596,9 @@ test('future-dated keyword is not published early', () => {
   assert.equal(choosePublication({ ...input, requested: 'blog-029' }).ready, false)
 })
 
-test('scheduler rejects changed approval hash and missing queue rows', () => {
+test('disabled generation cannot fall back to manual approval', () => {
   const input = scheduleFixture()
-  input.approvals['blog-029'].hashVerified = false
+  input.settings.automaticGenerationEnabled = false
   assert.equal(choosePublication(input).ready, false)
   assert.throws(() => choosePublication({ ...input, requested: 'blog-999' }), /missing/)
 })
@@ -713,4 +725,21 @@ test('workflow generates and validates before preparing publication', async () =
   )
   assert.ok(y.includes("AUTOMATED_GENERATION: '1'"))
   assert.ok(y.includes('secrets.GEMINI_API_KEY'))
+})
+
+test('publisher needs no human approval flag when automated benchmark passes', async () => {
+  const f = fixture()
+  const report = { ...approval }
+  delete report.approved
+  f.files.set(approvedPath + '.json', JSON.stringify(report))
+  await f.make('1').prepare()
+  assert.equal(f.row.status, 'processing')
+})
+test('publisher rejects a human approval flag without automatic benchmark', async () => {
+  const f = fixture()
+  const report = { ...approval, approved: true }
+  delete report.editorial
+  f.files.set(approvedPath + '.json', JSON.stringify(report))
+  await assert.rejects(f.make('1').prepare(), /Automated editorial report required/)
+  assert.equal(f.writes.length, 0)
 })

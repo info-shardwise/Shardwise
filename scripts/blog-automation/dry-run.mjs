@@ -442,7 +442,7 @@ async function main(revision = 0, feedback = null) {
         existingArticles: inventory.length,
         serviceRoutes: serviceRoutes.length,
         queueHash,
-        reviewRequired: !automated,
+        reviewRequired: false,
         editorial,
       },
       null,
@@ -463,7 +463,7 @@ async function main(revision = 0, feedback = null) {
         {
           rowId: selected.id,
           keyword: selected.keyword,
-          approved: true,
+          benchmarkPassed: true,
           editorialScore: editorial.average,
           draftHash: crypto.createHash('sha256').update(mdx).digest('hex'),
           reviewer: 'Node.js automated benchmark gate',

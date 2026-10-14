@@ -7,6 +7,7 @@ import assert from 'node:assert/strict'
 import matter from 'gray-matter'
 import { compileMDX } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
+import { enforceEditorialGate } from './editorial-gate.mjs'
 import { sheets } from './sheets.mjs'
 import { safeError, validateApprovedArticle } from './validation.mjs'
 import { verifyRenderedTables } from './table-check.mjs'
@@ -77,13 +78,15 @@ export function createPublisher({
         throw new Error('Keyword already has a publication record')
     }
     const approved = await load(`content/blog-automation/approved/${id}.json`)
-    assert.ok(
-      approved?.approved && approved.editorialScore >= 8,
-      'Reviewed draft approval required',
+    assert.ok(approved?.editorial, 'Automated editorial report required')
+    assert.equal(
+      enforceEditorialGate(approved.editorial),
+      approved.editorialScore,
+      'Editorial score differs from benchmark report',
     )
     assert.equal(approved.keyword, row.data.keyword)
     const source = await fs.readFile(`content/blog-automation/approved/${id}.mdx`, 'utf8')
-    assert.equal(hash(source), approved.draftHash, 'Approved draft changed')
+    assert.equal(hash(source), approved.draftHash, 'Validated draft changed')
     const { data, content } = matter(source)
     assert.match(data.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/)
     assert.equal(data.published, false)
@@ -135,7 +138,7 @@ export function createPublisher({
     await fs.mkdir(path.dirname(recordPath), { recursive: true })
     await fs.writeFile(recordPath, JSON.stringify(record, null, 2) + '\n')
     await save({ ...record, resume: false })
-    logger.log(`Prepared approved article ${id}; publication date ${date}`)
+    logger.log(`Prepared benchmark-validated article ${id}; publication date ${date}`)
   }
 
   async function verifyHtml(read, state) {
@@ -204,7 +207,7 @@ export function createPublisher({
       'core.hooksPath=/dev/null',
       'commit',
       '-m',
-      `Publish reviewed blog ${id}: ${state.slug}`,
+      `Publish automatically validated blog ${id}: ${state.slug}`,
     )
     state.commit = git('rev-parse', 'HEAD')
     await save(state)

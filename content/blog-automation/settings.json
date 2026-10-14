@@ -3,7 +3,6 @@
   "timezone": "Asia/Kolkata",
   "scheduleCronUtc": "30 3 * * *",
   "dailyArticleLimit": 1,
-  "requireReviewedApproval": false,
   "owner": "info-shardwise repository owner",
   "automaticGenerationEnabled": true
 }

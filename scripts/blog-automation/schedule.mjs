@@ -1,18 +1,10 @@
 import fs from 'node:fs/promises'
-import crypto from 'node:crypto'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { sheets } from './sheets.mjs'
 import { safeError } from './validation.mjs'
 
-export function choosePublication({
-  rows,
-  records,
-  approvals,
-  settings,
-  today,
-  requested = 'auto',
-}) {
+export function choosePublication({ rows, records, settings, today, requested = 'auto' }) {
   if (requested !== 'auto') {
     if (!/^blog-\d{3}$/.test(requested)) throw new Error('Invalid requested row ID')
     const row = rows.find((row) => row.id === requested)
@@ -58,28 +50,7 @@ export function choosePublication({
         recovery: false,
         generate: true,
       }
-    const approval = approvals[row.id]
-    if (
-      !approval?.approved ||
-      approval.editorialScore < 8 ||
-      approval.keyword !== row.keyword ||
-      !approval.hashVerified
-    )
-      return {
-        ready: false,
-        rowId: row.id,
-        reason: 'Next keyword needs a reviewed draft and matching approval',
-      }
-    if (
-      records.filter((record) => record.publishDate === today).length >= settings.dailyArticleLimit
-    )
-      return { ready: false, rowId: row.id, reason: 'Daily publication limit reached' }
-    return {
-      ready: true,
-      rowId: row.id,
-      reason: 'Reviewed draft ready for publication',
-      recovery: false,
-    }
+    return { ready: false, rowId: row.id, reason: 'Automatic generation disabled' }
   }
 }
 
@@ -102,22 +73,12 @@ async function run() {
     if (name.endsWith('.json'))
       records.push(await readJson(`content/blog-automation/records/${name}`))
   }
-  const approvals = {}
   for (const row of rows) {
     if (!/^blog-\d{3}$/.test(row.id)) throw new Error('Invalid queue ID')
-    const approval = await readJson(`content/blog-automation/approved/${row.id}.json`)
-    if (approval) {
-      const body = await fs.readFile(`content/blog-automation/approved/${row.id}.mdx`, 'utf8')
-      approvals[row.id] = {
-        ...approval,
-        hashVerified: crypto.createHash('sha256').update(body).digest('hex') === approval.draftHash,
-      }
-    }
   }
   const decision = choosePublication({
     rows,
     records,
-    approvals,
     settings,
     today,
     requested: process.env.REQUESTED_ROW_ID || 'auto',
@@ -146,7 +107,7 @@ async function run() {
   if (process.env.GITHUB_STEP_SUMMARY)
     await fs.appendFile(
       process.env.GITHUB_STEP_SUMMARY,
-      `## Blog schedule\n\nDate: ${today} (${settings.timezone}).\n\n${decision.reason}. ${decision.rowId || ''}\n\nSchedule: ${settings.scheduleCronUtc} UTC (${settings.timezone}); at most one new publication per day. No unreviewed article is published.\n`,
+      `## Blog schedule\n\nDate: ${today} (${settings.timezone}).\n\n${decision.reason}. ${decision.rowId || ''}\n\nSchedule: ${settings.scheduleCronUtc} UTC (${settings.timezone}); at most one new publication per day. Only articles passing automated validation are published.\n`,
     )
   console.log(JSON.stringify(decision))
 }
