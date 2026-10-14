@@ -1,0 +1,35 @@
+{
+  "rowId": "blog-028",
+  "keyword": "WooCommerce maintenance services",
+  "approved": true,
+  "editorialScore": 8,
+  "draftHash": "02a441a9108e58201c96b81494feb0ab7c3b5092b74b028230fc9e8ab163828d",
+  "reviewer": "Assistant editorial review requested by user",
+  "sources": [
+    {
+      "url": "https://woocommerce.com/document/how-to-update-woocommerce/",
+      "title": "How to update WooCommerce",
+      "excerpt": "How to update WooCommerce Keeping WooCommerce, WordPress, extensions, themes, and payment gateways up to date helps your store stay secure, compatible, and functional. This guide walks you through preparing for updates, updating WooCommerce, running required database updates, and checking your store afterward. Set an update schedule Back to top A monthly cadence works well for most stores. Check for WooCommerce, WordPress, extension, and theme updates around the same time each month, then follow the steps below to prepare, apply, and verify them. Update sooner than your regular schedule if a release includes a security fix or resolves broken functionality your store depends on. Applying those updates promptly matters more than waiting for your normal cycle. Check the WooCommerce Advisories page for security notices and the WooCommerce changelog for release notes, both flag whether a given release includes a security fix. If you work with an agency or developer, confirm they follow a similar cadence so updates aren t delayed indefinitely. Before you update Back to top Before you update WooCommerce, make a current backup and test the update on a",
+      "retrievedAt": "2026-10-14T10:15:52.364Z"
+    },
+    {
+      "url": "https://woocommerce.com/document/backup-wordpress-content/",
+      "title": "Backing up WordPress content",
+      "excerpt": "Backing up WordPress content Every WooCommerce store has two places where its data and content are stored: the wp-content folder (themes, extensions, and uploaded media) and the database (products, orders, posts, and pages). Backing up both locations regularly protects your store from data loss due to server failures, failed updates, or security incidents. This guide covers automatic and manual backup methods. Automatic backups Back to top Automated backup services handle both the database and files on a regular schedule without manual intervention. Jetpack VaultPress Backup is one such service that supports WooCommerce-specific database tables and can restore your site to a past state while keeping current orders and products intact. Check the Jetpack VaultPress Backup documentation for details on scheduled backups, activity logs, and one-click restores. Manual backups Back to top If you prefer to back up your site without an automated service, you can export your content, download your files, and export your database manually. Complete all three steps below to create a full backup. In your WordPress admin dashboard, go to Tools Export and select All content to",
+      "retrievedAt": "2026-10-14T10:15:52.385Z"
+    }
+  ],
+  "imagePhotoId": "Q59HmzK38eQ",
+  "reviewNotes": {
+    "reviewer": "Assistant review after generation",
+    "score": 8,
+    "scoreType": "Subjective editorial assessment; not a ranking forecast",
+    "changes": [
+      "Clarified staging versus live order data",
+      "Removed unsupported frequency and universal manual-audit claims",
+      "Changed scheduled-action explanations to configuration-specific questions"
+    ],
+    "imageReview": "Online payment image relevant to store checkout; photographer attribution retained",
+    "publicationApproved": false
+  }
+}

@@ -1,0 +1,50 @@
+name: Publish reviewed blog
+on:
+  workflow_dispatch:
+    inputs:
+      row_id:
+        description: Reviewed queue row ID (rerun same ID to recover)
+        required: true
+        default: blog-028
+permissions:
+  contents: write
+  checks: read
+  actions: read
+concurrency:
+  group: blog-automation-publish
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BLOG_ROW_ID: ${{ inputs.row_id }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      BLOG_SHEET_ID: ${{ secrets.BLOG_SHEET_ID }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci
+      - run: node scripts/blog-automation/publish.mjs prepare
+      - run: npm run lint
+      - run: node --test tests/contact.test.mjs
+      - run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://shardwise.pages.dev
+      - run: node scripts/blog-automation/publish.mjs push
+      - run: node scripts/blog-automation/publish.mjs verify
+      - if: failure()
+        run: node scripts/blog-automation/publish.mjs failure
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: blog-publication-receipt
+          path: artifacts/blog-publication/
+          retention-days: 7
