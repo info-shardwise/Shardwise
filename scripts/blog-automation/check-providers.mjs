@@ -2,7 +2,14 @@ import crypto from 'node:crypto'
 
 async function checked(url, options, label) {
   const response = await fetch(url, { ...options, signal: AbortSignal.timeout(30000) })
-  if (!response.ok) throw new Error(`${label}: HTTP ${response.status}`)
+  if (!response.ok) {
+    const detail = await response.json().catch(() => ({}))
+    let message = String(detail.error?.message || 'No API error detail').slice(0, 1500)
+    for (const name of ['GEMINI_API_KEY', 'UNSPLASH_ACCESS_KEY']) {
+      if (process.env[name]) message = message.split(process.env[name]).join('[redacted]')
+    }
+    throw new Error(`${label}: HTTP ${response.status}: ${message}`)
+  }
   return response.json()
 }
 
