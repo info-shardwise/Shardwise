@@ -134,7 +134,7 @@ async function run() {
   if (process.env.GITHUB_STEP_SUMMARY)
     await fs.appendFile(
       process.env.GITHUB_STEP_SUMMARY,
-      `## Blog schedule\n\nDate: ${today} (${settings.timezone}).\n\n${decision.reason}. ${decision.rowId || ''}\n\nSchedule: 09:00 India time; at most one new publication per day. No unreviewed article is published.\n`,
+      `## Blog schedule\n\nDate: ${today} (${settings.timezone}).\n\n${decision.reason}. ${decision.rowId || ''}\n\nSchedule: ${settings.scheduleCronUtc} UTC (${settings.timezone}); at most one new publication per day. No unreviewed article is published.\n`,
     )
   console.log(JSON.stringify(decision))
 }
