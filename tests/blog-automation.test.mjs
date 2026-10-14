@@ -10,6 +10,7 @@ import { createPublisher } from '../scripts/blog-automation/publish.mjs'
 import { createSheetClient } from '../scripts/blog-automation/sheets.mjs'
 import { createProviderRequest } from '../scripts/blog-automation/provider-request.mjs'
 import { safeError } from '../scripts/blog-automation/validation.mjs'
+import { choosePublication } from '../scripts/blog-automation/schedule.mjs'
 
 const approvedPath = 'content/blog-automation/approved/blog-028'
 const source = await realFs.readFile(`${approvedPath}.mdx`, 'utf8')
@@ -211,9 +212,9 @@ test('another publisher cannot claim the already processing row', async () => {
 test('competing publishers admit only one owner of the pending row', async () => {
   const f = fixture()
   const attempts = await Promise.allSettled([f.make('1').prepare(), f.make('2').prepare()])
-  assert.equal(attempts.filter(result => result.status === 'fulfilled').length, 1)
-  assert.equal(attempts.filter(result => result.status === 'rejected').length, 1)
-  assert.equal(f.writes.filter(write => write.status === 'processing').length, 1)
+  assert.equal(attempts.filter((result) => result.status === 'fulfilled').length, 1)
+  assert.equal(attempts.filter((result) => result.status === 'rejected').length, 1)
+  assert.equal(f.writes.filter((write) => write.status === 'processing').length, 1)
   assert.ok(['1', '2'].includes(f.row.run_id))
 })
 
@@ -505,4 +506,101 @@ test('reverting a publication preserves an unrelated later commit', async () => 
   assert.equal(await realFs.readFile(path.join(dir, 'unrelated.txt'), 'utf8'), 'keep this change')
   await assert.rejects(realFs.access(path.join(dir, 'article.mdx')))
   assert.ok(git('log', '--format=%s').includes('unrelated change'))
+})
+
+function scheduleFixture() {
+  return {
+    rows: [
+      {
+        id: 'blog-029',
+        keyword: 'WooCommerce support services',
+        status: 'pending',
+        scheduled_date: '',
+      },
+    ],
+    records: [],
+    approvals: {
+      'blog-029': {
+        approved: true,
+        editorialScore: 8,
+        keyword: 'WooCommerce support services',
+        hashVerified: true,
+      },
+    },
+    settings: { scheduledPublishingEnabled: true, dailyArticleLimit: 1 },
+    today: '2026-10-15',
+  }
+}
+
+test('scheduler selects a due reviewed pending keyword', () => {
+  const decision = choosePublication(scheduleFixture())
+  assert.equal(decision.ready, true)
+  assert.equal(decision.rowId, 'blog-029')
+})
+
+test('scheduler does not skip an unreviewed first keyword to publish a later one', () => {
+  const input = scheduleFixture()
+  input.approvals = {}
+  input.rows.push({ id: 'blog-030', keyword: 'Later topic', status: 'pending' })
+  input.approvals['blog-030'] = {
+    approved: true,
+    editorialScore: 9,
+    keyword: 'Later topic',
+    hashVerified: true,
+  }
+  const decision = choosePublication(input)
+  assert.equal(decision.ready, false)
+  assert.equal(decision.rowId, 'blog-029')
+  assert.match(decision.reason, /reviewed draft/)
+})
+
+test('scheduler enforces one new publication per India calendar date', () => {
+  const input = scheduleFixture()
+  input.records.push({ rowId: 'blog-028', publishDate: input.today })
+  const decision = choosePublication(input)
+  assert.equal(decision.ready, false)
+  assert.match(decision.reason, /Daily/)
+})
+
+test('recovery can run without consuming another daily publication', () => {
+  const input = scheduleFixture()
+  input.rows[0].status = 'deploying'
+  input.records.push({ rowId: 'blog-029', publishDate: input.today })
+  const decision = choosePublication(input)
+  assert.equal(decision.ready, true)
+  assert.equal(decision.recovery, true)
+})
+
+test('future-dated keyword is not published early', () => {
+  const input = scheduleFixture()
+  input.rows[0].scheduled_date = '2026-10-16'
+  assert.equal(choosePublication(input).ready, false)
+  assert.equal(choosePublication({ ...input, requested: 'blog-029' }).ready, false)
+})
+
+test('scheduler rejects changed approval hash and missing queue rows', () => {
+  const input = scheduleFixture()
+  input.approvals['blog-029'].hashVerified = false
+  assert.equal(choosePublication(input).ready, false)
+  assert.throws(() => choosePublication({ ...input, requested: 'blog-999' }), /missing/)
+})
+
+test('disabling schedule permits manual recovery but no automatic run', () => {
+  const input = scheduleFixture()
+  input.settings.scheduledPublishingEnabled = false
+  input.rows[0].status = 'completed'
+  input.records.push({ rowId: 'blog-029', publishDate: '2026-10-14' })
+  assert.equal(choosePublication(input).ready, false)
+  assert.equal(choosePublication({ ...input, requested: 'blog-029' }).recovery, true)
+})
+
+test('schedule uses 03:30 UTC for 09:00 Asia/Kolkata', async () => {
+  const yaml = await realFs.readFile('.github/workflows/blog-publish.yml', 'utf8')
+  assert.ok(yaml.includes("cron: '30 3 * * *'"))
+  const time = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Asia/Kolkata',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(new Date('2026-10-15T03:30:00Z'))
+  assert.equal(time, '09:00')
 })

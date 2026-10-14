@@ -1,11 +1,13 @@
 name: Publish reviewed blog
 on:
+  schedule:
+    - cron: '30 3 * * *'
   workflow_dispatch:
     inputs:
       row_id:
-        description: Reviewed queue row ID (rerun same ID to recover)
+        description: auto selects next due reviewed keyword; use row ID to recover
         required: true
-        default: blog-028
+        default: auto
 permissions:
   contents: write
   checks: read
@@ -18,7 +20,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      BLOG_ROW_ID: ${{ inputs.row_id }}
       GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
       BLOG_SHEET_ID: ${{ secrets.BLOG_SHEET_ID }}
       GITHUB_TOKEN: ${{ github.token }}
@@ -33,15 +34,28 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node --test tests/blog-automation.test.mjs
-      - run: node scripts/blog-automation/publish.mjs prepare
-      - run: npm run lint
-      - run: node --test tests/contact.test.mjs
-      - run: npm run build
+      - name: Select due reviewed keyword or recover existing publication
+        id: select
+        run: node scripts/blog-automation/schedule.mjs
+        env:
+          REQUESTED_ROW_ID: ${{ inputs.row_id || 'auto' }}
+      - if: steps.select.outputs.ready == 'true'
+        run: echo "BLOG_ROW_ID=${{ steps.select.outputs.row_id }}" >> "$GITHUB_ENV"
+      - if: steps.select.outputs.ready == 'true'
+        run: node scripts/blog-automation/publish.mjs prepare
+      - if: steps.select.outputs.ready == 'true'
+        run: npm run lint
+      - if: steps.select.outputs.ready == 'true'
+        run: node --test tests/contact.test.mjs
+      - if: steps.select.outputs.ready == 'true'
+        run: npm run build
         env:
           NEXT_PUBLIC_SITE_URL: https://shardwise.pages.dev
-      - run: node scripts/blog-automation/publish.mjs push
-      - run: node scripts/blog-automation/publish.mjs verify
-      - if: failure()
+      - if: steps.select.outputs.ready == 'true'
+        run: node scripts/blog-automation/publish.mjs push
+      - if: steps.select.outputs.ready == 'true'
+        run: node scripts/blog-automation/publish.mjs verify
+      - if: failure() && steps.select.outputs.ready == 'true'
         run: node scripts/blog-automation/publish.mjs failure
       - uses: actions/upload-artifact@v4
         if: always()

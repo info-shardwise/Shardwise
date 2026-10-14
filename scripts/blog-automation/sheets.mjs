@@ -37,6 +37,20 @@ export async function sheets() {
 }
 
 export function createSheetClient(api) {
+  async function list() {
+    const result = await api(
+      `/values/${encodeURIComponent("'BlogQueue'!A:S")}?valueRenderOption=UNFORMATTED_VALUE`,
+    )
+    const [headers, ...values] = result.values || []
+    if (!headers?.includes('id') || !headers.includes('keyword') || !headers.includes('status'))
+      throw new Error('Queue headers missing')
+    const rows = values.map((values) =>
+      Object.fromEntries(headers.map((name, i) => [name, values[i] ?? ''])),
+    )
+    if (new Set(rows.map((row) => row.id)).size !== rows.length)
+      throw new Error('Queue IDs duplicated')
+    return rows
+  }
   async function read(id) {
     const result = await api(
       `/values/${encodeURIComponent("'BlogQueue'!A:S")}?valueRenderOption=UNFORMATTED_VALUE`,
@@ -82,5 +96,5 @@ export function createSheetClient(api) {
         throw new Error(`Sheet read-back failed for ${key}`)
     return check.data
   }
-  return { read, update }
+  return { read, update, list }
 }
