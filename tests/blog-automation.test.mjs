@@ -208,6 +208,15 @@ test('another publisher cannot claim the already processing row', async () => {
   assert.equal(f.calls.length, 0)
 })
 
+test('competing publishers admit only one owner of the pending row', async () => {
+  const f = fixture()
+  const attempts = await Promise.allSettled([f.make('1').prepare(), f.make('2').prepare()])
+  assert.equal(attempts.filter(result => result.status === 'fulfilled').length, 1)
+  assert.equal(attempts.filter(result => result.status === 'rejected').length, 1)
+  assert.equal(f.writes.filter(write => write.status === 'processing').length, 1)
+  assert.ok(['1', '2'].includes(f.row.run_id))
+})
+
 test('changed approval hash fails before queue writes', async () => {
   const f = fixture()
   f.files.set(`${approvedPath}.mdx`, source + '\nChanged')
