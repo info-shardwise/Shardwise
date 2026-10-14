@@ -1,7 +1,13 @@
 import crypto from 'node:crypto'
 
-async function checked(url, options, label) {
+async function checked(url, options, label, attempt = 0) {
   const response = await fetch(url, { ...options, signal: AbortSignal.timeout(30000) })
+  if ([429, 503].includes(response.status) && label === 'Gemini model access' && attempt < 2) {
+    await response.text()
+    console.log(`Gemini temporary HTTP ${response.status}; bounded retry ${attempt + 1}/2`)
+    await new Promise(resolve => setTimeout(resolve, 10000 * (attempt + 1)))
+    return checked(url, options, label, attempt + 1)
+  }
   if (!response.ok) {
     const detail = await response.json().catch(() => ({}))
     let message = String(detail.error?.message || 'No API error detail').slice(0, 1500)
