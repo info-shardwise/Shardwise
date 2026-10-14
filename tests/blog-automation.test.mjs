@@ -743,3 +743,13 @@ test('publisher rejects a human approval flag without automatic benchmark', asyn
   await assert.rejects(f.make('1').prepare(), /Automated editorial report required/)
   assert.equal(f.writes.length, 0)
 })
+
+test('official W3C and Google Business references pass the source allowlist', async () => {
+  const { data, content } = matter(source)
+  await validateApprovedArticle(
+    data,
+    content +
+      '\n\n[Accessible forms](https://www.w3.org/WAI/tutorials/forms/)\n\n[Local ranking guidance](https://support.google.com/business/answer/7091?hl=en)',
+    async () => 200,
+  )
+})

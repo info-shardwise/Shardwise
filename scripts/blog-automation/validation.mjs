@@ -82,6 +82,8 @@ export async function validateApprovedArticle(data, content, checkLink) {
       'developer.wordpress.org',
       'wordpress.org',
       'developers.google.com',
+      'support.google.com',
+      'www.w3.org',
       'nextjs.org',
       'developer.apple.com',
       'developer.android.com',

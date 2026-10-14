@@ -118,6 +118,8 @@ async function main(revision = 0, feedback = null) {
           'developer.wordpress.org',
           'wordpress.org',
           'developers.google.com',
+          'support.google.com',
+          'www.w3.org',
           'nextjs.org',
           'developer.apple.com',
           'developer.android.com',
