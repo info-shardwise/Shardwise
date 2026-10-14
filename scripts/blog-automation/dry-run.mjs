@@ -152,7 +152,24 @@ async function main() {
         },
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { responseMimeType: 'application/json', maxOutputTokens: 8192 },
+          generationConfig: {
+            responseMimeType: 'application/json', maxOutputTokens: 8192,
+            responseSchema: {
+              type: 'OBJECT', required: ['title', 'description', 'slug', 'introduction', 'sections'],
+              properties: {
+                title: { type: 'STRING' }, description: { type: 'STRING' }, slug: { type: 'STRING' },
+                introduction: { type: 'ARRAY', minItems: 2, maxItems: 2, items: { type: 'STRING' } },
+                sections: { type: 'ARRAY', minItems: 5, maxItems: 7, items: {
+                  type: 'OBJECT', required: ['heading', 'paragraphs', 'sourceIndexes'],
+                  properties: {
+                    heading: { type: 'STRING' },
+                    paragraphs: { type: 'ARRAY', minItems: 2, maxItems: 3, items: { type: 'STRING' } },
+                    sourceIndexes: { type: 'ARRAY', items: { type: 'INTEGER' } },
+                  },
+                } },
+              },
+            },
+          },
         }),
       },
     )
