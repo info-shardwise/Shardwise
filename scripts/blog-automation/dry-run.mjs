@@ -198,8 +198,7 @@ async function main() {
   assert.ok(draft.sections.length >= 5 && draft.sections.length <= 7)
   assert.ok(draft.introduction.length === 2)
   let body = draft.introduction.map(safeText).join('\n\n')
-  assert.ok(draft.scenario.paragraphs.some(paragraph => /fictional|hypothetical/i.test(paragraph)), 'Example must be clearly fictional')
-  body += `\n\n## ${safeText(draft.scenario.heading)}\n\n${draft.scenario.paragraphs.map(safeText).join('\n\n')}`
+  body += `\n\n## ${safeText(draft.scenario.heading)}\n\nThis is a fictional planning example, not a Shardwise client result.\n\n${draft.scenario.paragraphs.map(safeText).join('\n\n')}`
   const cited = new Set()
   for (const section of draft.sections) {
     assert.ok(Array.isArray(section.paragraphs) && section.paragraphs.length >= 2)
