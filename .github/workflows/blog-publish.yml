@@ -1,7 +1,7 @@
 name: Publish reviewed blog
 on:
   schedule:
-    - cron: '8 12 * * *'
+    - cron: '30 3 * * *'
   workflow_dispatch:
     inputs:
       row_id:
