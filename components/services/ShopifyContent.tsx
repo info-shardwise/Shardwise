@@ -438,6 +438,22 @@ export function ShopifyContent() {
           </p>
         </div>
         <div className={styles.related}>
+          <Link href="/blogs/choosing-shopify-development-agency/">
+            Choosing a Shopify development agency
+            <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/shopify-theme-development-services-guide/">
+            Shopify theme development services guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/shopify-website-design-shopping-journey/">
+            Shopify website design guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/ecommerce-website-development-services-scope/">
+            Ecommerce development scope guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
           {[
             ['WordPress Development', 'wordpress-development'],
             ['Custom Website Development', 'custom-website-development'],

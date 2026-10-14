@@ -397,7 +397,18 @@ export function CustomWebsiteContent() {
           <span>THE WEBSITE LIFECYCLE</span>
           <h2 id="custom-related-title">Connect the build with the right next step.</h2>
         </div>
+        <p>
+          Compare scope, editing workflows, testing, and handover in our{' '}
+          <Link href="/blogs/custom-website-development-services-guide/">
+            custom website development services guide
+          </Link>
+          .
+        </p>
         <div className={styles.related}>
+          <Link href="/blogs/bespoke-website-development-project-brief/">
+            Bespoke website project brief
+            <ArrowRight aria-hidden="true" />
+          </Link>
           {[
             ['WordPress Development', 'wordpress-development'],
             ['Shopify Development', 'shopify-development'],

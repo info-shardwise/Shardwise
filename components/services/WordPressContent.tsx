@@ -394,6 +394,26 @@ export function WordPressContent() {
           </p>
         </div>
         <div className={styles.related}>
+          <Link href="/blogs/choosing-wordpress-development-agency/">
+            Choosing a WordPress development agency
+            <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/custom-wordpress-development-what-to-build/">
+            Custom WordPress development guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/wordpress-theme-development-services-guide/">
+            WordPress theme development services guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/headless-wordpress-development-decision-guide/">
+            Headless WordPress decision guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/ecommerce-website-development-services-scope/">
+            Ecommerce development scope guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
           {[
             ['Shopify Development', 'shopify-development'],
             ['Custom Website Development', 'custom-website-development'],

@@ -364,6 +364,14 @@ export function WebsiteDesignContent() {
           before your next website update.
         </p>
         <div className={styles.related}>
+          <Link href="/blogs/small-business-website-design-essential-pages/">
+            Small business website design guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/website-redesign-services-planning-guide/">
+            Website redesign planning guide
+            <ArrowRight aria-hidden="true" />
+          </Link>
           {[
             ['WordPress Development', 'wordpress-development'],
             ['Shopify Development', 'shopify-development'],
