@@ -1,11 +1,11 @@
-name: Publish reviewed blog
+name: Generate and publish blog
 on:
   schedule:
     - cron: '30 3 * * *'
   workflow_dispatch:
     inputs:
       row_id:
-        description: auto selects next due reviewed keyword; use row ID to recover
+        description: auto generates next due keyword; use row ID to recover
         required: true
         default: auto
 permissions:
@@ -34,13 +34,20 @@ jobs:
           cache: npm
       - run: npm ci
       - run: node --test tests/blog-automation.test.mjs
-      - name: Select due reviewed keyword or recover existing publication
+      - name: Select due keyword or recover existing publication
         id: select
         run: node scripts/blog-automation/schedule.mjs
         env:
           REQUESTED_ROW_ID: ${{ inputs.row_id || 'auto' }}
       - if: steps.select.outputs.ready == 'true'
         run: echo "BLOG_ROW_ID=${{ steps.select.outputs.row_id }}" >> "$GITHUB_ENV"
+      - name: Generate article and enforce automatic editorial benchmark
+        if: steps.select.outputs.generate == 'true'
+        run: node scripts/blog-automation/dry-run.mjs
+        env:
+          AUTOMATED_GENERATION: '1'
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
       - if: steps.select.outputs.ready == 'true'
         run: node scripts/blog-automation/publish.mjs prepare
       - if: steps.select.outputs.ready == 'true'

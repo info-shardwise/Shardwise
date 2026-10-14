@@ -25,6 +25,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           UNSPLASH_ACCESS_KEY: ${{ secrets.UNSPLASH_ACCESS_KEY }}
           DRY_RUN_BUILD: '1'
+          AUTOMATED_GENERATION: '1'
+          GENERATION_CHECK: '1'
       - name: Build draft in disposable runner only
         run: npm run build
         env:

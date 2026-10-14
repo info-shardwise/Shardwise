@@ -657,3 +657,60 @@ test('publication rejects listing data without a visible article card', async ()
   await assert.rejects(publisher.push(), /card missing/)
   assert.equal(f.calls.filter((args) => args[0] === 'push').length, 0)
 })
+
+test('automatic scheduling generates a due keyword without human approval', () => {
+  const input = scheduleFixture()
+  input.settings.automaticGenerationEnabled = true
+  input.approvals = {}
+  const decision = choosePublication(input)
+  assert.equal(decision.ready, true)
+  assert.equal(decision.generate, true)
+  assert.equal(decision.rowId, 'blog-029')
+  input.records.push({ rowId: 'blog-028', publishDate: input.today })
+  assert.equal(choosePublication(input).ready, false)
+})
+test('automatic recovery does not regenerate a committed article', () => {
+  const input = scheduleFixture()
+  input.settings.automaticGenerationEnabled = true
+  input.rows[0].status = 'deploying'
+  input.records.push({ rowId: 'blog-029' })
+  const decision = choosePublication(input)
+  assert.equal(decision.recovery, true)
+  assert.notEqual(decision.generate, true)
+})
+test('Node editorial gate enforces every dimension and blockers', async () => {
+  const { enforceEditorialGate } = await import('../scripts/blog-automation/editorial-gate.mjs')
+  const review = {
+    usefulness: 8.5,
+    specificity: 8.5,
+    clarity: 8.5,
+    sourceSupport: 8.5,
+    searchIntent: 8.5,
+    blockingIssues: [],
+  }
+  assert.equal(enforceEditorialGate(review), 8.5)
+  assert.throws(() => enforceEditorialGate({ ...review, sourceSupport: 7 }))
+  assert.throws(() =>
+    enforceEditorialGate({ ...review, blockingIssues: ['Unsupported guarantee'] }),
+  )
+  assert.throws(() => enforceEditorialGate({ ...review, usefulness: NaN }))
+  assert.throws(() =>
+    enforceEditorialGate({
+      ...review,
+      usefulness: 7.5,
+      specificity: 7.5,
+      clarity: 7.5,
+      sourceSupport: 7.5,
+      searchIntent: 7.5,
+    }),
+  )
+})
+test('workflow generates and validates before preparing publication', async () => {
+  const y = await realFs.readFile('.github/workflows/blog-publish.yml', 'utf8')
+  assert.ok(
+    y.indexOf('run: node scripts/blog-automation/dry-run.mjs') <
+      y.indexOf('run: node scripts/blog-automation/publish.mjs prepare'),
+  )
+  assert.ok(y.includes("AUTOMATED_GENERATION: '1'"))
+  assert.ok(y.includes('secrets.GEMINI_API_KEY'))
+})

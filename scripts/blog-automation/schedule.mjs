@@ -46,6 +46,18 @@ export function choosePublication({
       return { ready: false, rowId: row.id, reason: 'Row needs manual status review' }
     if (row.scheduled_date && row.scheduled_date > today)
       return { ready: false, rowId: row.id, reason: 'Keyword scheduled for a future date' }
+    if (
+      records.filter((record) => record.publishDate === today).length >= settings.dailyArticleLimit
+    )
+      return { ready: false, rowId: row.id, reason: 'Daily publication limit reached' }
+    if (settings.automaticGenerationEnabled)
+      return {
+        ready: true,
+        rowId: row.id,
+        reason: 'Generate and validate next due keyword',
+        recovery: false,
+        generate: true,
+      }
     const approval = approvals[row.id]
     if (
       !approval?.approved ||
@@ -129,7 +141,7 @@ async function run() {
   if (process.env.GITHUB_OUTPUT)
     await fs.appendFile(
       process.env.GITHUB_OUTPUT,
-      `ready=${decision.ready}\nrow_id=${decision.ready ? decision.rowId : ''}\n`,
+      `ready=${decision.ready}\nrow_id=${decision.ready ? decision.rowId : ''}\ngenerate=${decision.generate === true}\n`,
     )
   if (process.env.GITHUB_STEP_SUMMARY)
     await fs.appendFile(
