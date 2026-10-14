@@ -1,7 +1,7 @@
 {
   "scheduledPublishingEnabled": true,
   "timezone": "Asia/Kolkata",
-  "scheduleCronUtc": "30 12 * * *",
+  "scheduleCronUtc": "8 12 * * *",
   "dailyArticleLimit": 1,
   "requireReviewedApproval": true,
   "owner": "info-shardwise repository owner",
