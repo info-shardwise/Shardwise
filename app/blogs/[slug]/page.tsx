@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import { getAllPosts, getPostBySlug } from '@/lib/mdx'
 import { mdxComponents } from '@/components/blog/MDXComponents'
@@ -124,6 +125,17 @@ export default async function BlogPostPage({ params }: PageProps) {
               </div>
             </div>
           </header>
+          {post.meta.image && (
+            <div className={styles.cover}>
+              <Image
+                src={post.meta.image}
+                alt={post.meta.imageAlt || post.meta.title}
+                width={1200}
+                height={800}
+                sizes="(max-width: 1048px) calc(100vw - 48px), 1000px"
+              />
+            </div>
+          )}
           <div className={styles.reading}>
             <div className={styles.body}>
               <MDXRemote source={post.content} components={mdxComponents} />

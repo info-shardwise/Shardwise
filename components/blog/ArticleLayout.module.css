@@ -114,6 +114,17 @@
   margin: 55px auto 0;
   padding: 0 24px;
 }
+.cover {
+  max-width: 1048px;
+  margin: 40px auto 0;
+  padding: 0 24px;
+}
+.cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+}
 .body {
   color: #5f596d;
   font-size: 16px;

@@ -20,7 +20,6 @@ export interface BlogPostMeta {
   readingTime: string
   featured?: boolean
   published: boolean
-  listingBefore?: string
 }
 
 export interface BlogPost {
@@ -65,20 +64,10 @@ export function getAllPosts(): BlogPostMeta[] {
         readingTime: calculateReadingTime(content),
         featured: Boolean(data.featured),
         published: data.published !== false,
-        listingBefore: typeof data.listingBefore === 'string' ? data.listingBefore : undefined,
       } as BlogPostMeta
     })
     .filter((post) => post.published)
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-
-  // Editorial placement affects the listing only; publication dates stay unchanged.
-  for (const post of [...posts]) {
-    if (!post.listingBefore || post.listingBefore === post.slug) continue
-    if (!posts.some((target) => target.slug === post.listingBefore)) continue
-    posts.splice(posts.indexOf(post), 1)
-    const targetIndex = posts.findIndex((target) => target.slug === post.listingBefore)
-    posts.splice(targetIndex, 0, post)
-  }
 
   return posts
 }
