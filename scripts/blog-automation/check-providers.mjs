@@ -37,12 +37,12 @@ try {
   console.log('PASS: GitHub service-account secret reads the 19-row queue')
   let geminiError
   try {
-  const gemini = await checked('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent', {
+  const gemini = await checked('https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent', {
     method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': process.env.GEMINI_API_KEY },
-    body: JSON.stringify({ contents: [{ parts: [{ text: 'Reply with OK.' }] }], generationConfig: { maxOutputTokens: 32, thinkingConfig: { thinkingBudget: 0 } } }),
+    body: JSON.stringify({ contents: [{ parts: [{ text: 'Reply with OK.' }] }], generationConfig: { maxOutputTokens: 2048 } }),
   }, 'Gemini model access')
   if (!gemini.candidates?.some((c) => c.content?.parts?.some((p) => p.text))) throw new Error('Gemini returned no text')
-  console.log('PASS: Gemini 2.5 Flash generates text; billing plan remains dashboard/user-confirmed')
+  console.log('PASS: Gemini 3.8 Flash generates text; billing plan remains dashboard/user-confirmed')
   } catch (error) {
     geminiError = error
     console.log(error.message)
