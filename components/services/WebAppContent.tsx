@@ -353,6 +353,18 @@ export function WebAppContent() {
           .
         </p>
         <div className={styles.related}>
+          <Link href="/blogs/mvp-development-for-startups-first-release/">
+            Startup MVP first-release guide <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/saas-application-development-services-launch-scope/">
+            SaaS application launch planning guide <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/custom-web-application-development-project-scope/">
+            Custom web application scope guide <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/choosing-web-app-development-agency/">
+            Web app agency delivery checklist <ArrowRight aria-hidden="true" />
+          </Link>
           {[
             ['iOS App Development', 'ios-app-development'],
             ['Android App Development', 'android-app-development'],

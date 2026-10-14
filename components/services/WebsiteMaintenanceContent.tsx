@@ -406,6 +406,18 @@ export function WebsiteMaintenanceContent() {
           to investigate loading, responsiveness, and layout stability.
         </p>
         <div className={styles.related}>
+          <Link href="/blogs/monthly-website-maintenance-packages-comparison/">
+            Monthly maintenance package comparison <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/wordpress-maintenance-services-update-recovery-plan/">
+            WordPress updates and recovery guide <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/small-business-website-maintenance-services-priorities/">
+            Small business maintenance priorities <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/website-maintenance-services-coverage-guide/">
+            Website maintenance coverage guide <ArrowRight aria-hidden="true" />
+          </Link>
           {[
             ['WordPress Development', 'wordpress-development'],
             ['Shopify Store Maintenance', 'shopify-store-maintenance'],

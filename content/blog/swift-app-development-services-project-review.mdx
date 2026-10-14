@@ -1,0 +1,133 @@
+---
+title: 'Swift App Development Services: Plan a Maintainable iOS Project'
+description: 'Evaluate Swift app development services through codebase review, SwiftUI and UIKit choices, data flow, API integration, testing, migration, and handover.'
+slug: 'swift-app-development-services-project-review'
+image: '/images/blog/unsplash/software-engineering.jpg'
+imageAlt: 'Application code displayed on a laptop during a software project review'
+date: '2026-09-25'
+author:
+  name: 'Shardwise Engineering'
+  role: 'Mobile Application Development'
+tags: ['Swift', 'iOS', 'Mobile Development']
+featured: false
+published: true
+listingBefore: 'ios-app-development-services-release-planning'
+---
+
+Swift app development services help teams build and maintain applications using Swift, including native iOS products. A useful proposal explains how the code will support your workflows, integrate with existing services, and remain understandable after delivery. Choosing a language is only one part of that plan.
+
+This guide helps UK and US product owners assess a new Swift project or improvements to an existing app. It focuses on implementation and maintenance decisions. Our [iOS release planning guide](/blogs/ios-app-development-services-release-planning/) covers the broader device, testing, and submission brief. Explore [Shardwise's iOS development service](/services/ios-app-development/) for relevant delivery capabilities.
+
+## Start with the product and the existing code
+
+Describe what people need to accomplish and which problems the engagement should solve. A new application needs a defined first workflow. An existing product may need a targeted improvement, a compatibility update, or investigation of recurring failures. Those are different starting points for an estimate.
+
+For a fictional field inspection app, users might load an assignment, save observations, and submit a report. An improvement request could be that drafts disappear when a request fails. The first task is understanding that behaviour, not automatically rebuilding the whole interface. This example is illustrative and is not a Shardwise client result.
+
+For an existing app, provide repository access, build instructions, dependency information, supported devices, and examples of the problem. Use appropriate test data and access controls. Ask the provider to identify assumptions and missing information before committing to a detailed implementation plan.
+
+## Request a codebase review before a rewrite estimate
+
+A review should establish whether the app can be built, how it is structured, which services it depends on, and what tests already exist. Ask for findings connected to product risks rather than a list of preferences about coding style.
+
+For example, a networking layer shared across several screens may need a focused correction. Duplicated business rules might require consolidation. An outdated dependency could affect build or release readiness. Each finding should describe the impact, suggested work, and how the team would verify the result.
+
+Separate necessary fixes from optional modernisation. A rewrite creates migration and regression work alongside new implementation. Request evidence for why it is preferable to incremental changes and identify what customer behaviour must remain intact.
+
+## Understand Swift, SwiftUI, and UIKit as different choices
+
+Swift is the programming language; SwiftUI and UIKit are frameworks used to build interfaces on Apple platforms. A proposal should distinguish the language choice from the interface approach, especially if your existing product already uses UIKit.
+
+Apple describes [SwiftUI](https://developer.apple.com/swiftui/) as a declarative interface framework that can work alongside UIKit and AppKit. That allows incremental adoption in suitable projects. It does not mean every app should replace every existing screen at once.
+
+Ask how the provider will decide which approach fits each part of the product. Consider supported operating systems, specialised controls, existing architecture, and the people maintaining the app. Request a small working example where a technical uncertainty would otherwise affect the estimate.
+
+Compare the cost and risk of keeping existing components, introducing new ones gradually, or rebuilding a defined area. The deliverable should explain what changes and how the user experience will be checked.
+
+## Define how data moves through the application
+
+A screen may show loading, empty, successful, and error states. Agree how those states are represented and which part of the application owns the underlying data. The interface should not silently lose work when a request fails or a user moves between screens.
+
+For the inspection example, specify when a draft is saved, whether it survives an app restart, and how the user knows a report has reached the backend. Local storage and server confirmation represent different states. Make those differences understandable in the product.
+
+Ask the team to explain its separation between interface code, business rules, and external services. The particular architecture label matters less than whether important behaviour can be understood and tested without reproducing it in several places.
+
+Include rules for concurrent work. If an assignment changes while a technician is editing, what should happen? If a user cancels an upload or retries a submission, which result is valid? These are product decisions that influence implementation.
+
+## Scope API integration through actual responses
+
+Provide API documentation and representative responses, including errors and missing information. Define authentication, session expiry, pagination where relevant, uploads, and the ownership of backend changes. A mobile engagement should not assume that an unfinished API will work without additional delivery effort.
+
+Describe failure behaviour in plain language. If an authentication session expires, can the user sign in again without losing a draft? If a request times out after the server accepted it, how will the app avoid creating a duplicate report?
+
+Review test environments and service access early. Ask how the team can reproduce important failures safely and how sensitive information is kept out of diagnostic output. For broader integration planning, read our [custom application scope guide](/blogs/custom-web-application-development-project-scope/).
+
+## Specify device capabilities and permission behaviour
+
+If the product uses a camera, notifications, location, or file access, describe why the capability is needed and what happens when it is unavailable. Users may refuse a request or change a setting after onboarding.
+
+Keep essential and optional capabilities distinct. If a photograph is optional evidence, the interface should explain how to continue without it. If it is essential, the brief should define a useful explanation and recovery path when capture fails.
+
+Confirm device and operating system coverage in the proposal. Include accessibility, larger text, orientation, and other relevant layout conditions. A screen working with default settings on one simulator does not establish that the agreed user experience is complete.
+
+## Ask for tests connected to business behaviour
+
+Swift app development services should include verification appropriate to the changes. Ask which rules can be tested independently, which API interactions need integration checks, and which journeys require device review.
+
+For the draft-saving issue, meaningful checks include retaining observations after a failed request, restoring a saved draft after relaunch, and showing confirmation only when submission succeeds. A raw test count does not show whether those outcomes are covered.
+
+Agree acceptance examples for important roles, errors, and permission states. Include manual review for understandable messages and usable interactions. When improving an existing product, identify regression checks for behaviour outside the changed area that could still be affected.
+
+Use milestone demonstrations to review results before the engagement ends. Ask the provider to show both normal use and a relevant failure case, with realistic data and the agreed devices.
+
+## Plan incremental migration as a deliverable
+
+If the engagement changes architecture or interface technology, define the migration boundary. Which screens or modules move first? What remains in place? How will old and new parts exchange data during the transition?
+
+Record the behaviour that must remain consistent, such as account access, saved drafts, and existing links into the app. Plan data changes carefully where local storage formats are affected. A successful clean installation is not enough if existing users cannot update safely.
+
+Ask for a release and recovery plan appropriate to the change. Avoid combining unrelated improvements into one migration unless there is a clear reason. Smaller, reviewable changes can make it easier to identify the cause of a regression, though the right sequence depends on your codebase.
+
+## Make handover useful to another team
+
+Confirm repository ownership, access to relevant accounts, and the contractual position on code and third-party licences. Request setup instructions, dependency versions, environment configuration names, test commands, and release steps without exposing credentials.
+
+Document the main decisions and known limitations. Another developer should understand why a module uses a particular approach and where a deferred problem remains. Ask for a list of external services and who owns them.
+
+Define support for defects, dependency updates, API changes, and operating system compatibility. Separate maintenance from new feature work and record how each is requested. A maintainable project includes responsibility for ongoing operation, not only neatly organised source files.
+
+## Compare Swift development proposals on the same work
+
+Provide each team with the same workflows, current codebase information, integration requirements, and acceptance criteria. Ask them to separate review, design changes, implementation, testing, migration, handover, and support.
+
+Evaluate the explanation of risk and scope alongside price. A smaller estimate may exclude backend work or existing-user migration. Clarify those exclusions rather than assuming proposals describe equivalent results.
+
+Avoid universal delivery promises based solely on the use of Swift or SwiftUI. Existing code, supported platforms, integration quality, and migration needs affect the work. For partner evaluation questions, read our [web and app agency guide](/blogs/how-to-choose-web-and-app-development-agency/).
+
+## Swift project questions
+
+### Is SwiftUI the same thing as Swift?
+
+No. Swift is the language, while SwiftUI is an interface framework. A Swift app may use SwiftUI, UIKit, or a combination. Ask the provider to explain the proposed approach in terms of your product and existing code.
+
+### Do we need to rewrite an existing UIKit app?
+
+Not automatically. Begin with a review of the problem and the code supporting it. Incremental improvement may be suitable; a broader rewrite needs a clear justification and a migration plan.
+
+### What should we share before requesting an estimate?
+
+Provide the user workflow, supported platforms, existing repository if applicable, backend information, and examples of the required changes. Identify launch constraints and known issues. Keep credentials and sensitive customer information in appropriate secure channels.
+
+### How do we judge whether the implementation is maintainable?
+
+Ask for working setup instructions, tests tied to important behaviour, documented decisions, and a clear separation of responsibilities. An independent review may help when the team cannot assess the technical evidence internally.
+
+### Does using Swift guarantee App Store approval?
+
+No. Implementation language does not establish compliance with review requirements. Include release preparation and review responsibilities in the engagement, as described in our [iOS release guide](/blogs/ios-app-development-services-release-planning/).
+
+## Prepare a Swift development brief
+
+Evaluate Swift app development services by how clearly the proposal connects user behaviour, existing code, interface choices, data flow, testing, and handover. Those decisions help the team deliver a product that can continue to evolve after the initial engagement.
+
+Explore [Shardwise's iOS development service](/services/ios-app-development/) or [share your project brief](/contact/). Include the workflow, current implementation, integrations, and changes you need so the conversation starts with a reviewable scope.

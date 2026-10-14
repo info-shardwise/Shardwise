@@ -346,6 +346,12 @@ export function AndroidContent() {
           <h2 id="android-related-title">Connect Android with the rest of your product.</h2>
         </div>
         <div className={styles.related}>
+          <Link href="/blogs/kotlin-app-development-services-maintainable-android/">
+            Kotlin app implementation guide <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/android-app-development-services-device-ready-release/">
+            Android app release planning guide <ArrowRight aria-hidden="true" />
+          </Link>
           {[
             ['iOS App Development', 'ios-app-development'],
             ['Web App Development', 'web-app-development'],

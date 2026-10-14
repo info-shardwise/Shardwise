@@ -368,6 +368,12 @@ export function IosContent() {
           <h2 id="ios-related-title">Connect your iOS plans with the right services.</h2>
         </div>
         <div className={styles.related}>
+          <Link href="/blogs/swift-app-development-services-project-review/">
+            Swift app project review guide <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/ios-app-development-services-release-planning/">
+            iOS app release planning guide <ArrowRight aria-hidden="true" />
+          </Link>
           {related.map(([name, slug]) => (
             <Link key={slug} href={`/services/${slug}/`}>
               {name}

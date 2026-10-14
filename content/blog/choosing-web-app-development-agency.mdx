@@ -1,0 +1,129 @@
+---
+title: 'Choosing a Web App Development Agency: A Delivery Checklist'
+description: 'Choose a web app development agency by comparing user workflows, architecture, security, testing, ownership, launch planning, and ongoing support.'
+slug: 'choosing-web-app-development-agency'
+image: '/images/blog/unsplash/software-engineering.jpg'
+imageAlt: 'Programming code on a laptop screen during web application development'
+date: '2026-09-30'
+author:
+  name: 'Shardwise Engineering'
+  role: 'Web Application Development'
+tags: ['Web Development', 'Engineering', 'Project Planning']
+featured: false
+published: true
+listingBefore: 'scaling-nextjs-applications'
+---
+
+A web app development agency helps turn a business workflow into software people can use in a browser. Choosing one means looking beyond a polished interface: the application needs reliable data, clear access rules, useful error handling, a tested release process, and someone responsible for maintaining it.
+
+This guide gives UK and US teams a practical way to compare proposals for customer portals, internal tools, dashboards, and browser-based products. Start with your users and the work they need to complete, then ask agencies to explain how their delivery plan meets those needs. Explore Shardwise's [web app development service](/services/web-app-development/) when you are ready to discuss a project brief.
+
+## Decide whether you need an application
+
+A website usually helps visitors read information and take a simple next step. A web application often lets people sign in, manage records, approve requests, or complete a repeated workflow. Some projects contain both: a public marketing site alongside a private customer workspace.
+
+For example, a fictional equipment rental business might need customers to request bookings and staff to approve availability. That involves account permissions, booking states, and notifications. A brochure website with a contact form would have a different scope. This example illustrates planning; it is not a Shardwise client result.
+
+Write down what existing software already handles. A configured off-the-shelf tool may solve the problem more economically than a custom application. Ask an agency to explain the reason for custom development, the alternatives considered, and which parts of the workflow make your requirements different.
+
+## Describe the first useful workflow
+
+Begin with one task a user must finish. Identify who starts it, what information they provide, what decisions happen, and how they know the task is complete. Avoid starting with a list of screens alone: a screen does not explain the business rules behind it.
+
+For the rental example, the workflow might be: customer requests equipment, staff checks availability, staff approves the request, and the customer receives confirmation. What happens if two requests overlap? Can staff amend a booking? What happens when notification delivery fails? Those questions shape development and testing.
+
+A helpful brief includes:
+
+- The user roles and the tasks each role may perform.
+- Required information, validation rules, and record ownership.
+- Important states, such as requested, approved, cancelled, and completed.
+- Exceptions, including duplicate submissions and unavailable services.
+- A measurable completion condition for the first release.
+
+Separate essential requirements from later ideas. A small release can still include the security, recovery, and support work needed to operate it responsibly. Deferring an advanced reporting screen is different from deferring permission checks.
+
+## Ask for architecture tied to your requirements
+
+A credible proposal connects its technical choices to your workflow. Ask where the user interface runs, where business rules execute, where data lives, and which outside systems the application calls. Request a simple diagram that your team can discuss without needing to know every framework.
+
+MDN's [client-server overview](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Client-Server_overview) explains how browser requests and server responses fit together. For your proposal, focus on the consequences: who validates a request, checks permissions, and records a successful change?
+
+Discuss expected usage in concrete terms. How many people might submit requests at the same time? Are there large uploads, background jobs, or reports that take time to produce? Ask how the agency would measure performance and what evidence would justify a more complex architecture.
+
+Our article on [engineering scalable Next.js applications](/blogs/scaling-nextjs-applications/) introduces one architecture approach. Treat framework selection as a decision to validate against your requirements. A static public site and an authenticated application have different runtime needs; the agency should explain those differences before choosing a deployment model.
+
+## Compare integration plans, not just integration names
+
+“CRM integration” is not a complete requirement. Specify what data moves, which system owns the record, how changes are matched, and how failed transfers are handled. Ask who supplies API access and who maintains the integration when a provider changes its behaviour.
+
+For a booking application, a CRM may receive a customer record while an operations system stores availability. If the CRM is unavailable, should a booking still succeed? A proposal should describe the expected behaviour rather than leaving it for launch week.
+
+Request a dependency list covering authentication, email, payments where relevant, storage, analytics, and external APIs. Include recurring costs, usage limits, account ownership, and replacement options. Avoid accepting a low initial estimate that leaves essential integration and operating work undefined.
+
+## Make security an acceptance requirement
+
+Signing in and being allowed to perform an action are separate checks. Your scope should define which roles can see or change each record, including what happens when someone tries to access another customer's information. Ask how these checks will be tested on the server side, rather than relying on hidden buttons in the interface.
+
+The [OWASP Application Security Verification Standard](https://owasp.org/projects/asvs) provides requirements that can help teams specify and verify application security controls. Use relevant requirements to agree what will be reviewed and who supplies the evidence. Referencing a standard does not itself demonstrate compliance or make an application secure.
+
+Discuss credential handling, session behaviour, sensitive data in logs, dependency updates, backups, and incident responsibilities. State what information the product truly needs to collect. Where your project has regulatory or contractual obligations, involve the appropriate specialist in defining requirements and reviewing the proposed controls.
+
+## Request a testing plan with realistic examples
+
+Ask an agency to explain what will be checked automatically and what people will review manually. Unit tests can check isolated rules; integration tests can check how systems work together; end-to-end tests can exercise a complete user journey. Each has a purpose, and a raw test count says little about whether your important risks are covered.
+
+For the rental workflow, meaningful checks include preventing conflicting bookings, rejecting unauthorised changes, preserving submitted information after validation errors, and handling an external service failure. The proposal should connect tests to those outcomes.
+
+Manual review remains useful for keyboard operation, readable errors, mobile layouts, and whether users understand what to do next. Include representative browsers, devices, roles, and realistic test data. Define how your team will carry out acceptance testing and how issues will be classified before launch.
+
+## Agree ownership and handover before signing
+
+Confirm the contractual position on source code, designs, data, licences, and third-party components. Ask where the repository will live and who can access it. Your business should understand which production accounts it owns and which services the agency operates on your behalf.
+
+Request handover deliverables that another competent team could use: setup instructions, environment variable names without exposed secrets, deployment steps, a data model overview, and a list of operating dependencies. Include documentation for common support tasks and the procedure for restoring a backup.
+
+Clarify what happens when the engagement ends. Can your team export its data? Who transfers access? How are credentials rotated? An orderly handover is easier when account ownership and documentation are part of the delivery plan from the start.
+
+## Compare proposals on the same scope
+
+Send agencies the same brief and ask them to identify assumptions, exclusions, dependencies, and unresolved questions. Compare deliverables and acceptance criteria alongside the quoted amount. Different estimates may describe substantially different products.
+
+A useful comparison covers discovery, design, development, integration, testing, migration if needed, launch, and support. Ask how changes are approved and priced. Request milestone demonstrations of working workflows so you can resolve misunderstandings while they are still inexpensive to fix.
+
+Look for relevant evidence: a walkthrough of a comparable workflow, an explanation of a difficult tradeoff, or a sample of handover documentation that the agency is allowed to share. Do not treat attractive screenshots as evidence of reliable permissions, recoverable data, or a maintainable codebase.
+
+## Plan launch and support as part of delivery
+
+Ask for a release checklist identifying who approves launch, who deploys, and how the team responds if a critical workflow fails. Include configuration checks, monitoring, backups, and a rollback or recovery plan appropriate to the changes being released.
+
+Define what support includes after launch: defect handling, dependency updates, performance investigation, and changes to outside integrations. Agree response expectations and contact routes, rather than assuming that “maintenance included” covers every future request.
+
+Read our [website maintenance checklist](/blogs/website-maintenance-checklist-small-business/) for related operating tasks, then adapt them to application-specific needs such as failed jobs, account access, and data recovery. Review recurring hosting and service costs alongside development costs when deciding what your team can sustain.
+
+## Questions to ask a web app development agency
+
+### What should we prepare before requesting a quote?
+
+Provide your main users, essential workflow, current tools, required integrations, and launch constraints. Include example data with sensitive information removed. Ask for a discovery stage when important business rules are still unclear, rather than expecting a precise estimate from a short feature list.
+
+### Should we choose a framework before choosing an agency?
+
+Existing systems or your internal team may impose a framework requirement. Otherwise, define the product needs first and ask agencies to justify their choices. Discuss hiring, hosting, maintenance, and integration implications as well as initial delivery speed.
+
+### How can we assess quality without being developers?
+
+Ask for demonstrations against agreed acceptance criteria. Have the team explain failure cases, role permissions, deployment, and handover in plain language. For higher-risk projects, an independent technical review can help evaluate evidence that is difficult to judge from a sales presentation.
+
+### Can we launch with only the essential features?
+
+Yes, if the first release completes a useful workflow. Keep a clearly prioritised backlog and define what is excluded. Essential features still need appropriate testing, access controls, and operational support; a smaller scope should reduce breadth rather than leave critical behaviour unexplained.
+
+### What should ongoing support cover?
+
+Agree responsibility for defects, updates, monitoring, recovery, and third-party changes. Separate support from new product development and confirm how each is requested and priced. Record ownership of production accounts so support can continue if the delivery team changes.
+
+## Prepare a brief your delivery team can use
+
+Choose a web app development agency by the clarity of its plan and the evidence behind its promises. A useful proposal explains the workflow, technical decisions, acceptance checks, ownership, and support responsibilities in terms your team can understand.
+
+Explore [Shardwise's web app development service](/services/web-app-development/) or [share your project brief](/contact/) with the users, workflow, integrations, and constraints you already know. For a broader comparison across websites and applications, read our guide to [choosing a web and app development agency](/blogs/how-to-choose-web-and-app-development-agency/).

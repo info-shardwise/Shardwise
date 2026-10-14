@@ -411,6 +411,12 @@ export function ShopifyMaintenanceContent() {
           </p>
         </div>
         <div className={styles.related}>
+          <Link href="/blogs/shopify-support-services-troubleshooting-handoffs/">
+            Shopify troubleshooting and support guide <ArrowRight aria-hidden="true" />
+          </Link>
+          <Link href="/blogs/shopify-maintenance-services-store-care-scope/">
+            Shopify store care scope guide <ArrowRight aria-hidden="true" />
+          </Link>
           {[
             ['Website Maintenance', 'website-maintenance'],
             ['Shopify Development', 'shopify-development'],
