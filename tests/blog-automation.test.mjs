@@ -111,7 +111,8 @@ function fixture() {
       return response('image', imageUnavailable ? 404 : 200, { 'content-type': 'image/jpeg' })
     if (url.includes('/sitemap.xml'))
       return response(`https://shardwise.pages.dev/blogs/${matter(source).data.slug}/`)
-    if (url.endsWith('/blogs/')) return response(matter(source).data.slug)
+    if (url.endsWith('/blogs/'))
+      return response(`<h3 id="listing-${matter(source).data.slug}"></h3>`)
     if (url.includes('/blogs/') && files.has('artifacts/blog-publication/state.json'))
       return response(corruptLive ? '<h1>Stale content</h1>' : html())
     return response('Verified reference')
@@ -148,7 +149,7 @@ function fixture() {
     const s = state()
     files.set(`out/blogs/${s.slug}/index.html`, html())
     files.set('out/sitemap.xml', s.articleUrl)
-    files.set('out/blogs/index.html', s.slug)
+    files.set('out/blogs/index.html', `<h3 id="listing-${s.slug}"></h3>`)
   }
   function replaceDraft(body) {
     files.set(`${approvedPath}.mdx`, body)
@@ -645,4 +646,14 @@ test('pipeline rejects short table rows', async () => {
     validateApprovedArticle(matter(source).data, '| A | B | C |\n| --- | --- | --- |\n| X | Y |'),
     /match header columns/,
   )
+})
+
+test('publication rejects listing data without a visible article card', async () => {
+  const f = fixture()
+  const publisher = f.make('1')
+  await publisher.prepare()
+  f.build()
+  f.files.set('out/blogs/index.html', f.state().slug)
+  await assert.rejects(publisher.push(), /card missing/)
+  assert.equal(f.calls.filter((args) => args[0] === 'push').length, 0)
 })

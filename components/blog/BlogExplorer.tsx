@@ -17,7 +17,6 @@ export function BlogExplorer({ posts }: { posts: BlogPostMeta[] }) {
   const [category, setCategory] = useState('All')
   const [query, setQuery] = useState('')
   const [tag, setTag] = useState('')
-  const [limit, setLimit] = useState(6)
   const categories = ['All', ...new Set(posts.map(categoryFor))]
   const tags = [...new Set(posts.flatMap((p) => p.tags))]
   const filtered = posts.filter(
@@ -33,7 +32,6 @@ export function BlogExplorer({ posts }: { posts: BlogPostMeta[] }) {
     setCategory('All')
     setQuery('')
     setTag('')
-    setLimit(6)
   }
   return (
     <section className={styles.explorer} aria-labelledby="articles-title">
@@ -56,7 +54,6 @@ export function BlogExplorer({ posts }: { posts: BlogPostMeta[] }) {
               onClick={() => {
                 setCategory(c)
                 setTag('')
-                setLimit(6)
               }}
             >
               {c}
@@ -74,7 +71,6 @@ export function BlogExplorer({ posts }: { posts: BlogPostMeta[] }) {
               value={query}
               onChange={(e) => {
                 setQuery(e.target.value)
-                setLimit(6)
               }}
             />
           </div>
@@ -87,7 +83,6 @@ export function BlogExplorer({ posts }: { posts: BlogPostMeta[] }) {
             type="button"
             onClick={() => {
               setTag('')
-              setLimit(6)
             }}
           >
             Remove topic filter
@@ -98,15 +93,10 @@ export function BlogExplorer({ posts }: { posts: BlogPostMeta[] }) {
         <div className={styles.layout}>
           <div>
             <div className={styles.postGrid}>
-              {filtered.slice(0, limit).map((post) => (
+              {filtered.map((post) => (
                 <EditorialBlogCard key={post.slug} post={post} idPrefix="listing" reveal={false} />
               ))}
             </div>
-            {filtered.length > limit && (
-              <button type="button" className={styles.loadMore} onClick={() => setLimit(limit + 6)}>
-                Load more articles <span>{filtered.length - limit} remaining</span>
-              </button>
-            )}
           </div>
           <aside className={styles.sidebar} aria-label="Reading guide">
             <div>
@@ -136,7 +126,6 @@ export function BlogExplorer({ posts }: { posts: BlogPostMeta[] }) {
                     onClick={() => {
                       setTag(tag === t ? '' : t)
                       setCategory('All')
-                      setLimit(6)
                     }}
                   >
                     #{t}
@@ -160,7 +149,7 @@ export function BlogExplorer({ posts }: { posts: BlogPostMeta[] }) {
           Reset all filters
         </button>
       )}
-      {filtered.length > 0 && filtered.length <= limit && (
+      {filtered.length > 0 && (
         <p className={styles.endNote}>
           You’re up to date — all {filtered.length}{' '}
           {filtered.length === 1 ? 'matching article is' : 'matching articles are'} shown.

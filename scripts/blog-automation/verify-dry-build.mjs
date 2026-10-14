@@ -26,5 +26,8 @@ assert.ok(
 )
 assert.ok(html.includes(meta.image.replaceAll('&', '&amp;')), 'Article hero image missing')
 assert.ok((await fs.readFile('out/sitemap.xml', 'utf8')).includes(`/blogs/${meta.slug}`))
-assert.ok((await fs.readFile('out/blogs/index.html', 'utf8')).includes(meta.slug))
+assert.ok(
+  (await fs.readFile('out/blogs/index.html', 'utf8')).includes(`id="listing-${meta.slug}"`),
+  'Draft card missing from visible blog listing',
+)
 console.log('PASS: draft builds with canonical, schema, remote image, credit, sitemap and listing')

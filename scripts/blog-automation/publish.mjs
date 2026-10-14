@@ -166,7 +166,10 @@ export function createPublisher({
     assert.equal(schema?.datePublished, state.publishDate)
     assert.equal(schema?.image, state.imageUrl)
     assert.ok((await read('sitemap.xml')).includes(`/blogs/${state.slug}`))
-    assert.ok((await read('blogs/index.html')).includes(state.slug))
+    assert.ok(
+      (await read('blogs/index.html')).includes(`id="listing-${state.slug}"`),
+      'Article card missing from visible blog listing',
+    )
   }
 
   async function push() {
