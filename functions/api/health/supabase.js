@@ -16,7 +16,8 @@ export async function onRequest({ request, env }) {
         Authorization: `Bearer ${env.SUPABASE_SERVICE_ROLE_KEY}`,
         'Cache-Control': 'no-cache',
       },
-      redirect: 'error',
+      // Workers supports manual redirects; reject 3xx via response.ok below.
+      redirect: 'manual',
       signal: AbortSignal.timeout(12000),
     })
     if (!response.ok) {

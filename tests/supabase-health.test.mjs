@@ -10,7 +10,7 @@ test('probe performs a bounded private read and returns no contact data', async 
   globalThis.fetch = async (url, options) => {
     assert.equal(url.href, 'https://test.supabase.co/rest/v1/contact_submissions?select=id&limit=1')
     assert.equal(options.headers.apikey, 'private-key')
-    assert.equal(options.redirect, 'error')
+    assert.equal(options.redirect, 'manual')
     assert.ok(options.signal)
     return Response.json([{ id: 'private-contact-id' }])
   }
@@ -30,6 +30,7 @@ test('paused database, invalid credentials, malformed response and timeouts fail
     for (const result of [
       () => Response.json({ secret: 'private-key' }, { status: 503 }),
       () => new Response('unauthorized', { status: 401 }),
+      () => new Response(null, { status: 302, headers: { Location: 'https://example.com' } }),
       () => Response.json({ error: 'unexpected' }),
       () => new Response('<html>not a database</html>'),
       () => {
