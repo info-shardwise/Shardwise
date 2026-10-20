@@ -36,6 +36,14 @@ The function reads these at runtime. The frontend fetches only the public Turnst
 
 Run node --test tests/contact.test.mjs, npm run lint, npx tsc --noEmit, and npm run build. Commit and push main only after the production services are ready. Cloudflare Git integration builds out plus functions/api/contact.js. Verify the production contact page with one explicitly authorized dummy inquiry: check the success message, Supabase row, Gmail delivery, and Reply-To. Also check invalid data and network errors do not claim success.
 
+## Scheduled database activity and health checks
+
+The `Supabase daily database health check` GitHub workflow runs daily at 04:17 UTC (09:47 Asia/Kolkata), and can also be run manually. It calls `/api/health/supabase`, whose Cloudflare Pages Function uses the existing production Supabase secrets to read at most one contact ID. The response exposes only `{ "ok": true }` or `{ "ok": false }`; it never returns contact data, inserts fake inquiries, or sends email. No additional GitHub secrets are needed. Failed checks retry twice, then fail the workflow so GitHub Actions notifications can report the outage.
+
+Resume the currently paused project once at https://supabase.com/dashboard/project/kcncwevephypldshgsgn before expecting successful checks. A database query cannot resume an already paused project. After resuming, manually run the workflow and confirm a green result. Keep the repository's Actions failure notifications enabled.
+
+This provides daily database activity and monitoring, not an uptime guarantee. Supabase may pause Free projects with low activity; Pro is its documented guarantee against inactivity pausing: https://supabase.com/docs/guides/deployment/going-into-prod#availability. GitHub schedules can be delayed, and public-repository scheduled workflows are disabled after 60 days without repository activity: https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule. Re-enable the workflow if disabled. Check that the daily runs remain green.
+
 ## Limits
 
 Gmail quotas and Supabase/Cloudflare free-plan limits still apply. Monitor failures and account health. Set a retention policy for inquiries appropriate to your business. Saved pending/failed rows do not have an automatic retry scheduler in this release.

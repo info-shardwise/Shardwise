@@ -32,6 +32,9 @@ jobs:
       - name: Test contact endpoint
         run: node --test tests/contact.test.mjs
 
+      - name: Test Supabase database health endpoint
+        run: node --test tests/supabase-health.test.mjs
+
       - name: Run ESLint
         run: npm run lint
 
