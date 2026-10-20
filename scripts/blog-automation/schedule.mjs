@@ -4,6 +4,14 @@ import { pathToFileURL } from 'node:url'
 import { sheets } from './sheets.mjs'
 import { safeError } from './validation.mjs'
 
+function retryableGeneration(row) {
+  return (
+    row.status === 'failed' &&
+    (row.error === 'The operation was aborted due to timeout' ||
+      /^Request timed out after 3 attempts \(\d+ms each\) at [a-z0-9.-]+$/.test(row.error || ''))
+  )
+}
+
 export function choosePublication({ rows, records, settings, today, requested = 'auto' }) {
   if (requested !== 'auto') {
     if (!/^blog-\d{3}$/.test(requested)) throw new Error('Invalid requested row ID')
@@ -28,13 +36,15 @@ export function choosePublication({ rows, records, settings, today, requested = 
       recovery: true,
     }
   const row = rows.find(
-    (row) => row.status === 'pending' && (!row.scheduled_date || row.scheduled_date <= today),
+    (row) =>
+      (row.status === 'pending' || retryableGeneration(row)) &&
+      (!row.scheduled_date || row.scheduled_date <= today),
   )
   if (!row) return { ready: false, reason: 'No due pending keyword' }
   return eligible(row)
 
   function eligible(row) {
-    if (row.status !== 'pending')
+    if (row.status !== 'pending' && !retryableGeneration(row))
       return { ready: false, rowId: row.id, reason: 'Row needs manual status review' }
     if (row.scheduled_date && row.scheduled_date > today)
       return { ready: false, rowId: row.id, reason: 'Keyword scheduled for a future date' }
@@ -49,6 +59,7 @@ export function choosePublication({ rows, records, settings, today, requested = 
         reason: 'Generate and validate next due keyword',
         recovery: false,
         generate: true,
+        ...(retryableGeneration(row) ? { retryGeneration: true } : {}),
       }
     return { ready: false, rowId: row.id, reason: 'Automatic generation disabled' }
   }
@@ -83,6 +94,14 @@ async function run() {
     today,
     requested: process.env.REQUESTED_ROW_ID || 'auto',
   })
+  if (decision.ready && decision.retryGeneration) {
+    const row = rows.find((row) => row.id === decision.rowId)
+    await queue.update(row.id, { status: 'pending', error: '' }, ['failed'], undefined, {
+      error: row.error,
+      keyword: row.keyword,
+      run_id: row.run_id || '',
+    })
+  }
   await fs.mkdir('artifacts/blog-publication', { recursive: true })
   await fs.writeFile(
     'artifacts/blog-publication/schedule-decision.json',

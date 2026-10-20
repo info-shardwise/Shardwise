@@ -408,6 +408,56 @@ test('transient provider failure can recover within the retry allowance', async 
   assert.equal(await (await request('https://generativelanguage.googleapis.com/test')).text(), 'OK')
 })
 
+test('generation timeout retries with a fresh signal and longer deadline', async () => {
+  const deadlines = []
+  const signals = []
+  const request = createProviderRequest({
+    timeoutSignal: (ms) => {
+      deadlines.push(ms)
+      return new AbortController().signal
+    },
+    fetch: async (_url, options) => {
+      signals.push(options.signal)
+      if (signals.length === 1) throw new DOMException('Timed out', 'TimeoutError')
+      return response('OK')
+    },
+    sleep: async () => {},
+  })
+  assert.equal(await (await request('https://generativelanguage.googleapis.com/test')).text(), 'OK')
+  assert.deepEqual(deadlines, [90000, 90000])
+  assert.notEqual(signals[0], signals[1])
+})
+
+test('timeout exhaustion is bounded and identifies the provider without leaking the URL', async () => {
+  let calls = 0
+  const request = createProviderRequest({
+    fetch: async () => {
+      calls++
+      throw new DOMException('Timed out', 'TimeoutError')
+    },
+    sleep: async () => {},
+  })
+  await assert.rejects(request('https://example.com/private?key=secret'), {
+    message: 'Request timed out after 3 attempts (45000ms each) at example.com',
+  })
+  assert.equal(calls, 3)
+})
+
+test('non-timeout errors are not retried', async () => {
+  let calls = 0
+  const request = createProviderRequest({
+    fetch: async () => {
+      calls++
+      throw new Error('Invalid request')
+    },
+    sleep: async () => {
+      assert.fail('Must not retry')
+    },
+  })
+  await assert.rejects(request('https://example.com'), /Invalid request/)
+  assert.equal(calls, 1)
+})
+
 function sheetFixture(changeOnSecondRead = false) {
   const headers = ['id', 'keyword', 'status', 'run_id', 'updated_at']
   let rows = [
@@ -554,6 +604,29 @@ test('scheduler selects a due keyword for automatic generation', () => {
   const decision = choosePublication(scheduleFixture())
   assert.equal(decision.ready, true)
   assert.equal(decision.rowId, 'blog-029')
+})
+
+test('scheduler retries generation timeouts while retaining the daily limit', () => {
+  const input = scheduleFixture()
+  input.rows[0].status = 'failed'
+  for (const error of [
+    'The operation was aborted due to timeout',
+    'Request timed out after 3 attempts (90000ms each) at generativelanguage.googleapis.com',
+  ]) {
+    input.rows[0].error = error
+    assert.equal(choosePublication(input).retryGeneration, true)
+    assert.equal(choosePublication({ ...input, requested: 'blog-029' }).generate, true)
+  }
+  input.records.push({ rowId: 'blog-028', publishDate: input.today })
+  assert.equal(choosePublication(input).ready, false)
+})
+
+test('scheduler does not automatically retry editorial or validation failures', () => {
+  const input = scheduleFixture()
+  input.rows[0].status = 'failed'
+  input.rows[0].error = 'Editorial benchmark rejected'
+  assert.equal(choosePublication(input).ready, false)
+  assert.equal(choosePublication({ ...input, requested: 'blog-029' }).ready, false)
 })
 
 test('scheduler generates the first due keyword without requiring approval', () => {

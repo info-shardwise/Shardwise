@@ -17,20 +17,20 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     env:
       GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
       BLOG_SHEET_ID: ${{ secrets.BLOG_SHEET_ID }}
       GITHUB_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           ref: main
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: '24'
           cache: npm
       - run: npm ci
       - run: node --test tests/blog-automation.test.mjs
@@ -64,7 +64,7 @@ jobs:
         run: node scripts/blog-automation/publish.mjs verify
       - if: failure() && steps.select.outputs.ready == 'true'
         run: node scripts/blog-automation/publish.mjs failure
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: blog-publication-receipt

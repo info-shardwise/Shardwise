@@ -330,6 +330,10 @@ Submitting a URL does not guarantee indexing. Metadata, links and structured dat
 
 ## 11. Common problems and recovery
 
+The 19 October 2026 run `39197928243` failed during generation for `blog-033` with a request timeout, before preparation or publication. Provider requests now allow 90 seconds for Gemini and 45 seconds for other providers, with at most three attempts for timeouts or HTTP 429/503. Exhausted timeouts identify the provider hostname without logging credentials or request URLs. The job budget is 30 minutes, including the bounded editorial revision and build.
+
+Generation failures leave the queue row `failed`. The scheduler retries only recognized request-timeout errors, returning the row to `pending` after checking that its error, keyword and run owner have not changed. Editorial and validation failures still require review. The next daily run can recover `blog-033` automatically; a new dispatch with `row_id: blog-033` also works on a date whose daily publication limit has not already been used. Rerunning the old failed run uses its old workflow revision; use a new dispatch after deploying the fix. Do not mark a row completed manually.
+
 | Problem                        | What to inspect                                                                                                                                  |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Article absent from listing    | Correct `content/blog/` folder, `.mdx` extension, explicit `published: true`, completed rebuild and correct deployed commit.                     |
