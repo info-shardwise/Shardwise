@@ -1,0 +1,104 @@
+---
+title: 'WordPress Website Handover Checklist: Securing Your Digital Assets'
+description: >-
+  Ensure a secure transition for your WordPress site. Use this handover
+  checklist to define ownership, documentation, and backup responsibilities with
+  your agency.
+slug: wordpress-website-handover-checklist
+date: '2026-11-12'
+image: >-
+  https://images.unsplash.com/photo-1678341859828-bfb1a2bd527a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&ixid=M3wxMTAxOTk3fDB8MXxzZWFyY2h8MXx8V29yZFByZXNzJTIwd2Vic2l0ZSUyMGhhbmRvdmVyJTIwY2hlY2tsaXN0fGVufDB8MHx8fDE3OTQ0ODM5MTB8MA&ixlib=rb-4.1.0&q=80&w=1200&auto=format
+imageAlt: A blue laptop displaying the WordPress logo on a speckled blue surface
+imagePhotoId: YBtAJPcvc4Y
+imageCredit:
+  photographer: Deng Xiang
+  photographerUrl: 'https://unsplash.com/@dengxiangs?utm_source=shardwise&utm_medium=referral'
+  sourceUrl: >-
+    https://unsplash.com/photos/laptop-displaying-wordpress-logo-YBtAJPcvc4Y?utm_source=shardwise&utm_medium=referral
+author:
+  name: Shardwise Engineering
+  role: Technical Team
+tags:
+  - WordPress website handover checklist
+  - UK + US
+featured: false
+published: true
+---
+Receiving a completed WordPress website is a significant milestone for any business owner in the UK or US. However, the handover process is not merely about gaining access to a dashboard; it is a critical administrative step that defines your long-term security, control, and operational independence. A structured handover ensures that the transition between your development agency and your internal team is seamless, reducing the risk of lost access or technical debt.
+
+This guide focuses on the practical administrative requirements necessary to maintain a healthy website after your developer departs. By establishing clear expectations around documentation, account permissions, and recovery procedures, you can protect your digital investment. Use these points to frame your final discussions with your service provider, ensuring that every aspect of the site handover is documented and understood before the project is officially closed.
+
+## The Transition at Zenith Imports
+
+This is a fictional planning example, not a Shardwise client result.
+
+Zenith Imports, a UK-based distributor, is nearing the end of a six-month WordPress development project. The agency provided a high-quality site, but the business owner, Sarah, realizes they have no written record of where the site is hosted, who owns the domain registration, or how to restore the database in an emergency. The lead developer is scheduled to stop work next week.
+
+Sarah initiates a handover meeting to request a complete inventory of credentials, a documentation folder covering all plugin licenses, and a demonstration of how the automated backup system functions. By prioritizing this, Sarah ensures that her team is not dependent on the developer for basic site operations, effectively de-risking the business before the final invoice is paid.
+
+## Defining Administrative Ownership and Access
+
+The first step in a successful handover is ensuring you hold the keys to your digital property. It is standard practice for business owners to maintain primary administrative ownership of all accounts, including the domain name registrar, hosting provider, and any third-party services integrated into the site. Avoid letting your developer register these accounts in their own name, as this can create significant friction if you decide to change providers or if the developer becomes unresponsive.
+
+Request a detailed audit of all access permissions before the final sign-off. Ensure that your team has primary administrator access and that any agency-specific accounts are removed or downgraded to a limited access role if they are no longer required for active maintenance. Verifying this early prevents the common issue of finding your agency as the sole administrator of your primary business assets.
+
+## Establishing Backup Responsibilities
+
+A robust backup strategy is the foundation of any site recovery plan. WordPress databases contain critical content, including posts, links, and comments, which must be protected against corruption or accidental loss. Before the handover is complete, ask your developer to provide clear instructions on how to initiate both manual and automated backups for your specific environment.
+
+Do not assume that an automated solution is infallible; it is essential to understand where these backups are stored and how to verify their integrity. Reliable backups typically include both the site files and the database, ensuring that you can restore the system to a previous state if a critical failure occurs. Ask your agency to demonstrate how they perform these backups, as you will need this knowledge to perform regular checks yourself moving forward.
+
+You must confirm that you have independent access to these backups outside of the website environment itself. If the site becomes entirely inaccessible, relying on the site-based tools may not be sufficient for recovery. Discuss whether your maintenance agreement includes regular verification that these backups are actually restorable and complete.
+
+Read the official guidance: [Backups](https://developer.wordpress.org/advanced-administration/security/backup/).
+
+Read the official guidance: [Upgrading WordPress](https://developer.wordpress.org/advanced-administration/upgrade/upgrading/).
+
+## Documenting Technical Integrations
+
+Modern WordPress sites often rely on a network of plugins, APIs, and external services to function. During the handover, request a comprehensive document that lists every active integration, the purpose of each plugin, and the associated subscription or licensing keys. This registry helps your team understand what happens behind the scenes and ensures that you do not accidentally deactivate a critical piece of technology during routine maintenance.
+
+If your site relies on external APIs, ensure that you have access to the service accounts controlling those connections. Knowing how these integrations are configured is vital for troubleshooting, especially when updates are required. A well-maintained integration log serves as your primary reference guide, preventing costly delays if a service provider changes their requirements or if a plugin update leads to a conflict.
+
+## Clarifying Support and Maintenance Boundaries
+
+The handover period is the ideal time to distinguish between initial support and ongoing maintenance. Clarify what happens after the developer moves on to other projects. Specifically, ask how you should report issues and what the expected response time is for critical errors, such as a site crash or a broken checkout flow. Differentiate clearly between an initial response to an incident and the eventual technical resolution of that problem.
+
+Discuss what the handover does not cover. For instance, you should ask if your developer provides guidance on how to perform simple updates versus complex structural changes. By setting these boundaries early, you can avoid ambiguity and ensure that your team knows exactly when to seek external technical help versus handling minor updates internally.
+
+## Planning for Future Updates
+
+Staying updated is a core component of managing a WordPress site securely. WordPress updates can be managed through one-click tools provided in the dashboard, but you should confirm whether your developer has configured these to happen automatically or if they recommend a manual testing process before deployment. Before the agency leaves, ensure you have a tested workflow for updating your theme, plugins, and the WordPress core itself.
+
+Before applying any update, it is a sound practice to perform a backup to ensure that if any issues arise during the process, you have the ability to restore the site to a stable state. Ask your agency to explain how they test updates in a safe environment, such as a staging site, to ensure functionality remains intact before the changes go live on your production server.
+
+Read the official guidance: [Upgrading WordPress](https://developer.wordpress.org/advanced-administration/upgrade/upgrading/).
+
+## Compare the coverage and evidence
+
+| Area | Question to ask | Evidence to request |
+| --- | --- | --- |
+| Domain and Hosting | Are you the legal registrant for your domain and the primary account holder for your hosting service? | Account confirmation emails and access to the billing dashboard under your business credentials. |
+| Account Permissions | Have you reviewed the user list and removed administrative access for agency staff who are no longer involved? | Verification of user roles within the WordPress dashboard and third-party plugin panels. |
+| Backup Recovery | Do you have a documented, tested procedure for restoring your database and site files in a worst-case scenario? | A written step-by-step guide and confirmed access to off-site backup storage locations. |
+| Licensing Registry | Is there an itemized list of all premium plugin licenses and their respective renewal dates? | A digital document detailing license keys, support portals, and auto-renewal settings. |
+| Support Triage | Do you have a clear agreement on how to report issues and what constitutes a priority incident? | Signed service level agreement or email confirmation of support protocols and contact points. |
+| Integration Audit | Do you hold the API keys and credentials for all third-party services, such as payment gateways or email tools? | Master access log or secure password manager containing all API credentials. |
+
+## Questions before choosing a provider
+
+### Why should I personally control my domain and hosting accounts?
+
+If your developer leaves or becomes unreachable, holding these accounts directly ensures you retain control over your digital identity, preventing potential service interruptions or domain loss.
+
+### Is it enough to rely on the developer's automated backups?
+
+While automated backups are helpful, you must ensure you have independent access to the backup files. Relying solely on the developer means you cannot restore your site without them.
+
+### How often should I verify the integrity of my backups?
+
+It is advisable to check your backup status regularly and ensure the files are successfully generated. Factual documentation from your developer on how to verify these files is essential.
+
+## Plan your next step
+
+Discuss your requirements through our [relevant Shardwise service](/services/wordpress-development/). For related guidance, read our [Core Web Vitals Checklist for Small Business Websites](/blogs/core-web-vitals-checklist-small-business/).
